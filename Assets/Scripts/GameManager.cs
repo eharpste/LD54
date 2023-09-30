@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     List<VehicleBehavior> Vehicle = new List<VehicleBehavior>();
 
+    public int timeCounter = 0;
+
     public float secondsPerStep = 1f;
 
     public void AddVehicle(VehicleBehavior vehicle) {
@@ -34,7 +36,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void SimulateStep() {
-        foreach (VehicleBehavior vehicle in Vehicle) {
+        timeCounter++;
+
+		foreach (VehicleBehavior vehicle in Vehicle) {
             vehicle.SimulateNextCommand(secondsPerStep);
         }
     }
