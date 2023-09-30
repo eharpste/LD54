@@ -478,6 +478,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 108096096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &153833831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1647499338811362955, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+  m_PrefabInstance: {fileID: 3650059069491354281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &155226616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3880,6 +3885,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1292591796}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1304231750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8297206060775154156, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
+  m_PrefabInstance: {fileID: 4885962531299945970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1322855878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7215,6 +7225,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
   m_PrefabInstance: {fileID: 3650059069491354281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3650059069491354283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153833831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa6171435e980a469fd20d16c224664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommandList: 070000000200000003000000
+  commandLimit: 3
+  fuel: 20
+  speed: 2
+  boostSpeed: 4
 --- !u!1001 &4885962531299945970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7277,6 +7304,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1264204459089013278, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
   m_PrefabInstance: {fileID: 4885962531299945970}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4885962531299945972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304231750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1414c7e3abeff439009cec581851e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommandList: 06000000
+  commandLimit: 3
+  fuel: 20
+  speed: 5
+  boostSpeed: 4
 --- !u!1001 &6418033839908343639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7356,6 +7400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa6171435e980a469fd20d16c224664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CommandList: 060000000300000003000000
   commandLimit: 3
   fuel: 20
   speed: 2
