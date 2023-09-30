@@ -320,15 +320,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1414c7e3abeff439009cec581851e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 11400000, guid: 1eac87e1cf60f174491ca71851c075de, type: 2}
   CommandList: 06000000
   commandLoopStyle: 2
   defaultCommand: 0
-  destination: 0
   commandLimit: 3
-  fuel: 20
+  currentFuel: 20
   speed: 5
   boostSpeed: 4
-  cargoValue: 0
+  flightState: 1
 --- !u!65 &-7999862318536864553
 BoxCollider:
   m_ObjectHideFlags: 0

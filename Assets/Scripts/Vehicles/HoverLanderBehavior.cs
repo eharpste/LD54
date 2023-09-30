@@ -47,8 +47,8 @@ public class HoverLanderBehavior : VehicleBehavior {
         }
         transform.position = targetPosition;
         transform.rotation = targetRotation;
-        fuel -= 1;
-        if (fuel <= 0) {
+        currentFuel -= 1;
+        if (currentFuel <= 0) {
             Crash();
         }
         yield break;
@@ -56,7 +56,7 @@ public class HoverLanderBehavior : VehicleBehavior {
 
     protected override void OnTriggerEnter(Collider other) {
         base.OnTriggerEnter(other);
-        if(other.gameObject.CompareTag("LandingPad") && destination == Destination.Local) {
+        if(other.gameObject.CompareTag("LandingPad") && currentTask.destination == Task.Destination.Local) {
             //TODO eventually we'll want to do something with the pad itself
             HoverPad pad = other.gameObject.GetComponent<HoverPad>();
             Land();

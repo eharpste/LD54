@@ -53,8 +53,8 @@ public class PlaneBehavior : VehicleBehavior {
         }
         transform.position = targetPosition;
         transform.rotation = targetRotation;
-        fuel -= 1;
-        if(fuel <= 0) {
+        currentFuel -= 1;
+        if(currentFuel <= 0) {
             Crash();
         }
         yield break;
@@ -62,7 +62,7 @@ public class PlaneBehavior : VehicleBehavior {
 
     protected override void OnTriggerEnter(Collider other) {
         base.OnTriggerEnter(other);
-        if (other.gameObject.CompareTag("Runway") && destination == Destination.Local) {
+        if (other.gameObject.CompareTag("Runway") && currentTask.destination == Task.Destination.Local) {
             Runway runway = other.gameObject.GetComponent<Runway>();
             if (runway.heading == (int)transform.rotation.eulerAngles.y) {
                 Debug.Log("Landed on Runway");

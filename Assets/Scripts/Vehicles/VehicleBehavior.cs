@@ -1,9 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -29,32 +25,22 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Default
     }
 
-    public enum Destination {
-        Local,
-        North,
-        South,
-        East,
-        West,
-        Up
-    }
 
     public enum FlightState {
         Grounded,
         Flying
     }
 
+    public Task currentTask;
     //TODO we don't actually want this to be a queue, we want it to be a list that we can loop through
     public List<Command> CommandList = new List<Command>();
     protected int currentCommand = -1;
     public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
     public Command defaultCommand = Command.Idle;
-    [Tooltip("Where is the vehicle going? Local means landing here, otherwise what edge should it leave on?")]
-    public Destination destination = Destination.Local;
     public int commandLimit = 3;
-    public int fuel = 20;
+    public int currentFuel = 20;
     public int speed = 2;
     public int boostSpeed = 4;
-    public int cargoValue;
     public FlightState flightState = FlightState.Flying;
     protected Rigidbody rb;
 
@@ -123,29 +109,37 @@ public abstract class VehicleBehavior : MonoBehaviour {
         flightState = FlightState.Grounded;
         CommandList.Clear();
         GameManager.Instance.RemoveVehicle(this);
-        GameManager.Instance.LandingScore(this);
+        GameManager.Instance.ScoreTask(currentTask);
     }
 
     /// <summary>
     /// When a vehicle successfully departs the area, usually provides some kind of score and removes the vehicle.
     /// </summary>
-    public void Depart(Destination departureDirection) {
+    public void Depart(Task.Destination departureDirection) {
         //TODO probably play some kind of sound or something
         Debug.LogFormat("Departed {0}, in {1}", this.gameObject.name, departureDirection.ToString());
-        GameManager.Instance.DepartingScore(this, departureDirection);
+        switch (currentTask.taskType) {
+            case Task.TaskType.Departure:
+            case Task.TaskType.Flyby:
+                GameManager.Instance.ScoreTask(currentTask, currentTask.departureModifier(departureDirection));
+                break;
+            default:
+                GameManager.Instance.ScoreTask(currentTask, 0);
+                break;
+        }
         Destroy(this.gameObject);
     }
 
 
     protected virtual void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Edge") && destination != Destination.Local) {
-            Destination departureDirection = other.gameObject.name switch {
-                "North" => Destination.North,
-                "South" => Destination.South,
-                "East" => Destination.East,
-                "West" => Destination.West,
-                "Up" => Destination.Up,
-                _ => Destination.Local
+        if(other.gameObject.CompareTag("Edge") && currentTask.destination != Task.Destination.Local) {
+            Task.Destination departureDirection = other.gameObject.name switch {
+                "North" => Task.Destination.North,
+                "South" => Task.Destination.South,
+                "East" => Task.Destination.East,
+                "West" => Task.Destination.West,
+                "Up" => Task.Destination.Up,
+                _ => Task.Destination.Local
             };
             Depart(departureDirection);
         }

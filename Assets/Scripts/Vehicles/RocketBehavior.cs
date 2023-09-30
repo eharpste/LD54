@@ -14,7 +14,7 @@ public class RocketBehavior : VehicleBehavior {
             yield return new WaitForEndOfFrame();
         }
         transform.position = targetPosition;
-        fuel -= 1;
+        currentFuel -= 1;
         yield break;
     }
 }
