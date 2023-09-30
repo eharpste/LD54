@@ -39,10 +39,12 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public Command defaultCommand = Command.Idle;
     public int commandLimit = 3;
     public int currentFuel = 20;
+    public int maxFuel = 20;
     public int speed = 2;
     public int boostSpeed = 4;
     public FlightState flightState = FlightState.Flying;
     protected Rigidbody rb;
+
 
     // Start is called before the first frame update
     protected void Start() {
@@ -97,19 +99,29 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void Crash() {
         //TODO probably play some kind of animation or something
         Debug.LogFormat("Crashed {0}", this.gameObject.name);
+    }
+
+    IEnumerator RagDollDelay() {
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
     }
 
     /// <summary>
     /// When a vehicle successfully lands, usually provides some kind of score.
     /// </summary>
-    public void Land() {
+    public void Land(Landing landing=null) {
         //TODO probably override this as some kind of animation or other behavior
         Debug.LogFormat("Landed {0}", this.gameObject.name);
+        rb.isKinematic = true;
         flightState = FlightState.Grounded;
         CommandList.Clear();
         GameManager.Instance.RemoveVehicle(this);
         GameManager.Instance.ScoreTask(currentTask);
+        if(landing != null) {
+            landing.LandVehicle(this);
+        }
     }
 
     /// <summary>

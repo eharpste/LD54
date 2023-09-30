@@ -67,7 +67,7 @@ public class PlaneBehavior : VehicleBehavior {
             if (runway.heading == (int)transform.rotation.eulerAngles.y) {
                 Debug.Log("Landed on Runway");
                 //TODO this might be agressive if the colliders hit before the plane is actually on the ground
-                Land();
+                Land(runway);
             }
             else {
                 Debug.LogFormat("{0} hit Runway at {1} but expected {2}", gameObject.name, transform.rotation.eulerAngles.y, runway.heading);

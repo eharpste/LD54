@@ -224,6 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  planePrefab: {fileID: 0}
+  hoverLanderPrefab: {fileID: 0}
+  rocketPrefab: {fileID: 0}
   timeCounter: 0
   secondsPerStep: 1
   isShipSelected: 0
@@ -232,7 +235,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   tasks: []
-  upcomingTasks: []
+  pendingArrivals: []
+  pendingDepartures: []
   taskSpecs:
   - appearanceTime: 0
     task: {fileID: 0}
@@ -2580,6 +2584,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 551507778}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &559035558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3134839346068135331}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
+      propertyPath: m_Name
+      value: hangar_smallA
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd9845dd73c6f374ca9728ad49f647f6, type: 3}
 --- !u!1001 &563890753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10114,6 +10175,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1590764088}
     m_Modifications:
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: launchPoint.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: launchPoint.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: launchPoint.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[0].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[0].y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[0].z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[1].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[1].y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[1].z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[2].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[2].y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[2].z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[3].x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[3].y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800235402688469450, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: TaxiPoints.Array.data[3].z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1944522610858638087, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10272,15 +10397,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 11400000, guid: fe521c1440d748e4d97df7535a992366, type: 2}
   CommandList: 050000000700000007000000
   commandLoopStyle: 2
   defaultCommand: 0
-  destination: 0
   commandLimit: 3
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
-  cargoValue: 0
   flightState: 1
 --- !u!1001 &4885962531299945970
 PrefabInstance:
@@ -10453,6 +10578,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1590764088}
     m_Modifications:
+    - target: {fileID: 1059486421845085677, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
+      propertyPath: landingHeading
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059486421845085677, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
+      propertyPath: landingPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1684838728736581473, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: m_IsTrigger
       value: 1
