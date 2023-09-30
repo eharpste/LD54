@@ -17,18 +17,24 @@ public class Task : ScriptableObject {
     public enum TaskType { Arrival, Departure, Flyby };
     public TaskType taskType;
 
+    /// <summary>
+    /// North = Positive Z, heading -90
+    /// West = Positive X, heading 0
+    /// East = Negative X, heading 180
+    /// South = Negative Z, heading 90
+    /// </summary>
     public enum Destination {
         Local,
-        North,
-        South,
-        East,
-        West,
-        Up
+        North, /// North = Positive Z, heading -90
+        South, /// South = Negative Z, heading 90
+        East,  /// East  = Negative X, heading 180
+        West,  /// West  = Positive X, heading 0
+        Up     /// Up    = Positive Y, 
     }
-    
 
-    [Header("Used by Arrival Tasks")]
-    public Vector3Int appearanceLocation;
+
+    [Header("Used by Arrival and Flyby Tasks")]
+
     public int fuel;
 
     [Header("Used by Departure Tasks")]
@@ -40,7 +46,6 @@ public class Task : ScriptableObject {
         value = 10;
         cargoType = CargoType.Cargo;
         taskType = TaskType.Arrival;
-        appearanceLocation = new Vector3Int(0, 0, 0);
         fuel = 20;
         destination = Destination.Local;
         penalizeWrongDeparture = false;

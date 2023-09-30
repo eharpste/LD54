@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
     public VehicleBehavior selectedVehicle;
     public LayerMask vehicleMask;
 
-    public List<Task> tasks = new List<Task>();
+    public List<Task> currentTasks = new List<Task>();
     //These are any arrivals that will be appearing in the next time step
-    public List<Task> pendingArrivals = new List<Task>();
+    public List<TaskSpec> pendingArrivals = new List<TaskSpec>();
     //These are the departurs that haven't been handed to a vehicle yet.
     public List<Task> pendingDepartures = new List<Task>();
 
@@ -41,13 +41,17 @@ public class GameManager : MonoBehaviour
         public int appearanceTime;
         [SerializeField]
         public Task task;
+        [SerializeField]
+        public Vector3 entranceLocation;
+        [SerializeField]
+        public int entranceHeading;
     }
-    
+
 
     public void AddVehicle(VehicleBehavior vehicle) {
         Vehicles.Add(vehicle);
         if(vehicle.currentTask != null) {
-            tasks.Add(vehicle.currentTask);
+            currentTasks.Add(vehicle.currentTask);
         }
     }
 
@@ -96,38 +100,52 @@ public class GameManager : MonoBehaviour
 		foreach (VehicleBehavior vehicle in Vehicles) {
             vehicle.SimulateNextCommand(secondsPerStep);
         }
-
-        tasks.AddRange(pendingArrivals);
+        List<TaskSpec> newTasks = new List<TaskSpec>();
+        newTasks.AddRange(pendingArrivals);
         pendingArrivals.Clear();
-        foreach(TaskSpec spec in taskSpecs) {
+        List<TaskSpec> toRemove = new List<TaskSpec>();
+        foreach(TaskSpec spec in taskSpecs){ 
             if(spec.appearanceTime == timeCounter+1) {
                 if (spec.task.taskType == Task.TaskType.Arrival || spec.task.taskType == Task.TaskType.Flyby) {
-                    pendingArrivals.Add(spec.task);
+                    toRemove.Add(spec);
+                    pendingArrivals.Add(spec);
+                }
+            }
+            else if(spec.appearanceTime == timeCounter) {
+                if (spec.task.taskType == Task.TaskType.Departure) {
+                    toRemove.Add(spec);
+                    newTasks.Add(spec);
                 }
             }
         }
+        foreach(TaskSpec spec in toRemove) {
+            taskSpecs.Remove(spec);
+        }
+        SpawnTasks(newTasks);
     }
 
-    public void SpawnTasks(List<Task> tasks) {
-        foreach(Task task in tasks) {
-            switch (task.taskType) {
+    public void SpawnTasks(List<TaskSpec> specs) {
+        foreach(TaskSpec spec in specs) {
+            switch (spec.task.taskType) {
                 case Task.TaskType.Arrival:
                 case Task.TaskType.Flyby:
-                    GameObject instantiatedPrefab =  task.cargoType switch {
-                        Task.CargoType.Passenger => Instantiate(planePrefab, task.appearanceLocation, Quaternion.identity),
-                        Task.CargoType.Cargo => Instantiate(hoverLanderPrefab, task.appearanceLocation, Quaternion.identity),
-                        Task.CargoType.Rocket => Instantiate(rocketPrefab, task.appearanceLocation, Quaternion.identity),
+                    GameObject instantiatedPrefab =  spec.task.cargoType switch {
+                        Task.CargoType.Passenger => Instantiate(planePrefab, spec.entranceLocation, Quaternion.Euler(0,spec.entranceHeading,0)),
+                        Task.CargoType.Cargo => Instantiate(hoverLanderPrefab, spec.entranceLocation, Quaternion.Euler(0,spec.entranceHeading,0)),
+                        Task.CargoType.Rocket => Instantiate(rocketPrefab, spec.entranceLocation, Quaternion.Euler(0, spec.entranceHeading, 0)),
                         _ => null,
                     };
                     if (instantiatedPrefab != null) {
                         VehicleBehavior newVehicle;
                         newVehicle = instantiatedPrefab.GetComponent<VehicleBehavior>();
-                        newVehicle.currentFuel = task.fuel;
-                        newVehicle.currentTask = task;
+                        newVehicle.currentFuel = spec.task.fuel;
+                        newVehicle.currentTask = spec.task;
                     }
+                    currentTasks.Add(spec.task);
                     break;
                 case Task.TaskType.Departure:
-                    pendingDepartures.Add(task);
+                    currentTasks.Add(spec.task);
+                    pendingDepartures.Add(spec.task);
                     break;
             }
         }
@@ -141,7 +159,7 @@ public class GameManager : MonoBehaviour
 
     public void ScoreTask(Task task, float modifier=1.0f) {
         score += (int)(task.value * modifier);
-        tasks.Remove(task);
+        currentTasks.Remove(task);
     }
 
 

@@ -16,7 +16,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Climb,
         Dive,
         Boost,
-        Resupply
+        Unload
     }
 
     public enum CommandLoopStyle {
@@ -33,6 +33,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
 
     public Task currentTask;
     //TODO we don't actually want this to be a queue, we want it to be a list that we can loop through
+    [Tooltip("Note that you're usually not supposed to have access to all of these commands in all contexts.")]
     public List<Command> CommandList = new List<Command>();
     protected int currentCommand = -1;
     public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
