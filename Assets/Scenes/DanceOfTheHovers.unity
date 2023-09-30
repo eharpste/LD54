@@ -214,6 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6bf7ab5f482664c891ad29b7bcf6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  planePrefab: {fileID: 0}
+  hoverLanderPrefab: {fileID: 0}
+  rocketPrefab: {fileID: 0}
   timeCounter: 0
   secondsPerStep: 1
   isShipSelected: 0
@@ -221,6 +225,10 @@ MonoBehaviour:
   vehicleMask:
     serializedVersion: 2
     m_Bits: 8
+  tasks: []
+  pendingArrivals: []
+  pendingDepartures: []
+  taskSpecs: []
 --- !u!4 &28610380
 Transform:
   m_ObjectHideFlags: 0
@@ -320,11 +328,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &70818059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,11 +666,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &198836949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2021,11 +2039,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &478301411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2912,11 +2935,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1 &726172911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1647499338811362955, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
@@ -2939,11 +2967,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &734525299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4195,11 +4228,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &1089272246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6802,11 +6840,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &1652105303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7207,11 +7250,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &1819868438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8251,11 +8299,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTask: {fileID: 0}
   CommandList: 040000000700000005000000010000000600000005000000050000000500000005000000
+  commandLoopStyle: 0
+  defaultCommand: 0
   commandLimit: 12
-  fuel: 20
+  currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
+  flightState: 1
 --- !u!1001 &2105768677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8514,6 +8567,10 @@ PrefabInstance:
     - target: {fileID: 1647499338811362955, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_Name
       value: Hovercraft
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: commandLoopStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_RootOrder

@@ -99,6 +99,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void Crash() {
         //TODO probably play some kind of animation or something
         Debug.LogFormat("Crashed {0}", this.gameObject.name);
+        StartCoroutine(RagDollDelay());
     }
 
     IEnumerator RagDollDelay() {
