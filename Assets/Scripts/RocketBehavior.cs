@@ -2,42 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneBehavior : VehicleBehavior {
-
+public class RocketBehavior : VehicleBehavior {
     override public void SimulateNextCommand(float stepTime) {
         if (CommandList.Count > 0) {
             Vector3 targetPosition = transform.position;
             Quaternion targetOrientation = transform.rotation;
-            currentCommand++;
+            currentCommand ++;
             currentCommand %= CommandList.Count;
             Command command = CommandList[currentCommand];
             switch (command) {
                 case Command.Idle:
-                case Command.Forward:
-                    targetPosition += transform.forward * speed;
-                    break;
+                case Command.Forward: 
                 case Command.BankLeft:
-                    targetPosition += (transform.forward - transform.right);
-                    targetOrientation = Quaternion.Euler(0, -90, 0);
-                    break;
                 case Command.BankRight:
-                    targetPosition += (transform.forward + transform.right);
-                    targetOrientation = Quaternion.Euler(0, 90, 0);
-                    break;
                 case Command.YawLeft:
                 case Command.YawRight:
-                    Debug.LogError("Vehicle can't yaw");
-                    break;
                 case Command.Climb:
-                    targetPosition += (transform.forward + transform.up);
-                    break;
                 case Command.Dive:
-                    targetPosition += (transform.forward - transform.up);
-                    break;
                 case Command.Boost:
-                    targetPosition += transform.forward * boostSpeed;
-                    break;
                 default:
+                    targetPosition += transform.up * speed;
                     break;
             }
             StartCoroutine(SimulateCommand(stepTime, targetPosition, targetOrientation));
