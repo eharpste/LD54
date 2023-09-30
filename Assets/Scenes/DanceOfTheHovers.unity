@@ -218,6 +218,9 @@ MonoBehaviour:
   secondsPerStep: 1
   isShipSelected: 0
   selectedVehicle: {fileID: 0}
+  vehicleMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &28610380
 Transform:
   m_ObjectHideFlags: 0
@@ -8526,7 +8529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.391
+      value: -1.113
       objectReference: {fileID: 0}
     - target: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_LocalRotation.w
