@@ -17,7 +17,7 @@ public class HoverLanderBehavior : VehicleBehavior {
                 break;
             case Command.BankLeft:
             case Command.BankRight:
-                Debug.LogError("HoverLanders can't bank");
+                Debug.LogWarning("HoverLanders can't bank");
                 break;
             case Command.YawLeft:
                 targetRotation *= Quaternion.Euler(0, -90, 0);

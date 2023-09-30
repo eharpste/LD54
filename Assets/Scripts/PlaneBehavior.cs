@@ -26,7 +26,7 @@ public class PlaneBehavior : VehicleBehavior {
                 break;
             case Command.YawLeft:
             case Command.YawRight:
-                Debug.LogError("Vehicle can't yaw");
+                Debug.LogWarning("Vehicle can't yaw");
                 break;
             case Command.Climb:
                 targetPosition += (transform.forward + transform.up);

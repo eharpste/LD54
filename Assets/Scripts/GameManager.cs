@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class GameManager : MonoBehaviour
 
     List<VehicleBehavior> Vehicle = new List<VehicleBehavior>();
 
+    [Header("Time Settings")]
     public int timeCounter = 0;
-
     public float secondsPerStep = 1f;
+
+    [Header("Control Settings")]
+    public bool isShipSelected = false;
+    public VehicleBehavior selectedVehicle;
 
     public void AddVehicle(VehicleBehavior vehicle) {
         Vehicle.Add(vehicle);
@@ -42,5 +47,9 @@ public class GameManager : MonoBehaviour
             vehicle.SimulateNextCommand(secondsPerStep);
         }
     }
-    
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
 }

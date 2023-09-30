@@ -48,6 +48,11 @@ public class Menu : MonoBehaviour
 		canvasGroups = this.gameObject.GetComponentsInChildren<CanvasGroup>().ToList();
 	}
 
+	//public bool is_Enabled()
+	//{
+	//	return canvasGroups[0].interactable;
+	//}
+
 	public void Disable(CanvasGroup cg)
 	{
 		cg.interactable = false;
