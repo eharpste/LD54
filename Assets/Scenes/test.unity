@@ -178,12 +178,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &4910133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 4910132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &19028767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 585098837}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &28610378
 GameObject:
@@ -214,10 +223,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6bf7ab5f482664c891ad29b7bcf6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   timeCounter: 0
   secondsPerStep: 1
   isShipSelected: 0
   selectedVehicle: {fileID: 0}
+  vehicleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  tasks: []
+  upcomingTasks: []
+  taskSpecs:
+  - appearanceTime: 0
+    task: {fileID: 0}
 --- !u!4 &28610380
 Transform:
   m_ObjectHideFlags: 0
@@ -288,12 +306,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &32605438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 32605437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &33881747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1589388525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &35699753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 325058865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &42122981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 806854725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &44549619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1568697777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &46653595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 89456165}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &70818059
 PrefabInstance:
@@ -350,12 +397,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &70818060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 70818059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &79048794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1652105303}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &89456165
 PrefabInstance:
@@ -412,6 +468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &89456166 stripped
@@ -419,6 +479,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 89456165}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &89456167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46653595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &100981111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100981112}
+  - component: {fileID: 100981113}
+  m_Layer: 0
+  m_Name: East
+  m_TagString: Edge
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &100981112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100981111}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 5, z: -4}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412615100}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &100981113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100981111}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &108096096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,12 +592,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &108096097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 108096096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &134442594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1937058416}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &153833831 stripped
 GameObject:
@@ -541,12 +668,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &155226617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 155226616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &188795181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188795182}
+  - component: {fileID: 188795183}
+  m_Layer: 0
+  m_Name: North
+  m_TagString: Edge
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188795182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188795181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5, y: 5, z: 1.5}
+  m_LocalScale: {x: 1, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412615100}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &188795183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188795181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &195160379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1508842004}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &198836949
 PrefabInstance:
@@ -555,6 +736,122 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 167588535891098237, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167588535891098237, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167588535891098237, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167588535891098237, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167588535891098237, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467989896980197315, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467989896980197315, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467989896980197315, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467989896980197315, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467989896980197315, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467989896980197315, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680744690222398258, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680744690222398258, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680744690222398258, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680744690222398258, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680744690222398258, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680744690222398258, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989667791233878335, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989667791233878335, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989667791233878335, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243383055840987522, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243383055840987522, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243383055840987522, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243383055840987522, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243383055840987522, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243383055840987522, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802384090865781516, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802384090865781516, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802384090865781516, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1947879506559984520, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -603,24 +900,469 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI_master
       objectReference: {fileID: 0}
+    - target: {fileID: 2248269235743555012, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269235743555012, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269235743555012, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269235743555012, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269235743555012, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269235743555012, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236338568228, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236338568228, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236338568228, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236338568228, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236338568228, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2248269236514452046, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 28610379}
+    - target: {fileID: 2248269236514452047, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236514452047, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236514452047, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236514452047, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236514452047, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236691839195, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236691839195, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236691839195, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236691839195, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236691839195, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248269236691839195, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815754474841647256, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815754474841647256, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815754474841647256, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481824885335597783, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481824885335597783, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481824885335597783, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481824885335597783, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481824885335597783, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481824885335597783, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629962937460243363, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629962937460243363, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629962937460243363, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889050018758102239, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889050018758102239, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889050018758102239, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889050018758102239, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889050018758102239, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889050018758102239, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992033084403698745, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992033084403698745, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992033084403698745, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065023749081121492, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065023749081121492, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065023749081121492, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065023749081121492, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065023749081121492, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554405068920132348, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554405068920132348, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792394433263403967, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792394433263403967, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792394433263403967, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792394433263403967, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792394433263403967, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792394433263403967, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275884099912109250, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275884099912109250, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275884099912109250, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275884099912109250, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275884099912109250, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275884099912109250, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305914216830846, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305914216830846, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305914216830846, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305914216830846, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817305914216830846, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925907406045444165, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925907406045444165, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925907406045444165, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925907406045444165, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925907406045444165, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925907406045444165, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962845804321140087, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962845804321140087, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962845804321140087, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415030875988888481, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415030875988888481, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415030875988888481, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448858657519390712, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448858657519390712, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448858657519390712, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448858657519390712, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448858657519390712, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448858657519390712, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7507432071949172565, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2009706712}
+    - target: {fileID: 7520028586622011121, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520028586622011121, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520028586622011121, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7744412711954260763, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 28610379}
+    - target: {fileID: 7887588212773520938, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887588212773520938, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887588212773520938, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887588212773520938, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887588212773520938, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887588212773520938, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8101729131273019619, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2009706712}
+    - target: {fileID: 8251436290276897860, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251436290276897860, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522834899861369987, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522834899861369987, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522834899861369987, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522834899861369987, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522834899861369987, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522834899861369987, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994100084062171624, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994100084062171624, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994100084062171624, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994100084062171624, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994100084062171624, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086172135197223832, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086172135197223832, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086172135197223832, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
+--- !u!1 &204682907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1263927259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &223399004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -675,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -738,12 +1484,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &241234350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 241234349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &241748054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1865189023}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &267426894
 PrefabInstance:
@@ -799,6 +1554,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -862,6 +1621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &285767855 stripped
@@ -924,12 +1687,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &289345401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 289345400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &314660699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 2023974299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &325058865
 PrefabInstance:
@@ -986,12 +1758,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &325058866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 325058865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &325058867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35699753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &330159722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1896620537}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &331007103
 PrefabInstance:
@@ -1048,12 +1842,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &331007104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 331007103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &332256828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1369785569}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &368027799
 PrefabInstance:
@@ -1110,6 +1913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &368027800 stripped
@@ -1117,6 +1924,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 368027799}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &371837270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 285767854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &371837271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371837270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &390080812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1172,6 +1997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &390080813 stripped
@@ -1179,6 +2008,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 390080812}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &402653432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 563890753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &406278311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 32605437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &406278312
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406278311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &412615099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412615100}
+  m_Layer: 0
+  m_Name: Edges
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412615100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412615099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 188795182}
+  - {fileID: 1581876694}
+  - {fileID: 100981112}
+  - {fileID: 1137252288}
+  - {fileID: 2131053355}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &413106180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1757971414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &418722541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 331007103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &418722542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418722541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &432777403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1234,12 +2145,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &432777404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 432777403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &434156843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 2073857669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &462635242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 2022841218}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &478301411
 PrefabInstance:
@@ -1296,6 +2221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &478301412 stripped
@@ -1303,6 +2232,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 478301411}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &486009861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 390080812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &486009862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486009861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &506081057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1357,6 +2304,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -1420,6 +2371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &515219440 stripped
@@ -1481,6 +2436,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -1544,6 +2503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &545175336 stripped
@@ -1605,6 +2568,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -1668,6 +2635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &563890754 stripped
@@ -1675,6 +2646,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 563890753}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &563890755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402653432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &585098837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1730,6 +2714,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &585098838 stripped
@@ -1737,6 +2725,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 585098837}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &585098839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19028767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &606535047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1792,12 +2793,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &606535048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 606535047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &608220243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 4910132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &608220244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608220243}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &629729093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 70818059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &629729094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629729093}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &642515199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 2054532378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &664053733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1386504278}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &676331294
 PrefabInstance:
@@ -1853,6 +2904,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -1916,6 +2971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &680480376 stripped
@@ -1978,12 +3037,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &684634426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 684634425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &694447420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1152203051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &696050053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 928386603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &698152724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1358231859}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &699625588
 PrefabInstance:
@@ -2040,12 +3118,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &699625589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 699625588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &705930669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 2116980367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &723697390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1182543242}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &734525299
 PrefabInstance:
@@ -2101,6 +3193,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -2164,12 +3260,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &742326749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 742326748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &748554625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1819868438}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &766415185
 PrefabInstance:
@@ -2225,6 +3330,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -2288,6 +3397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &806854726 stripped
@@ -2295,6 +3408,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 806854725}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &806854727
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42122981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &815896817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2349,6 +3475,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -2412,6 +3542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &826820645 stripped
@@ -2419,6 +3553,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 826820644}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &840739678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1135587188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &848650427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1140898636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &861989485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 684634425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &861989486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861989485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &874113543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2474,12 +3636,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &874113544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 874113543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &881042345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 2105768677}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &892038663
 GameObject:
@@ -2565,6 +3736,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &892456796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1541045363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &911163733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,6 +3835,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &917223515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 680480375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &917223516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917223515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &917555178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2713,6 +3907,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -2776,12 +3974,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &928386604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 928386603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &928386605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696050053}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &932501340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1200073418}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &968859104
 PrefabInstance:
@@ -2838,6 +4058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &968859105 stripped
@@ -2845,6 +4069,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 968859104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &971660234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 606535047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &971660235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971660234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &972332510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1443750843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &975276784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 267426894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &975276785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975276784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &993007672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 551507778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &993007673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993007672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1003029123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2900,6 +4183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1003029124 stripped
@@ -2907,6 +4194,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1003029123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1004902383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 516884454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1004902384
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004902383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1014756344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2962,6 +4267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1014756345 stripped
@@ -2969,6 +4278,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1014756344}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1016736055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 241234349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1016736056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016736055}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1026774175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3024,12 +4351,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1026774176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1026774175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1029801141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1391918987}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1053866145
 PrefabInstance:
@@ -3085,6 +4421,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -3148,6 +4488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1054276121 stripped
@@ -3210,6 +4554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1071398731 stripped
@@ -3217,6 +4565,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1071398730}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1073174467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 826820644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1073174468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073174467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1081681802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1014756344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1081681803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081681802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1089272246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3272,12 +4656,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1089272247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1089272246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1090361648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1428502636}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1131709136
 PrefabInstance:
@@ -3333,6 +4726,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -3396,6 +4793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1135587189 stripped
@@ -3403,6 +4804,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1135587188}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1135587190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840739678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1135610135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3458,6 +4872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1135610136 stripped
@@ -3465,6 +4883,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1135610135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1137252287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137252288}
+  - component: {fileID: 1137252289}
+  m_Layer: 0
+  m_Name: West
+  m_TagString: Edge
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137252288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137252287}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 5, z: 7}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412615100}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1137252289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137252287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1140898636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3520,6 +4983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1140898637 stripped
@@ -3527,6 +4994,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1140898636}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1140898638
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848650427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1152203051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3582,12 +5062,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1152203052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1152203051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1152203053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694447420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1169500592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1333889860}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1182543242
 PrefabInstance:
@@ -3644,6 +5146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1182543243 stripped
@@ -3651,6 +5157,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1182543242}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1182543244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723697390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1200073418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3706,12 +5225,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1200073419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1200073418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1200073420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932501340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1201411369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1054276120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1201411370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201411369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1211631769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 917555178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1211631770
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211631769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1246074761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1452478688}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254867765
 PrefabInstance:
@@ -3768,12 +5345,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1254867766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1254867765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1257867855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 2049984964}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1263927259
 PrefabInstance:
@@ -3830,6 +5416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1263927260 stripped
@@ -3837,6 +5427,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1263927259}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1263927261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204682907}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1266913950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 223399004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1266913951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266913950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1280035937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3892,6 +5513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1280035938 stripped
@@ -3899,6 +5524,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1280035937}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1281873891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 432777403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1281873892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281873891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1286441549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1914616884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1288023771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 506081057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1288023772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288023771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1292591796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3953,6 +5619,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -4016,6 +5686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1322855879 stripped
@@ -4077,6 +5751,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -4140,12 +5818,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1333889861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1333889860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1333889862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169500592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1339718775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 734525299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1339718776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339718775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1344788134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1975340351}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1358231859
 PrefabInstance:
@@ -4202,6 +5920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1358231860 stripped
@@ -4209,6 +5931,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1358231859}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1358231861
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698152724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1369785569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4264,6 +5999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1369785570 stripped
@@ -4271,6 +6010,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1369785569}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1369785571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332256828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1376429037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1280035937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1376429038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376429037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1386504278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4326,6 +6096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1386504279 stripped
@@ -4333,6 +6107,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1386504278}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1386504280
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664053733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1391918987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4388,6 +6175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1391918988 stripped
@@ -4395,6 +6186,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1391918987}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1391918989
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029801141}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1416159605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4449,6 +6253,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -4512,6 +6320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1428502637 stripped
@@ -4519,6 +6331,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1428502636}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1428502638
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090361648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1437195126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4573,6 +6398,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -4636,6 +6465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1439577034 stripped
@@ -4698,6 +6531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1443750844 stripped
@@ -4705,6 +6542,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1443750843}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1443750845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972332510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1448331443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1026774175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1448331444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448331443}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1452478688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4760,6 +6628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1452478689 stripped
@@ -4767,6 +6639,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1452478688}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1452478690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246074761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1467315959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,6 +6780,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1475465610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1574401232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1479101067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 545175335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1479101068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479101067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1484307333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4949,6 +6857,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
       propertyPath: m_Name
       value: terrain (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
@@ -5012,6 +6924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1508842005 stripped
@@ -5019,6 +6935,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1508842004}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1508842006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195160379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1510289500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5074,12 +7003,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1510289501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1510289500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1512188859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 108096096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1512188860
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512188859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1513816302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1292591796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1513816303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513816302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1531289102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1901137396}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1541045363
 PrefabInstance:
@@ -5136,6 +7110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1541045364 stripped
@@ -5143,6 +7121,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1541045363}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1541045365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892456796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1542674457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1089272246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1542674458
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542674457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1545135993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1439577033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1545135994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545135993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1568697777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5198,6 +7225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1568697778 stripped
@@ -5205,6 +7236,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1568697777}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1568697779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44549619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1574401232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5260,6 +7304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1574401233 stripped
@@ -5267,6 +7315,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1574401232}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1574401234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475465610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1577326838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1484307333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1577326839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577326838}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1577807578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,6 +7477,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1581876693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581876694}
+  - component: {fileID: 1581876695}
+  m_Layer: 0
+  m_Name: South
+  m_TagString: Edge
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581876694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581876693}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6, y: 5, z: 1.5}
+  m_LocalScale: {x: 1, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412615100}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1581876695
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581876693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1583266247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 699625588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1583266248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583266247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1589388525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5453,6 +7595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1589388526 stripped
@@ -5460,6 +7606,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1589388525}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1589388527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33881747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1589504393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1053866145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1589504394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589504393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1590764086
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,6 +7684,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1596125115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1254867765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1596125116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596125115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1642585388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 368027799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1642585389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642585388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1652105303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5562,6 +7775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1652105304 stripped
@@ -5569,6 +7786,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1652105303}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1652105305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79048794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1674503028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 478301411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1674503029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674503028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1679758356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1324169216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1679758357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679758356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1683481477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5624,12 +7890,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1683481478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1683481477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1688044576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 2119019388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1696515383
 GameObject:
@@ -5699,6 +7974,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1717866635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1798934140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1721835222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5753,6 +8033,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -5816,6 +8100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1757971415 stripped
@@ -5823,6 +8111,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1757971414}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1757971416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413106180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1761691239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 289345400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1761691240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761691239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1791232830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1322855878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1791232831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791232830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1798934140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5878,6 +8215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1798934141 stripped
@@ -5885,6 +8226,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1798934140}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1798934142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717866635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1819868438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5940,12 +8294,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1819868439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1819868438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1819868440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748554625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1822496937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 515219439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1822496938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822496937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1835893325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 815896817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1835893326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835893325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1859171829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 2017254476}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1865189023
 PrefabInstance:
@@ -6002,6 +8414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1865189024 stripped
@@ -6009,6 +8425,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1865189023}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1865189025
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241748054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1871014952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 742326748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1871014953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871014952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1887575321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 968859104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1887575322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887575321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1896247092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1721835222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1896247093
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896247092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1896620537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6064,6 +8547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1896620538 stripped
@@ -6071,6 +8558,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1896620537}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1896620539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330159722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1901137396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6126,6 +8626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1901137397 stripped
@@ -6133,6 +8637,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1901137396}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1901137398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531289102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1914616884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6188,6 +8705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &1914616885 stripped
@@ -6195,6 +8716,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 1914616884}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1914616886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286441549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1917226789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1437195126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1917226790
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917226789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1919600136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6250,6 +8802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1919600137 stripped
@@ -6257,6 +8813,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1919600136}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1923391023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 155226616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1923391024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923391023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1930718322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1071398730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1930718323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930718322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1937058416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6312,6 +8904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1937058417 stripped
@@ -6319,6 +8915,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1937058416}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1937058418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134442594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1940355026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 874113543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1940355027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940355026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1970310442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6373,6 +9000,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
       propertyPath: m_Name
       value: terrain_roadCross (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
@@ -6436,6 +9067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &1975340352 stripped
@@ -6443,6 +9078,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 1975340351}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1975340353
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344788134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1975714078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1003029123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1975714079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975714078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1979856738
 GameObject:
   m_ObjectHideFlags: 0
@@ -6477,6 +9143,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1999499494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1131709136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1999499495
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999499494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2006769560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1683481477}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2006769561
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006769560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2009706711
 GameObject:
   m_ObjectHideFlags: 0
@@ -6523,6 +9225,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2017126048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1510289500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2017126049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017126048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2017254476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6578,6 +9298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &2017254477 stripped
@@ -6585,6 +9309,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 2017254476}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2017254478
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859171829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2022841218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6640,6 +9377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &2022841219 stripped
@@ -6647,6 +9388,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 2022841218}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2022841220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462635242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2023974299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6702,6 +9456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &2023974300 stripped
@@ -6709,6 +9467,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 2023974299}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2023974301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314660699}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2025984044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1135610135}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2025984045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025984044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2035656736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1919600136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2035656737
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035656736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2049984964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6764,6 +9571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &2049984965 stripped
@@ -6771,6 +9582,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 2049984964}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2049984966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257867855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2054532378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6826,6 +9650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &2054532379 stripped
@@ -6833,6 +9661,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 2054532378}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2054532380
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642515199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2073857669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6888,6 +9729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &2073857670 stripped
@@ -6895,6 +9740,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 2073857669}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2073857671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434156843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2081628304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 1970310442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2081628305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081628304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2084558315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+  m_PrefabInstance: {fileID: 766415185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2084558316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084558315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2097787295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 676331294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2097787296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097787295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2105768677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6950,6 +9862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain_roadCross (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
 --- !u!4 &2105768678 stripped
@@ -6957,6 +9873,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d72ef79d1c0b0894b8045b544249f1f2, type: 3}
   m_PrefabInstance: {fileID: 2105768677}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2105768679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881042345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2116980367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7012,6 +9941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &2116980368 stripped
@@ -7019,6 +9952,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 2116980367}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2116980369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705930669}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2119019388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7074,6 +10020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
 --- !u!4 &2119019389 stripped
@@ -7081,6 +10031,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
   m_PrefabInstance: {fileID: 2119019388}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &2119019390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688044576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2131053354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2131053355}
+  - component: {fileID: 2131053356}
+  m_Layer: 0
+  m_Name: Up
+  m_TagString: Edge
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2131053355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131053354}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 12, z: 1}
+  m_LocalScale: {x: 10, y: 4, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 412615100}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2131053356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131053354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2145942588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f6a4a629dbfa1d444a0e4532982fb1f0, type: 3}
+  m_PrefabInstance: {fileID: 1416159605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2145942589
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145942588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3134839346068135330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7102,7 +10128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944522610858638087, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 1944522610858638087, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7136,6 +10162,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runway
       objectReference: {fileID: 0}
+    - target: {fileID: 2139780130038135894, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_TagString
+      value: Runway
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425216940184507311, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425216940184507311, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
 --- !u!4 &3134839346068135331 stripped
@@ -7153,6 +10191,10 @@ PrefabInstance:
     - target: {fileID: 1647499338811362955, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_Name
       value: Hovercraft
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175601515542925391, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_RootOrder
@@ -7198,6 +10240,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8398748176324670540, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398748176324670540, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: m_Center.y
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398748176324670540, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
@@ -7218,11 +10272,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CommandList: 040000000600000007000000
+  CommandList: 050000000700000007000000
+  commandLoopStyle: 2
+  defaultCommand: 0
+  destination: 0
   commandLimit: 3
   fuel: 20
   speed: 2
   boostSpeed: 4
+  cargoValue: 0
+  flightState: 1
 --- !u!1001 &4885962531299945970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7230,6 +10289,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1979856739}
     m_Modifications:
+    - target: {fileID: -7999862318536864553, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1264204459089013278, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7274,6 +10337,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3839491431715421328, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4885962531299945972, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
+      propertyPath: destination
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8297206060775154156, guid: 3e5bd52dde4717d43a748472a797d4c8, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -7292,21 +10363,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1979856739}
     m_Modifications:
+    - target: {fileID: 863867174695233666, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863867174695233666, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863867174695233666, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4168889275813989121, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4168889275813989121, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4168889275813989121, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.089
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4168889275813989121, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.991
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4168889275813989121, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7336,6 +10419,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6418033839908343642, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: CommandList.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418033839908343642, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: CommandList.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418033839908343642, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: CommandList.Array.data[2]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234377069194771076, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9162761957671799528, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: m_Name
       value: Plane
@@ -7354,6 +10453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1590764088}
     m_Modifications:
+    - target: {fileID: 1684838728736581473, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3106321859578755498, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7401,6 +10504,10 @@ PrefabInstance:
     - target: {fileID: 6234616010976541886, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: m_Name
       value: HoverPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234616010976541886, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
+      propertyPath: m_TagString
+      value: LandingPad
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
@@ -7463,6 +10570,10 @@ PrefabInstance:
     - target: {fileID: 7895671872972585645, guid: 4cb8fea3b57d5d24a8c8d7fb0dcf361f, type: 3}
       propertyPath: m_Name
       value: RocketPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895671872972585645, guid: 4cb8fea3b57d5d24a8c8d7fb0dcf361f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb8fea3b57d5d24a8c8d7fb0dcf361f, type: 3}

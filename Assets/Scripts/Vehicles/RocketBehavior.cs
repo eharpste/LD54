@@ -10,7 +10,7 @@ public class RocketBehavior : VehicleBehavior {
         Vector3 targetPosition = transform.position + transform.up * speed;
         float starttime = Time.time;
         while (Time.time - starttime < stepTime) {
-            transform.position = Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime);
+            rb.MovePosition(Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime));
             yield return new WaitForEndOfFrame();
         }
         transform.position = targetPosition;

@@ -12,6 +12,7 @@ public class HoverLanderBehavior : VehicleBehavior {
         Quaternion targetRotation = transform.rotation;
         switch (command) {
             case Command.Idle:
+                break;
             case Command.Forward:
                 targetPosition += transform.forward * speed;
                 break;
@@ -40,13 +41,25 @@ public class HoverLanderBehavior : VehicleBehavior {
 
         //TODO this should be more than a straight interpolation of position, it should arc around a circle instead
         while (Time.time - starttime < secondsPerStep) {
-            transform.position = Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / secondsPerStep);
-            transform.rotation = Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / secondsPerStep);
+            rb.MovePosition(Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / secondsPerStep));
+            rb.MoveRotation(Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / secondsPerStep));
             yield return new WaitForEndOfFrame();
         }
         transform.position = targetPosition;
         transform.rotation = targetRotation;
         fuel -= 1;
+        if (fuel <= 0) {
+            Crash();
+        }
         yield break;
+    }
+
+    protected override void OnTriggerEnter(Collider other) {
+        base.OnTriggerEnter(other);
+        if(other.gameObject.CompareTag("LandingPad") && destination == Destination.Local) {
+            //TODO eventually we'll want to do something with the pad itself
+            HoverPad pad = other.gameObject.GetComponent<HoverPad>();
+            Land();
+        }
     }
 }

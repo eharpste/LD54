@@ -26,7 +26,7 @@ public class PlaneBehavior : VehicleBehavior {
                 break;
             case Command.YawLeft:
             case Command.YawRight:
-                Debug.LogWarning("Vehicle can't yaw");
+                Debug.LogWarning("Vehicles can't yaw");
                 break;
             case Command.Climb:
                 targetPosition += (transform.forward + transform.up);
@@ -43,13 +43,36 @@ public class PlaneBehavior : VehicleBehavior {
 
         //TODO this should be more than a straight interpolation of position, it should arc around a circle instead
         while (Time.time - starttime < stepTime) {
-            transform.position = Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime);
-            transform.rotation = Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / stepTime);
+            rb.MovePosition(Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime));
+            rb.MoveRotation(Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / stepTime));
+
+
+            //transform.position = Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime);
+            //transform.rotation = Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / stepTime);
             yield return new WaitForEndOfFrame();
         }
         transform.position = targetPosition;
         transform.rotation = targetRotation;
         fuel -= 1;
+        if(fuel <= 0) {
+            Crash();
+        }
         yield break;
+    }
+
+    protected override void OnTriggerEnter(Collider other) {
+        base.OnTriggerEnter(other);
+        if (other.gameObject.CompareTag("Runway") && destination == Destination.Local) {
+            Runway runway = other.gameObject.GetComponent<Runway>();
+            if (runway.heading == (int)transform.rotation.eulerAngles.y) {
+                Debug.Log("Landed on Runway");
+                //TODO this might be agressive if the colliders hit before the plane is actually on the ground
+                Land();
+            }
+            else {
+                Debug.LogFormat("{0} hit Runway at {1} but expected {2}", gameObject.name, transform.rotation.eulerAngles.y, runway.heading);
+                Crash();
+            }
+        }
     }
 }
