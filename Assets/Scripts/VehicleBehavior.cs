@@ -41,5 +41,17 @@ public abstract class VehicleBehavior : MonoBehaviour {
         }
     }
 
-    public abstract void SimulateNextCommand(float secondsPerStep);
+    public void SimulateNextCommand(float stepTime) {
+        if (CommandList.Count > 0) {
+            Vector3 targetPosition = transform.position;
+            Quaternion targetOrientation = transform.rotation;
+            currentCommand++;
+            currentCommand %= CommandList.Count;
+            Command command = CommandList[currentCommand];
+
+            StartCoroutine(SimulateCommandCoroutine(stepTime, command));
+        }
+    }
+
+    protected abstract IEnumerator SimulateCommandCoroutine(float secondsPerStep, Command command);
 }
