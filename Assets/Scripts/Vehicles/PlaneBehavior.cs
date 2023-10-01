@@ -13,6 +13,10 @@ public class PlaneBehavior : VehicleBehavior {
         Quaternion targetRotation= transform.rotation;
         switch (command) {
             case Command.Idle:
+                if(flightState == FlightState.Flying) {
+                    Debug.LogError("Planes can't idle while flying");
+                }
+                break;
             case Command.Forward:
                 targetPosition += transform.forward * speed;
                 break;
@@ -26,7 +30,7 @@ public class PlaneBehavior : VehicleBehavior {
                 break;
             case Command.YawLeft:
             case Command.YawRight:
-                Debug.LogWarning("Vehicles can't yaw");
+                Debug.LogWarning("Planes can't yaw");
                 break;
             case Command.Climb:
                 targetPosition += (transform.forward + transform.up);
@@ -45,8 +49,6 @@ public class PlaneBehavior : VehicleBehavior {
         while (Time.time - starttime < stepTime) {
             rb.MovePosition(Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime));
             rb.MoveRotation(Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / stepTime));
-
-
             //transform.position = Vector3.Lerp(startPos, targetPosition, (Time.time - starttime) / stepTime);
             //transform.rotation = Quaternion.Lerp(startRot, targetRotation, (Time.time - starttime) / stepTime);
             yield return new WaitForEndOfFrame();

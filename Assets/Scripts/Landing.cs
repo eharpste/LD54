@@ -10,5 +10,5 @@ public abstract class Landing : MonoBehaviour {
 
     public abstract void LandVehicle(VehicleBehavior vehicle);
 
-    public abstract void TakeOffVehicle(VehicleBehavior vehicle);
+    public abstract void LaunchVehicle(VehicleBehavior vehicle);
 }

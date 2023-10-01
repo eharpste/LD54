@@ -9,6 +9,8 @@ public class HoverPad : Landing {
 
     public override void LandVehicle(VehicleBehavior vehicle) {
         vehicles.Add(vehicle);
+        vehicle.CommandList.Clear();
+        vehicle.CommandList.Add(VehicleBehavior.Command.Unload);
         StartCoroutine(SettleLander(vehicle));
     }
 
@@ -28,7 +30,7 @@ public class HoverPad : Landing {
     }
 
 
-    public override void TakeOffVehicle(VehicleBehavior vehicle) {
+    public override void LaunchVehicle(VehicleBehavior vehicle) {
         vehicles.Remove(vehicle);
         vehicle.currentFuel = vehicle.maxFuel;
         vehicle.transform.rotation = Quaternion.identity;

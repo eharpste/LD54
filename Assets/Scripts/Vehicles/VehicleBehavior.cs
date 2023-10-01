@@ -25,6 +25,11 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Default
     }
 
+    public enum CommandEditMode {
+        NotEditable,
+        EditOnLoop,
+        EditPassedList
+    }
 
     public enum FlightState {
         Grounded,
@@ -38,6 +43,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
     protected int currentCommand = -1;
     public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
     public Command defaultCommand = Command.Idle;
+    public CommandEditMode comandEditMode = CommandEditMode.EditPassedList;
     public int commandLimit = 3;
     public int currentFuel = 20;
     public int maxFuel = 20;
@@ -61,6 +67,27 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void AddCommand(Command command) {
         if (CommandList.Count < commandLimit) {
             CommandList.Add(command);
+        }
+        else {
+            switch (comandEditMode) {
+                case CommandEditMode.NotEditable:
+                    break;
+                case CommandEditMode.EditOnLoop:
+                    if(currentCommand % CommandList.Count == 0) {
+                        CommandList.Clear();
+                        CommandList.Add(command);
+                        currentCommand = 0;
+                    }
+                    break;
+                case CommandEditMode.EditPassedList:
+                    if(currentCommand >= CommandList.Count) {
+                        CommandList.Clear();
+                        CommandList.Add(command);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -119,11 +146,14 @@ public abstract class VehicleBehavior : MonoBehaviour {
         rb.isKinematic = true;
         flightState = FlightState.Grounded;
         CommandList.Clear();
-        GameManager.Instance.RemoveVehicle(this);
         GameManager.Instance.ScoreTask(currentTask);
-        if(landing != null) {
+        if (landing != null) {
             landing.LandVehicle(this);
         }
+        //CommandList.Clear();
+
+        //GameManager.Instance.RemoveVehicle(this);
+        
     }
 
     /// <summary>

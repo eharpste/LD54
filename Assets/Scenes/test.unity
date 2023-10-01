@@ -234,7 +234,7 @@ MonoBehaviour:
   selectedVehicle: {fileID: 0}
   vehicleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   currentTasks: []
   pendingDepartures: []
   taskSpecs:
@@ -10182,6 +10182,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runway
       objectReference: {fileID: 0}
+    - target: {fileID: 2139780130038135894, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324114933443096369, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828337632584406101, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238611332239710772, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437815957773809591, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711056456535646548, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764578065586673555, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8487927053001567652, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
 --- !u!4 &3134839346068135331 stripped
@@ -10200,9 +10232,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hovercraft
       objectReference: {fileID: 0}
-    - target: {fileID: 3175601515542925391, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
+    - target: {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: CommandList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: CommandList.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: CommandList.Array.data[1]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+      propertyPath: CommandList.Array.data[2]
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
       propertyPath: m_RootOrder
@@ -10248,48 +10292,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8398748176324670540, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
-      propertyPath: m_Size.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398748176324670540, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
-      propertyPath: m_Center.y
-      value: 0.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398748176324670540, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3650059069491354283, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
 --- !u!4 &3650059069491354282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7456401336862060876, guid: 44a7b6246ae371d45be4acc35e4350d8, type: 3}
   m_PrefabInstance: {fileID: 3650059069491354281}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3650059069491354283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153833831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26dae81a9ff7a594d80b45427c86cb58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTask: {fileID: 11400000, guid: fe521c1440d748e4d97df7535a992366, type: 2}
-  CommandList: 050000000700000007000000
-  commandLoopStyle: 2
-  defaultCommand: 0
-  commandLimit: 3
-  currentFuel: 20
-  maxFuel: 20
-  speed: 2
-  boostSpeed: 4
-  flightState: 1
 --- !u!1001 &4885962531299945970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10428,6 +10437,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6418033839908343642, guid: cc0794097c961664388463b5e57e3b75, type: 3}
+      propertyPath: CommandList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418033839908343642, guid: cc0794097c961664388463b5e57e3b75, type: 3}
       propertyPath: CommandList.Array.data[0]
       value: 7
       objectReference: {fileID: 0}
@@ -10468,6 +10481,10 @@ PrefabInstance:
     - target: {fileID: 1059486421845085677, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: landingPosition.y
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242729320617175040, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1684838728736581473, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: m_IsTrigger
@@ -10520,6 +10537,10 @@ PrefabInstance:
     - target: {fileID: 6234616010976541886, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: m_Name
       value: HoverPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6234616010976541886, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6234616010976541886, guid: 8b0e54599889a4e4fbcd92a24306cf99, type: 3}
       propertyPath: m_TagString

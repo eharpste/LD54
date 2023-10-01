@@ -89,11 +89,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: ea590db1cf5521a4eb55e4ae3f260dc4, type: 2}
-  CommandList: 060000000300000003000000
+  CommandList: 
   commandLoopStyle: 2
   defaultCommand: 0
+  comandEditMode: 2
   commandLimit: 3
   currentFuel: 20
+  maxFuel: 20
   speed: 2
   boostSpeed: 4
   flightState: 1
@@ -108,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.356, z: 0.6}
+  m_Size: {x: 0.6, y: 0.15, z: 0.6}
   m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!54 &7234377069194771076
 Rigidbody:

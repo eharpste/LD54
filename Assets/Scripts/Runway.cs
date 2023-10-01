@@ -36,7 +36,7 @@ public class Runway : Landing
         }
     }
 
-    public override void TakeOffVehicle(VehicleBehavior vehicle) {
+    public override void LaunchVehicle(VehicleBehavior vehicle) {
         vehicle.transform.position = launchPoint;
         vehicle.transform.rotation = Quaternion.Euler(0, launchHeading, 0);
         vehicles.Remove(vehicle);

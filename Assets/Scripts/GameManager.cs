@@ -159,6 +159,9 @@ public class GameManager : MonoBehaviour
                         newVehicle = instantiatedPrefab.GetComponent<VehicleBehavior>();
                         newVehicle.currentFuel = spec.task.fuel;
                         newVehicle.currentTask = spec.task;
+                        newVehicle.CommandList.Clear();
+                        newVehicle.CommandList.Add(VehicleBehavior.Command.Forward);
+                        newVehicle.commandLoopStyle = VehicleBehavior.CommandLoopStyle.Default;
                     }
                     currentTasks.Add(spec.task);
                     break;
