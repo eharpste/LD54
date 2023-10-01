@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class RocketBehavior : VehicleBehavior {
 
+
+
     override protected IEnumerator SimulateCommandCoroutine(float stepTime, Command command) {
+        Ready = false;
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
         Vector3 targetPosition = transform.position + transform.up * speed;
@@ -15,6 +18,7 @@ public class RocketBehavior : VehicleBehavior {
         }
         transform.position = targetPosition;
         currentFuel -= 1;
+        Ready = true;
         yield break;
     }
 

@@ -6,6 +6,7 @@ using static VehicleBehavior;
 public class PlaneBehavior : VehicleBehavior {
 
     override protected IEnumerator SimulateCommandCoroutine(float stepTime, Command command) {
+        Ready = false;
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
         float starttime = Time.time;
@@ -59,6 +60,7 @@ public class PlaneBehavior : VehicleBehavior {
         if(currentFuel <= 0) {
             Crash();
         }
+        Ready = true;
         yield break;
     }
 

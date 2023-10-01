@@ -21,6 +21,7 @@ public class Runway : Landing
 
 
     IEnumerator TaxiIn(VehicleBehavior vehicle) {
+        Ready = false;
         for (int step = 0; step < TaxiPath.Count; step++) {
             Vector3 initialPos = vehicle.transform.position;
             float stepStartTime = Time.time;
@@ -34,16 +35,46 @@ public class Runway : Landing
             }
             vehicle.transform.position = TaxiPath[step];
         }
+        Ready = true;
     }
 
     public override void LaunchVehicle(VehicleBehavior vehicle) {
+        if(!vehicles.Contains(vehicle)) {
+            Debug.LogError("Vehicle not on runway, cannot launch");
+            return;
+        }
         //TODO animate the vehicle along the launch points
         vehicle.transform.position = LaunchPath[0];
-        vehicle.transform.rotation = Quaternion.Euler(0, launchHeading, 0);
         vehicles.Remove(vehicle);
+        StartCoroutine(TaxiOut(vehicle));
+    }
+
+    IEnumerator TaxiOut (VehicleBehavior vehicle) {
+        Ready = false;
+        float stepStartTime;
+        vehicle.transform.position = TaxiPath[0];
+        for(int step = 0; step < LaunchPath.Count; step++) {
+            Vector3 initialPos = vehicle.transform.position;
+            stepStartTime= Time.time;
+            while (Time.time - stepStartTime < 1) {
+                vehicle.transform.position = Vector3.Lerp(initialPos, LaunchPath[step], (Time.time - stepStartTime));
+                if (step > 1) {
+                    vehicle.transform.LookAt(LaunchPath[step]);
+                }
+                yield return null;
+            }
+            vehicle.transform.position = LaunchPath[step];
+        }
+        stepStartTime = Time.time;
+        Quaternion initialRot = vehicle.transform.rotation;
+        while(Time.time - stepStartTime < .75f) {
+            vehicle.transform.rotation = Quaternion.Lerp(initialRot, Quaternion.Euler(0, launchHeading, 0), (Time.time - stepStartTime) / .75f);
+        }
+        vehicle.transform.rotation = Quaternion.Euler(0, launchHeading, 0);
         vehicle.currentFuel = vehicle.maxFuel;
         vehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Boost, VehicleBehavior.Command.Climb, VehicleBehavior.Command.Climb });
         vehicle.flightState = VehicleBehavior.FlightState.Launching;
+        Ready = true;
     }
 
 }

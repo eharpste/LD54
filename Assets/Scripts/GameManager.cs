@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { private set; get; }
 
     List<VehicleBehavior> Vehicles = new List<VehicleBehavior>();
+    List<Landing> Landings = new List<Landing>();
 
     public int score = 0;
 
@@ -61,6 +62,14 @@ public class GameManager : MonoBehaviour
 
     public void RemoveVehicle(VehicleBehavior vehicle) {
         Vehicles.Remove(vehicle);
+    }
+
+    public void AddLanding(Landing landing) {
+        Landings.Add(landing);
+    }
+
+    public void RemoveLanding(Landing landing) {
+        Landings.Remove(landing);
     }
 
     private void Awake() {
@@ -119,6 +128,14 @@ public class GameManager : MonoBehaviour
 	}
 
     public void SimulateStep() {
+        foreach(VehicleBehavior vehicleBehavior in Vehicles) {
+            if (!vehicleBehavior.Ready) { return; }
+        }
+        foreach(Landing landing in Landings) {
+            if (!landing.Ready) { return; }
+        }
+
+
         timeCounter++;
 
 		foreach (VehicleBehavior vehicle in Vehicles) {

@@ -5,6 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class Landing : MonoBehaviour {
 
+    protected void Start() {
+        GameManager.Instance.AddLanding(this);
+        Ready = true;
+    }
+
+    public virtual bool Ready { protected set; get; }
 
     protected List<VehicleBehavior> vehicles = new List<VehicleBehavior>();
 

@@ -15,6 +15,7 @@ public class HoverPad : Landing {
     }
 
     IEnumerator SettleLander(VehicleBehavior vehicle) {
+        Ready = false;
         Vector3 initialPosition = vehicle.transform.position;
         Quaternion initialRotation = vehicle.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0, landingHeading, 0);
@@ -27,14 +28,28 @@ public class HoverPad : Landing {
         }
         vehicle.transform.position = landingPosition;
         vehicle.transform.rotation = targetRotation;
+        Ready = true;
     }
 
 
     public override void LaunchVehicle(VehicleBehavior vehicle) {
         vehicles.Remove(vehicle);
         vehicle.currentFuel = vehicle.maxFuel;
+        StartCoroutine(LiftOffLander(vehicle));
+    }
+
+    IEnumerator LiftOffLander(VehicleBehavior vehicle) {
+        Ready = false;
+        Quaternion initialRotation = vehicle.transform.rotation;
+        float startTime = Time.time;
+        while(Time.time - startTime < 1) {
+            vehicle.transform.rotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(0, launchHeading, 0), (Time.time - startTime) / 1);
+            yield return null;
+        }
         vehicle.transform.rotation = Quaternion.identity;
         vehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Raise, VehicleBehavior.Command.Forward });
         vehicle.flightState = VehicleBehavior.FlightState.Launching;
+
+        Ready = true;
     }
 }

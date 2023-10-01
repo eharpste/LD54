@@ -5,6 +5,7 @@ using UnityEngine;
 public class HoverLanderBehavior : VehicleBehavior {
 
     protected override IEnumerator SimulateCommandCoroutine(float secondsPerStep, Command command) {
+        Ready = false;
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
         float starttime = Time.time;
@@ -51,6 +52,7 @@ public class HoverLanderBehavior : VehicleBehavior {
         if (currentFuel <= 0) {
             Crash();
         }
+        Ready = true;
         yield break;
     }
 

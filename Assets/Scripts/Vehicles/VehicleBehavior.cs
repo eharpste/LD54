@@ -73,6 +73,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
     protected void Start() {
         GameManager.Instance.AddVehicle(this);
         rb = GetComponent<Rigidbody>();
+        Ready = true;
     }
 
     public void RemoveCommand(int index) {
@@ -269,7 +270,11 @@ public abstract class VehicleBehavior : MonoBehaviour {
 
     public abstract IEnumerable<Command> GetAvailableCommands();
 
+    public virtual bool Ready { protected set; get; }
+
     protected virtual void OnDestroy() {
         GameManager.Instance.RemoveVehicle(this);
     }
+
+
 }
