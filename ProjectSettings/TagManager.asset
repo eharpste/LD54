@@ -9,6 +9,7 @@ TagManager:
   - LandingPad
   - Runway
   - Edge
+  - FollowCamera
   layers:
   - Default
   - TransparentFX

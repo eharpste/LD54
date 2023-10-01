@@ -27,7 +27,7 @@ public class GuiManager : MonoBehaviour
 	}
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         TimeLabel.text = GameManager.Instance.timeCounter.ToString();
 		ScoreLabel.text = GameManager.Instance.score.ToString();
