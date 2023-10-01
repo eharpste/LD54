@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 199806163}
   - component: {fileID: 199806162}
   m_Layer: 5
-  m_Name: Text (Legacy) (1)
+  m_Name: text_TimeDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 231918459}
   - component: {fileID: 231918458}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: text_AdvanceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 879925712}
   - component: {fileID: 879925711}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: text_TimeLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 971490140}
   - component: {fileID: 971490139}
   m_Layer: 5
-  m_Name: Button_AdvanceTime
+  m_Name: button_Advance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,7 +571,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 971490140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SimulateStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4471294513455365258
 GameObject:
   m_ObjectHideFlags: 0

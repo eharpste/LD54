@@ -36,10 +36,13 @@ public class GuiManager : MonoBehaviour
 		{
 			InspectorGui.EnableAll();
 			VehicleName.text = GameManager.Instance.selectedVehicle.gameObject.name;
+			lineRenderer.enabled = true;
 			updateSelectionLine();
+
 		}
 		else
 		{
+			lineRenderer.enabled = false;
 			InspectorGui.DisableAll();
 		}
 

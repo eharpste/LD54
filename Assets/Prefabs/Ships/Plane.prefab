@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5949942814726677784}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: ea590db1cf5521a4eb55e4ae3f260dc4, type: 2}
-  CommandList: 
+  CommandList: 070000000100000007000000
   commandLoopStyle: 2
   defaultCommand: 0
   comandEditMode: 2
@@ -110,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.15, z: 0.6}
+  m_Size: {x: 1, y: 0.15, z: 1}
   m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!54 &7234377069194771076
 Rigidbody:
@@ -124,7 +124,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -182,6 +182,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 79b3b62a09b1b194d867ad29220885cb, type: 3}
       propertyPath: m_Name
       value: craft_speederA
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79b3b62a09b1b194d867ad29220885cb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b3b62a09b1b194d867ad29220885cb, type: 3}
@@ -257,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: platform_smallDiagonal (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
 --- !u!4 &1254133521350956211 stripped
@@ -330,6 +338,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
       propertyPath: m_Name
       value: rocket_sidesB
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
@@ -405,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gate_complex
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 315e1251dbc6cbf4db74e62c9a3893dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315e1251dbc6cbf4db74e62c9a3893dc, type: 3}
 --- !u!4 &2845810161845592874 stripped
@@ -478,6 +494,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
       propertyPath: m_Name
       value: platform_smallDiagonal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
@@ -553,6 +573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rocket_sidesB (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
 --- !u!4 &5494637859603074822 stripped
@@ -626,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
       propertyPath: m_Name
       value: platform_smallDiagonal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
@@ -701,6 +729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rocket_sidesB (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1205cf5964f25e4d9c5f8b46de97be6, type: 3}
 --- !u!4 &7281661205045865922 stripped
@@ -775,6 +807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: platform_smallDiagonal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1bb17c7348566e4b9a2bc2109a561af, type: 3}
 --- !u!4 &7940142811804199261 stripped
@@ -848,6 +884,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 315e1251dbc6cbf4db74e62c9a3893dc, type: 3}
       propertyPath: m_Name
       value: gate_complex (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 315e1251dbc6cbf4db74e62c9a3893dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315e1251dbc6cbf4db74e62c9a3893dc, type: 3}
