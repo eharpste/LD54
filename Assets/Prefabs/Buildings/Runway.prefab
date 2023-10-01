@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaxiPoints:
-  - {x: 2, y: 0.5, z: 1}
-  - {x: 2, y: 0.15, z: 2.5}
-  - {x: 2, y: 0.15, z: 4}
-  - {x: 3.5, y: 0.15, z: 4}
-  launchPoint: {x: 2, y: 0.15, z: 4}
+  - {x: 7, y: 0.5, z: 4}
+  - {x: 7, y: 0.15, z: 5}
+  - {x: 7, y: 0.15, z: 7}
+  - {x: 9, y: 0.15, z: 7}
+  launchPoint: {x: 7, y: 0.15, z: 7}
   launchHeading: 0
   heading: 0
 --- !u!65 &6425216940184507311
