@@ -83,7 +83,7 @@ public class Menu : MonoBehaviour
 	{
 		if (lastSelectedButton == null)
 		{
-			lastSelectedButton = GetComponentInChildren<Selectable>().gameObject;
+			if (GetComponentInChildren<Selectable>()!=null) { lastSelectedButton = GetComponentInChildren<Selectable>().gameObject; }
 		}
 
 		StartCoroutine(SetNewSelection());
@@ -102,9 +102,13 @@ public class Menu : MonoBehaviour
 
 		yield return null;
 
-		EventSystem.current.SetSelectedGameObject(lastSelectedButton);
-		Selectable selectable = lastSelectedButton.GetComponent<Selectable>();
-		selectable.OnSelect(null);
+		if (lastSelectedButton != null)
+		{
+			EventSystem.current.SetSelectedGameObject(lastSelectedButton);
+			Selectable selectable = lastSelectedButton.GetComponent<Selectable>();
+			selectable.OnSelect(null);
+		}
+		
 	}
 
 

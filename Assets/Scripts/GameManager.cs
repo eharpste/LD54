@@ -106,7 +106,11 @@ public class GameManager : MonoBehaviour
 
 		RaycastHit hitInfo;
 		bool hit = Physics.Raycast(camRay, out hitInfo, 9999f, vehicleMask);
-		if (hit == false) return;
+        if (hit == false)
+        {
+            selectedVehicle = null;
+			return;
+        }
 
 		selectedVehicle = hitInfo.collider.gameObject.GetComponent<VehicleBehavior>();
 	}
