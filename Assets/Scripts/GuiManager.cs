@@ -16,6 +16,9 @@ public class GuiManager : MonoBehaviour
     public Menu ManeuverGui;
 
 	public Menu InspectorGui;
+	public Text InspectorTaskFuel;
+	public Text InspectorTaskValue;
+	public Text InspectorTaskDescription;
 
 	public LineRenderer lineRenderer;
 
@@ -35,7 +38,10 @@ public class GuiManager : MonoBehaviour
 		if (GameManager.Instance.selectedVehicle != null)
 		{
 			InspectorGui.EnableAll();
-			VehicleName.text = GameManager.Instance.selectedVehicle.gameObject.name;
+			VehicleName.text = GameManager.Instance.selectedVehicle.currentTask.shipName;
+			InspectorTaskFuel.text = GameManager.Instance.selectedVehicle.currentFuel.ToString();
+			InspectorTaskValue.text = GameManager.Instance.selectedVehicle.currentTask.value.ToString();
+			InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.currentTask.pilotBlurb;
 			lineRenderer.enabled = true;
 			updateSelectionLine();
 

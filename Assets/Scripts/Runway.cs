@@ -47,6 +47,7 @@ public class Runway : Landing
         vehicle.CommandList.Add(VehicleBehavior.Command.Climb);
         vehicle.defaultCommand = VehicleBehavior.Command.Forward;
         vehicle.commandLoopStyle = VehicleBehavior.CommandLoopStyle.Default;
+        vehicle.flightState = VehicleBehavior.FlightState.Launching;
     }
 
 }

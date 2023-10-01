@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
   m_Name: DefaultRocketDeparture
   m_EditorClassIdentifier: 
+  shipName: Galactic Unlimited X Orbital Launch
+  pilotBlurb: '**[CONNECTION REFUSED]**'
   deadline: 0
   value: 10
   cargoType: 2
   taskType: 1
-  appearanceLocation: {x: 0, y: 0, z: 0}
   fuel: 20
   destination: 5
   penalizeWrongDeparture: 0

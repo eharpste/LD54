@@ -33,7 +33,8 @@ public abstract class VehicleBehavior : MonoBehaviour {
 
     public enum FlightState {
         Grounded,
-        Flying
+        Flying,
+        Launching
     }
 
     public Task currentTask;
@@ -92,7 +93,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
     }
 
     public void SimulateNextCommand(float stepTime) {
-        if (CommandList.Count > 0) {
+        if (CommandList.Count > 0 || commandLoopStyle == CommandLoopStyle.Default) {
             currentCommand++;
             Command command = commandLoopStyle switch {
                 CommandLoopStyle.LoopWholeList => CommandList[currentCommand % CommandList.Count],

@@ -28,6 +28,9 @@ public class HoverLanderBehavior : VehicleBehavior {
                 break;
             case Command.Climb:
                 targetPosition += transform.up;
+                if (flightState == FlightState.Launching) { 
+                    targetPosition.y = Mathf.Round(targetPosition.y);
+                }
                 break;
             case Command.Dive:
                 targetPosition -= transform.up;

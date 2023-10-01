@@ -34,6 +34,9 @@ public class PlaneBehavior : VehicleBehavior {
                 break;
             case Command.Climb:
                 targetPosition += (transform.forward + transform.up);
+                if (flightState == FlightState.Launching) {
+                    targetPosition.y = Mathf.Round(targetPosition.y);
+                }
                 break;
             case Command.Dive:
                 targetPosition += (transform.forward - transform.up);

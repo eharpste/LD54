@@ -39,5 +39,6 @@ public class HoverPad : Landing {
         vehicle.CommandList.Add(VehicleBehavior.Command.Idle);
         vehicle.defaultCommand = VehicleBehavior.Command.Idle;
         vehicle.commandLoopStyle = VehicleBehavior.CommandLoopStyle.Default;
+        vehicle.flightState = VehicleBehavior.FlightState.Launching;
     }
 }

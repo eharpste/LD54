@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
   m_Name: CargoDelivery
   m_EditorClassIdentifier: 
+  shipName: Space LTD Cargo Flight
+  pilotBlurb: Tower we got a load of unobtanium ore bound for port.
   deadline: 0
   value: 10
   cargoType: 0

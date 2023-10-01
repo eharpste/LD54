@@ -4,6 +4,14 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Task", menuName = "ScriptableObjects/Task", order = 1)]
 public class Task : ScriptableObject {
+    [Tooltip("A narrative name for the ship / type of ship.")]
+    public string shipName;
+
+    [Tooltip("A short narrative message about the task framed as a message from the pilot.")]
+    [TextArea(3,8)]
+    public string pilotBlurb;
+
+
     [Tooltip("How many timesteps the player has to start the task before it dissapears")]
     public int deadline;
 

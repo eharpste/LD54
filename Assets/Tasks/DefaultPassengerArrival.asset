@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
   m_Name: DefaultPassengerArrival
   m_EditorClassIdentifier: 
+  shipName: Space LTD Passenger Flight
+  pilotBlurb: This is a passenger plane that has to land on a runway.
   deadline: 0
   value: 10
   cargoType: 1
   taskType: 0
-  appearanceLocation: {x: 0, y: 0, z: 0}
   fuel: 20
   destination: 0
   penalizeWrongDeparture: 0
