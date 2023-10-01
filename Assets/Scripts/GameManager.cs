@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
     public GameObject planePrefab;
     public GameObject hoverLanderPrefab;
     public GameObject rocketPrefab;
+    public GameObject warningSignPrefab;
+
+    private List<GameObject> pendingArrivals = new List<GameObject>();
 
     [Header("Time Settings")]
     public int timeCounter = 0;
@@ -28,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public List<Task> currentTasks = new List<Task>();
     //These are any arrivals that will be appearing in the next time step
-    public List<TaskSpec> pendingArrivals = new List<TaskSpec>();
+    //public List<TaskSpec> pendingArrivals = new List<TaskSpec>();
     //These are the departurs that haven't been handed to a vehicle yet.
     public List<Task> pendingDepartures = new List<Task>();
 
@@ -64,9 +68,22 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-
+    void Start() {
+        List<TaskSpec> toRemove = new List<TaskSpec>();
+        List<TaskSpec> toCreate = new List<TaskSpec>();
+        foreach(TaskSpec spec in taskSpecs) {
+            if(spec.appearanceTime == 0) {
+                toCreate.Add(spec);
+                toRemove.Add(spec);
+            }
+            if(spec.appearanceTime == 1 && spec.task.taskType == Task.TaskType.Arrival || spec.task.taskType == Task.TaskType.Flyby) {
+                pendingArrivals.Add(Instantiate(warningSignPrefab, spec.entranceLocation, Quaternion.identity));
+            }
+        }
+        foreach(TaskSpec spec in toRemove) {
+            taskSpecs.Remove(spec);
+        }
+        SpawnTasks(toCreate);
 	}
 
     // Update is called once per frame
@@ -100,28 +117,30 @@ public class GameManager : MonoBehaviour
 		foreach (VehicleBehavior vehicle in Vehicles) {
             vehicle.SimulateNextCommand(secondsPerStep);
         }
-        List<TaskSpec> newTasks = new List<TaskSpec>();
-        newTasks.AddRange(pendingArrivals);
-        pendingArrivals.Clear();
+        List<TaskSpec> toCreate = new List<TaskSpec>();
         List<TaskSpec> toRemove = new List<TaskSpec>();
+
+        //whipe the current warning signs
+        foreach(GameObject sign in pendingArrivals) {
+            Destroy(sign);
+        }
+        pendingArrivals.Clear();
+
         foreach(TaskSpec spec in taskSpecs){ 
             if(spec.appearanceTime == timeCounter+1) {
                 if (spec.task.taskType == Task.TaskType.Arrival || spec.task.taskType == Task.TaskType.Flyby) {
-                    toRemove.Add(spec);
-                    pendingArrivals.Add(spec);
+                    pendingArrivals.Add(Instantiate(warningSignPrefab, spec.entranceLocation, Quaternion.identity));
                 }
             }
-            else if(spec.appearanceTime == timeCounter) {
-                if (spec.task.taskType == Task.TaskType.Departure) {
-                    toRemove.Add(spec);
-                    newTasks.Add(spec);
-                }
+            else if(spec.appearanceTime == timeCounter) {               
+                toRemove.Add(spec);
+                toCreate.Add(spec);
             }
         }
         foreach(TaskSpec spec in toRemove) {
             taskSpecs.Remove(spec);
         }
-        SpawnTasks(newTasks);
+        SpawnTasks(toCreate);
     }
 
     public void SpawnTasks(List<TaskSpec> specs) {

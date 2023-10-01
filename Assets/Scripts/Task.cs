@@ -34,7 +34,6 @@ public class Task : ScriptableObject {
 
 
     [Header("Used by Arrival and Flyby Tasks")]
-
     public int fuel;
 
     [Header("Used by Departure Tasks")]
