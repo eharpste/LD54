@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -94,7 +95,10 @@ public class GameManager : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			SelectVehicle();
+			if (!EventSystem.current.IsPointerOverGameObject()) {
+				SelectVehicle();
+			}
+			
 		}
 	}
 
