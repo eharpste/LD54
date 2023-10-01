@@ -6,18 +6,29 @@ using UnityEngine;
 [CustomEditor(typeof(Runway))]
 public class RunwayEditor : Editor
 {
+
+    private bool showTaxiPath = true;
+    private bool showLaunchPath = true;
+
+    private float snapResolution = 0.5f;
+
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
         Runway runway = (Runway)target;
 
+        snapResolution = EditorGUILayout.FloatField("Snap Resolution", snapResolution);
+        showTaxiPath = EditorGUILayout.Toggle("Show Taxi Path", showTaxiPath);
+        showLaunchPath = EditorGUILayout.Toggle("Show Launch Path", showLaunchPath);
 
         EditorGUILayout.BeginVertical();
-        if (GUILayout.Button("Snap Path")) {
-            for (int i = 0; i < runway.TaxiPoints.Count; i++) {
-                Vector2 vec = runway.TaxiPoints[i];
-                vec.x = Mathf.Round(vec.x * 2) / 2;
-                vec.y = Mathf.Round(vec.y * 2) / 2;
-                runway.TaxiPoints[i] = vec;
+        if (GUILayout.Button(string.Format("Snap Paths to Nearest: {0}", snapResolution))) {
+            var snapRes = 1/snapResolution;
+            for (int i = 0; i < runway.TaxiPath.Count; i++) {
+                Vector3 vec = runway.TaxiPath[i];
+                vec.x = Mathf.Round(vec.x * snapRes) / snapRes;
+                vec.y = Mathf.Round(vec.y * snapRes) / snapRes;
+                vec.z = Mathf.Round(vec.z * snapRes) / snapRes;
+                runway.TaxiPath[i] = vec;
             }
         }
 
@@ -28,21 +39,32 @@ public class RunwayEditor : Editor
         Runway runway = (Runway)target;
 
         List<Vector3> linePoints = new List<Vector3>();
-        Handles.color = Color.green;
 
-        for (int i = 0; i < runway.TaxiPoints.Count; i++) {
-            linePoints.Add(runway.TaxiPoints[i]);
-            runway.TaxiPoints[i] = Handles.PositionHandle(runway.TaxiPoints[i], Quaternion.identity);
-            GUI.color = Color.red;
-            Handles.Label(runway.TaxiPoints[i], "T"+i.ToString());
-
+        if (showTaxiPath) {
+            Handles.color = Color.magenta;
+            for (int i = 0; i < runway.TaxiPath.Count; i++) {
+                linePoints.Add(runway.TaxiPath[i]);
+                runway.TaxiPath[i] = Handles.PositionHandle(runway.TaxiPath[i], Quaternion.identity);
+                GUI.color = Color.magenta;
+                Handles.Label(runway.TaxiPath[i], "T" + i.ToString());
+            }
+            Handles.DrawAAPolyLine(5, linePoints.ToArray());
         }
 
-        runway.launchPoint = Handles.PositionHandle(runway.launchPoint, Quaternion.identity);
-        GUI.color = Color.red;
-        Handles.Label(runway.launchPoint, "Launch Point");
+        if (showLaunchPath) {
+            linePoints.Clear();
+            Handles.color = Color.cyan;
+            for (int i = 0; i < runway.LaunchPath.Count; i++) {
+                linePoints.Add(runway.LaunchPath[i]);
+                runway.LaunchPath[i] = Handles.PositionHandle(runway.LaunchPath[i], Quaternion.identity);
+                GUI.color = Color.cyan;
+                Handles.Label(runway.LaunchPath[i], "L" + i.ToString());
+            }
+            Handles.DrawAAPolyLine(5, linePoints.ToArray());
+        }
 
-        Handles.DrawAAPolyLine(8, linePoints.ToArray());
+        
+        
 
     }
 }

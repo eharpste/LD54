@@ -135,6 +135,9 @@ public abstract class VehicleBehavior : MonoBehaviour {
                 break;
             case CommandExecutionState.Unavailable:
                 currentCommand++;
+                if(CurrentCommandList.Count == 0) {
+                    goto case CommandExecutionState.Defaulting;
+                }
                 command = CurrentCommandList[currentCommand % CurrentCommandList.Count];
                 break;
             case CommandExecutionState.Editing:
