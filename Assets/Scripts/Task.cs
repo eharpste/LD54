@@ -25,6 +25,9 @@ public class Task : ScriptableObject {
     public enum TaskType { Arrival, Departure, Flyby };
     public TaskType taskType;
 
+    [Tooltip("If False, the ship will not allow commands.")]
+    public bool responsive = true;
+
     /// <summary>
     /// North = Positive Z, heading -90
     /// West = Positive X, heading 0

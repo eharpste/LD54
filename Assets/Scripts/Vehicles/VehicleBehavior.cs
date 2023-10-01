@@ -15,6 +15,8 @@ public abstract class VehicleBehavior : MonoBehaviour {
         YawRight,
         Climb,
         Dive,
+        Raise,
+        Lower,
         Boost,
         Unload
     }
@@ -191,6 +193,8 @@ public abstract class VehicleBehavior : MonoBehaviour {
     }
 
     protected abstract IEnumerator SimulateCommandCoroutine(float secondsPerStep, Command command);
+
+    public abstract IEnumerable<Command> GetAvailableCommands();
 
     protected virtual void OnDestroy() {
         GameManager.Instance.RemoveVehicle(this);

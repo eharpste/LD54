@@ -17,4 +17,8 @@ public class RocketBehavior : VehicleBehavior {
         currentFuel -= 1;
         yield break;
     }
+
+    public override IEnumerable<Command> GetAvailableCommands() {
+        return new List<Command>() { Command.Raise };
+    }
 }

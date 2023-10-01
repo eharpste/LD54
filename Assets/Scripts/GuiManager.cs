@@ -22,11 +22,16 @@ public class GuiManager : MonoBehaviour
 
 	public LineRenderer lineRenderer;
 
+	List<ButtonCommand>	commandButtons = new List<ButtonCommand>();
 
 	// Start is called before the first frame update
 	void Start()
     {
 		//lineRenderer = GetComponent<LineRenderer>();
+		GetComponentsInChildren(true, commandButtons);
+		foreach(ButtonCommand buttonCommand in commandButtons) {
+			buttonCommand.guiManager = this;
+		}
 	}
 
     // Update is called once per frame
@@ -45,11 +50,24 @@ public class GuiManager : MonoBehaviour
 			lineRenderer.enabled = true;
 			updateSelectionLine();
 
+			ShowMovementGui();
+			foreach(ButtonCommand buttonCommand in commandButtons) {
+                buttonCommand.gameObject.SetActive(false);
+            }
+			foreach(VehicleBehavior.Command command in GameManager.Instance.selectedVehicle.GetAvailableCommands()) {
+				foreach(ButtonCommand buttonCommand in commandButtons) {
+                    if (buttonCommand.command == command) {
+                        buttonCommand.gameObject.SetActive(true);
+                    }
+                }
+			}
+
 		}
 		else
 		{
 			lineRenderer.enabled = false;
 			InspectorGui.DisableAll();
+			HideMovementGui();
 		}
 
 		//if (gameManager.isShipSelected && !ManeuverGui.is_Enabled())

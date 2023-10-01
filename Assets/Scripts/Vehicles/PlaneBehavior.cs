@@ -28,10 +28,6 @@ public class PlaneBehavior : VehicleBehavior {
                 targetPosition += (transform.forward + transform.right);
                 targetRotation *= Quaternion.Euler(0, 90, 0);
                 break;
-            case Command.YawLeft:
-            case Command.YawRight:
-                Debug.LogWarning("Planes can't yaw");
-                break;
             case Command.Climb:
                 targetPosition += (transform.forward + transform.up);
                 if (flightState == FlightState.Launching) {
@@ -45,6 +41,7 @@ public class PlaneBehavior : VehicleBehavior {
                 targetPosition += transform.forward * boostSpeed;
                 break;
             default:
+                Debug.LogWarningFormat("Planes can't take command: {0}", command);
                 break;
         }
 
@@ -78,6 +75,22 @@ public class PlaneBehavior : VehicleBehavior {
                 Debug.LogFormat("{0} hit Runway at {1} but expected {2}", gameObject.name, transform.rotation.eulerAngles.y, runway.heading);
                 Crash();
             }
+        }
+    }
+
+
+    private static List<Command> FLYING_COMMANDS = new List<Command> { Command.Forward, Command.Boost, Command.BankLeft, Command.BankRight, Command.Dive, Command.Climb };
+    private static List<Command> GROUND_COMMANDs = new List<Command> { Command.Unload };
+
+    public override IEnumerable<Command> GetAvailableCommands() {
+        switch(flightState) {
+            case FlightState.Flying:
+                return FLYING_COMMANDS.AsReadOnly();
+            case FlightState.Grounded:
+                return GROUND_COMMANDs.AsReadOnly();
+            case FlightState.Launching:
+            default:
+                return new List<Command>();
         }
     }
 }

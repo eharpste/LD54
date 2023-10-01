@@ -16,29 +16,26 @@ public class HoverLanderBehavior : VehicleBehavior {
             case Command.Forward:
                 targetPosition += transform.forward * speed;
                 break;
-            case Command.BankLeft:
-            case Command.BankRight:
-                Debug.LogWarning("HoverLanders can't bank");
-                break;
             case Command.YawLeft:
                 targetRotation *= Quaternion.Euler(0, -90, 0);
                 break;
             case Command.YawRight:
                 targetRotation *= Quaternion.Euler(0, 90, 0);
                 break;
-            case Command.Climb:
+            case Command.Raise:
                 targetPosition += transform.up;
                 if (flightState == FlightState.Launching) { 
                     targetPosition.y = Mathf.Round(targetPosition.y);
                 }
                 break;
-            case Command.Dive:
+            case Command.Lower:
                 targetPosition -= transform.up;
                 break;
             case Command.Boost:
                 targetPosition += transform.forward * boostSpeed;
                 break;
             default:
+                Debug.LogWarningFormat("HoverLanders can't take command: {0}", command);
                 break;
         }
 
@@ -63,6 +60,21 @@ public class HoverLanderBehavior : VehicleBehavior {
             //TODO eventually we'll want to do something with the pad itself
             HoverPad pad = other.gameObject.GetComponent<HoverPad>();
             Land(pad);
+        }
+    }
+
+    private static List<Command> FLIGHT_COMMANDS = new List<Command> {Command.Idle, Command.Forward, Command.Boost, Command.YawLeft, Command.YawRight, Command.Raise, Command.Lower};
+    private static List<Command> GROUND_COMMANDS = new List<Command> { Command.Idle, Command.Unload };
+
+    public override IEnumerable<Command> GetAvailableCommands() {
+        switch (flightState) {
+            case FlightState.Flying:
+                return FLIGHT_COMMANDS.AsReadOnly();
+            case FlightState.Grounded:
+                return GROUND_COMMANDS.AsReadOnly();
+            case FlightState.Launching:
+            default:
+                return new List<Command>();
         }
     }
 }
