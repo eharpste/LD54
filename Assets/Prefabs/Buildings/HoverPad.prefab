@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3106321859578755498}
   - component: {fileID: 1059486421845085677}
+  - component: {fileID: 1684838728736581473}
   m_Layer: 0
   m_Name: HoverPad
-  m_TagString: Untagged
+  m_TagString: LandingPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d042ccdf96bc6af429e5fa3947b30013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landingPosition: {x: 0, y: 0.15, z: 0}
+  landingHeading: 30
+  launchHeading: 0
+--- !u!65 &1684838728736581473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6234616010976541886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2161277478773216593
 PrefabInstance:
   m_ObjectHideFlags: 0
