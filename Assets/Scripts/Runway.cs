@@ -41,12 +41,7 @@ public class Runway : Landing
         vehicle.transform.rotation = Quaternion.Euler(0, launchHeading, 0);
         vehicles.Remove(vehicle);
         vehicle.currentFuel = vehicle.maxFuel;
-        vehicle.CommandList.Clear();
-        vehicle.CommandList.Add(VehicleBehavior.Command.Boost);
-        vehicle.CommandList.Add(VehicleBehavior.Command.Climb);
-        vehicle.CommandList.Add(VehicleBehavior.Command.Climb);
-        vehicle.defaultCommand = VehicleBehavior.Command.Forward;
-        vehicle.commandLoopStyle = VehicleBehavior.CommandLoopStyle.Default;
+        vehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Boost, VehicleBehavior.Command.Climb, VehicleBehavior.Command.Climb });
         vehicle.flightState = VehicleBehavior.FlightState.Launching;
     }
 

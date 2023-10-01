@@ -89,15 +89,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: fe521c1440d748e4d97df7535a992366, type: 2}
-  CommandList: 040000000700000007000000
-  commandLoopStyle: 2
+  PrevCommandList: 
+  CurrentCommandList: 
+  commandExecutionState: 3
   defaultCommand: 0
-  comandEditMode: 2
-  commandLimit: 3
+  commandLimit: 4
   currentFuel: 20
   maxFuel: 20
-  speed: 2
-  boostSpeed: 4
+  speed: 1
+  boostSpeed: 2
   flightState: 1
 --- !u!1 &3201124420916299672
 GameObject:

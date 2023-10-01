@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using static VehicleBehavior;
 
 
 [RequireComponent(typeof(BoxCollider), typeof(Rigidbody))]
@@ -21,17 +23,17 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Unload
     }
 
-    public enum CommandLoopStyle {
-        LoopWholeList,
-        LoopLast,
-        Default
-    }
+    //public enum CommandLoopStyle {
+    //    LoopWholeList,
+    //    LoopLast,
+    //    Default
+    //}
 
-    public enum CommandEditMode {
-        NotEditable,
-        EditOnLoop,
-        EditPassedList
-    }
+    //public enum CommandEditMode {
+    //    NotEditable,
+    //    EditOnLoop,
+    //    EditPassedList
+    //}
 
     public enum FlightState {
         Grounded,
@@ -39,14 +41,25 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Launching
     }
 
+    public enum CommandExecutionState {
+        Unavailable,
+        Defaulting,
+        Executing,
+        Editing
+    }
+
     public Task currentTask;
     //TODO we don't actually want this to be a queue, we want it to be a list that we can loop through
+    
+    public List<Command> PrevCommandList = new List<Command>();
     [Tooltip("Note that you're usually not supposed to have access to all of these commands in all contexts.")]
-    public List<Command> CommandList = new List<Command>();
-    protected int currentCommand = -1;
-    public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
+    public List<Command> CurrentCommandList = new List<Command>();
+    public int currentCommand { get; protected set; } = -1;
+    public CommandExecutionState commandExecutionState = CommandExecutionState.Defaulting;
+
+    //public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
     public Command defaultCommand = Command.Idle;
-    public CommandEditMode comandEditMode = CommandEditMode.EditPassedList;
+    //public CommandEditMode comandEditMode = CommandEditMode.EditPassedList;
     public int commandLimit = 3;
     public int currentFuel = 20;
     public int maxFuel = 20;
@@ -62,49 +75,106 @@ public abstract class VehicleBehavior : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    protected void Update() {
-        
+    public void RemoveCommand(int index) {
+        switch(commandExecutionState) {
+            case CommandExecutionState.Editing:
+                CurrentCommandList.RemoveAt(index);
+                break;
+            case CommandExecutionState.Defaulting:
+                RepeatLastCommands();
+                commandExecutionState = CommandExecutionState.Editing;
+                goto case CommandExecutionState.Editing;
+        }
+    }
+
+    public void RepeatLastCommands() {
+        switch (commandExecutionState) {
+            case CommandExecutionState.Defaulting:
+            case CommandExecutionState.Editing:
+                CurrentCommandList = PrevCommandList;
+                commandExecutionState = CommandExecutionState.Editing;
+                break;   
+        }
+    }
+
+    public void SwapCommands(int index1, int index2) {
+        switch (commandExecutionState) {
+            case CommandExecutionState.Editing:
+                Command swap = CurrentCommandList[index1];
+                CurrentCommandList[index1] = CurrentCommandList[index2];
+                CurrentCommandList[index2] = swap;
+                break;
+            case CommandExecutionState.Defaulting:
+                RepeatLastCommands();
+                commandExecutionState = CommandExecutionState.Editing;
+                goto case CommandExecutionState.Editing;
+        }
+
     }
 
     public void AddCommand(Command command) {
-        if (CommandList.Count < commandLimit) {
-            CommandList.Add(command);
-        }
-        else {
-            switch (comandEditMode) {
-                case CommandEditMode.NotEditable:
-                    break;
-                case CommandEditMode.EditOnLoop:
-                    if(currentCommand % CommandList.Count == 0) {
-                        CommandList.Clear();
-                        CommandList.Add(command);
-                        currentCommand = 0;
-                    }
-                    break;
-                case CommandEditMode.EditPassedList:
-                    if(currentCommand >= CommandList.Count) {
-                        CommandList.Clear();
-                        CommandList.Add(command);
-                    }
-                    break;
-                default:
-                    break;
-            }
+        switch (commandExecutionState) {
+            case CommandExecutionState.Editing:
+                if (CurrentCommandList.Count < commandLimit) {
+                    CurrentCommandList.Add(command);
+                }
+                break;
+            case CommandExecutionState.Defaulting:
+                CurrentCommandList.Clear();
+                CurrentCommandList.Add(command);
+                commandExecutionState = CommandExecutionState.Editing;
+                break;
         }
     }
 
     public void SimulateNextCommand(float stepTime) {
-        if (CommandList.Count > 0 || commandLoopStyle == CommandLoopStyle.Default) {
-            currentCommand++;
-            Command command = commandLoopStyle switch {
-                CommandLoopStyle.LoopWholeList => CommandList[currentCommand % CommandList.Count],
-                CommandLoopStyle.LoopLast => currentCommand >= CommandList.Count ? CommandList[CommandList.Count - 1] : CommandList[currentCommand],
-                CommandLoopStyle.Default => currentCommand >= CommandList.Count ? defaultCommand : CommandList[currentCommand],
-                _ => CommandList[currentCommand]
-            };
-            StartCoroutine(SimulateCommandCoroutine(stepTime, command));
+        Command command = defaultCommand;
+        switch (commandExecutionState) {
+            case CommandExecutionState.Defaulting:
+                command = defaultCommand;
+                break;
+            case CommandExecutionState.Unavailable:
+                currentCommand++;
+                command = CurrentCommandList[currentCommand % CurrentCommandList.Count];
+                break;
+            case CommandExecutionState.Editing:
+                PrevCommandList.Clear();
+                PrevCommandList.AddRange(CurrentCommandList);
+                currentCommand = -1;
+                commandExecutionState = CommandExecutionState.Executing;
+                goto case CommandExecutionState.Executing;
+            case CommandExecutionState.Executing:
+                currentCommand++;
+                if (currentCommand < CurrentCommandList.Count) {
+                    command = CurrentCommandList[currentCommand];
+                }
+                else {
+                    commandExecutionState = CommandExecutionState.Defaulting;
+                    if(flightState == FlightState.Launching) {
+                        flightState = FlightState.Flying;
+                    }
+                }
+                break;
         }
+        StartCoroutine(SimulateCommandCoroutine(stepTime, command));
+
+
+
+        //if (CurrentCommandList.Count > 0 || commandLoopStyle == CommandLoopStyle.Default) {
+        //    currentCommand++;
+        //    Command command = commandLoopStyle switch {
+        //        CommandLoopStyle.LoopWholeList => CurrentCommandList[currentCommand % CurrentCommandList.Count],
+        //        CommandLoopStyle.LoopLast => currentCommand >= CurrentCommandList.Count ? CurrentCommandList[CurrentCommandList.Count - 1] : CurrentCommandList[currentCommand],
+        //        CommandLoopStyle.Default => currentCommand >= CurrentCommandList.Count ? defaultCommand : CurrentCommandList[currentCommand],
+        //        _ => CurrentCommandList[currentCommand]
+        //    };
+        //    StartCoroutine(SimulateCommandCoroutine(stepTime, command));
+        //}
+    }
+
+    public void SetCommands(List<Command> commands) {
+        CurrentCommandList = commands;
+        commandExecutionState = CommandExecutionState.Executing;
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -148,7 +218,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Debug.LogFormat("Landed {0}", this.gameObject.name);
         rb.isKinematic = true;
         flightState = FlightState.Grounded;
-        CommandList.Clear();
+        CurrentCommandList.Clear();
         GameManager.Instance.ScoreTask(currentTask);
         if (landing != null) {
             landing.LandVehicle(this);

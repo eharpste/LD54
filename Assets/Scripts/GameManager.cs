@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -163,9 +162,7 @@ public class GameManager : MonoBehaviour
                         newVehicle = instantiatedPrefab.GetComponent<VehicleBehavior>();
                         newVehicle.currentFuel = spec.task.fuel;
                         newVehicle.currentTask = spec.task;
-                        newVehicle.CommandList.Clear();
-                        newVehicle.CommandList.Add(VehicleBehavior.Command.Forward);
-                        newVehicle.commandLoopStyle = VehicleBehavior.CommandLoopStyle.Default;
+                        newVehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Forward });
                     }
                     currentTasks.Add(spec.task);
                     break;

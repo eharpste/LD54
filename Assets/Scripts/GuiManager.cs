@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,17 @@ using UnityEngine.UI;
 
 public class GuiManager : MonoBehaviour
 {
+	[System.Serializable]
+	public class SpriteEntry {
+		[SerializeField]
+		public VehicleBehavior.Command command;
+		[SerializeField]
+        public Sprite sprite;
+	}
+
+	public List<SpriteEntry> spriteAtlas = new List<SpriteEntry>();
+	private Dictionary<VehicleBehavior.Command, Sprite> spriteMap = new Dictionary<VehicleBehavior.Command, Sprite>();
+
 
     public Text TimeLabel;
 	public Text ScoreLabel;
@@ -24,15 +36,32 @@ public class GuiManager : MonoBehaviour
 
 	List<ButtonCommand>	commandButtons = new List<ButtonCommand>();
 
+	List<CommandListElement> commandListElements = new List<CommandListElement>();
+
 	// Start is called before the first frame update
 	void Start()
     {
-		//lineRenderer = GetComponent<LineRenderer>();
-		GetComponentsInChildren(true, commandButtons);
-		foreach(ButtonCommand buttonCommand in commandButtons) {
+		foreach(SpriteEntry entry in spriteAtlas) {
+			spriteMap.Add(entry.command, entry.sprite);
+		}
+
+		GetComponentsInChildren(true, commandListElements);
+        //lineRenderer = GetComponent<LineRenderer>();
+        GetComponentsInChildren(true, commandButtons);
+        foreach (ButtonCommand buttonCommand in commandButtons) {
 			buttonCommand.guiManager = this;
 		}
-	}
+
+		foreach(ButtonRemove button in GetComponentsInChildren<ButtonRemove>()) {
+            button.guiManager = this;
+        }
+
+        foreach (ButtonSwap button in GetComponentsInChildren<ButtonSwap>()) {
+            button.guiManager = this;
+        }
+
+		
+    }
 
     // Update is called once per frame
     void LateUpdate()
@@ -122,4 +151,31 @@ public class GuiManager : MonoBehaviour
 		vehicle.AddCommand(newCommand);
 
 	}
+
+	public void RemoveSelectedCommand(int index) {
+		if(GameManager.Instance.selectedVehicle != null) {
+            VehicleBehavior vehicle = GameManager.Instance.selectedVehicle;
+            vehicle.RemoveCommand(index);
+        }
+		
+	}
+
+    public void SwapCommands(int index, int v) {
+		if (GameManager.Instance.selectedVehicle != null) {
+			GameManager.Instance.selectedVehicle.SwapCommands(index, v);
+		}
+    }
+
+	public void UpdateCommandList() {
+		if(GameManager.Instance.selectedVehicle != null) {
+			for(int i = 0; i < GameManager.Instance.selectedVehicle.CurrentCommandList.Count; i++) {
+				VehicleBehavior.Command command = GameManager.Instance.selectedVehicle.CurrentCommandList[i];
+
+				bool editable = GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Editing || GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Defaulting;
+				commandListElements[i].SetCommand(i, command.ToString(), spriteMap[command], editable);
+
+			}
+		}
+	}
+
 }

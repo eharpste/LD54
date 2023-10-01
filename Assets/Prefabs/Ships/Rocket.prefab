@@ -9948,11 +9948,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: 1eac87e1cf60f174491ca71851c075de, type: 2}
-  CommandList: 06000000
-  commandLoopStyle: 2
+  PrevCommandList: 
+  CurrentCommandList: 
+  commandExecutionState: 0
   defaultCommand: 0
-  comandEditMode: 2
-  commandLimit: 3
+  commandLimit: 1
   currentFuel: 20
   maxFuel: 20
   speed: 5
