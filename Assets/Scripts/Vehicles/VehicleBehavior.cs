@@ -8,6 +8,15 @@ using static VehicleBehavior;
 [RequireComponent(typeof(BoxCollider), typeof(Rigidbody))]
 public abstract class VehicleBehavior : MonoBehaviour {
 
+    private static int planeNameIndedx = 0;
+
+    private static string[] NAMES = new string[] { "Crunchy", "Dollface", "Starsight", "Cuddly", "Zinger", "Ronin", "Groucho", "Starbreeze", "Hiccup", "Trendy", "Falcore", "Paradise",
+    "Anthem", "Castle", "Zodiac", "Meagerie", "Gentleman", "Chai", "Mambo", "Melonball"};
+
+    public static string GeneratePlaneName(string classKey) {
+        return string.Format("SL {0}-{1} {2}", classKey, Random.Range(10,99), NAMES[Random.Range(0, NAMES.Length)]);
+    }
+
     public enum Command {
         Idle,
         Forward,

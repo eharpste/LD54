@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
+  m_Name: passenger-departure-3
+  m_EditorClassIdentifier: 
+  taskName: Medical Emergency
+  pilotBlurb: We've got a civilian here who needs to get to Umari City's hospital
+    ASAP for medical treatment. Get her in the air now!
+  value: 500
+  cargoType: 1
+  taskType: 1
+  responsive: 1
+  shipName: 
+  fuel: 20
+  destination: 1
+  penalizeWrongDeparture: 1
+  deadline: 5
