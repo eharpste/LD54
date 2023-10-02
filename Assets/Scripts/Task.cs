@@ -5,10 +5,75 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Task", menuName = "ScriptableObjects/Task", order = 1)]
 public class Task : ScriptableObject {
 
+    public static Task GenerateRandomTask() {
+        Task task = ScriptableObject.CreateInstance<Task>();
+        task.cargoType = Random.value > .5f  ? CargoType.Cargo : CargoType.Passenger;
+        task.taskType = Random.value > .5f ? TaskType.Departure : TaskType.Arrival;
+        task.penalizeWrongDeparture = true;
+        task.responsive = true;
+        float rand = Random.value;
+        switch (task.taskType, task.cargoType) {
+            case (TaskType.Departure, CargoType.Cargo):
+                task.taskName = "Regular Shipments";
+                task.pilotBlurb = "I have the usual load of miscileaneous cargo to get in the air";
+                task.value = ((int)Mathf.Round(Random.Range(50, 800)/50))*10;
+                rand = Random.value;
+                if (rand < .25f) {
+                    task.destination = Destination.North;
+                }
+                else if (rand < .5f) {
+                    task.destination = Destination.West;
+                }
+                else if (rand < .75f) {
+                    task.destination = Destination.South;
+                }
+                else {
+                    task.destination = Destination.East;
+                }
+                task.fuel = 20;
+                break;
+            case (TaskType.Arrival, CargoType.Cargo):
+                task.taskName = "Regular Supplies";
+                task.pilotBlurb = "I have the monthly supply shipment inbound";
+                task.value = ((int)Mathf.Round(Random.Range(50, 800)/50))*10;
+                task.fuel = 20;
+                task.shipName = VehicleBehavior.GeneratePlaneName("C");
+                task.destination = Destination.Local;
+                break;
+            case (TaskType.Arrival, CargoType.Passenger):
+                task.taskName = "Frequent Fliers";
+                task.pilotBlurb = "Got another batch of regulars inbound.";
+                task.value = ((int)Mathf.Round(Random.Range(50, 800)/50))*10;
+                task.fuel = Random.Range(14, 20);
+                task.shipName = VehicleBehavior.GeneratePlaneName("C");
+                task.destination = Destination.Local;
+                break;
+            case (TaskType.Departure, CargoType.Passenger):
+                task.taskName = "Hub Connections";
+                task.pilotBlurb = "Another group of passengers on their way to make connections in our hub station.";
+                task.value = ((int)Mathf.Round(Random.Range(50, 800)/50))*10;
+                task.fuel = 20;
+                rand = Random.value;
+                if (rand < .25f) {
+                    task.destination = Destination.North;
+                }
+                else if (rand < .5f) {
+                    task.destination = Destination.West;
+                }
+                else if (rand < .75f) {
+                    task.destination = Destination.South;
+                }
+                else {
+                    task.destination = Destination.East;
+                }
+                break;
+        }
+        return task;
+    }
+
+
     [Tooltip("The Display name of the task.")]
     public string taskName;
-
-
 
     [Tooltip("A short narrative message about the task framed as a message from the pilot.")]
     [TextArea(3,8)]
