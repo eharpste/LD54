@@ -177,6 +177,11 @@ public class GuiManager : MonoBehaviour
 
 	}
 
+	public void SendSimulateCommandToGameManager()
+	{
+		GameManager.Instance.SimulateStep();
+	}
+
 	public void RemoveSelectedCommand(int index) {
 		if(GameManager.Instance.selectedVehicle != null) {
             VehicleBehavior vehicle = GameManager.Instance.selectedVehicle;
