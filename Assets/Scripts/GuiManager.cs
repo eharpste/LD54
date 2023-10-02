@@ -38,6 +38,18 @@ public class GuiManager : MonoBehaviour
 
 	List<CommandListElement> commandListElements = new List<CommandListElement>();
 
+	public delegate void SelectVehicle();
+	public static event SelectVehicle OnSelectVehicle = delegate { };
+
+	public static void OnSelectVehicleEvent()
+	{
+		if (OnSelectVehicle != null)
+		{
+			Debug.Log("starting dialogue delegate");
+			OnSelectVehicle();
+		}
+	}
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -63,8 +75,18 @@ public class GuiManager : MonoBehaviour
 		
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+	private void OnEnable()
+	{
+		Events.SelectVehicle += ShowMovementGui;
+	}
+	private void OnDisable()
+	{
+		Events.SelectVehicle -= ShowMovementGui;
+	}
+
+
+	// Update is called once per frame
+	void Update()
     {
         TimeLabel.text = GameManager.Instance.CurrentTime.ToString();
 		ScoreLabel.text = GameManager.Instance.score.ToString();
@@ -78,18 +100,6 @@ public class GuiManager : MonoBehaviour
 			InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.currentTask.pilotBlurb;
 			lineRenderer.enabled = true;
 			updateSelectionLine();
-
-			ShowMovementGui();
-			foreach(ButtonCommand buttonCommand in commandButtons) {
-                buttonCommand.gameObject.SetActive(false);
-            }
-			foreach(VehicleBehavior.Command command in GameManager.Instance.selectedVehicle.GetAvailableCommands()) {
-				foreach(ButtonCommand buttonCommand in commandButtons) {
-                    if (buttonCommand.command == command) {
-                        buttonCommand.gameObject.SetActive(true);
-                    }
-                }
-			}
 
 		}
 		else
@@ -130,6 +140,21 @@ public class GuiManager : MonoBehaviour
 	void ShowMovementGui()
     {
         ManeuverGui.EnableAll();
+
+		foreach (ButtonCommand buttonCommand in commandButtons)
+		{
+			buttonCommand.gameObject.SetActive(false);
+		}
+		foreach (VehicleBehavior.Command command in GameManager.Instance.selectedVehicle.GetAvailableCommands())
+		{
+			foreach (ButtonCommand buttonCommand in commandButtons)
+			{
+				if (buttonCommand.command == command)
+				{
+					buttonCommand.gameObject.SetActive(true);
+				}
+			}
+		}
 	}
 
     [ContextMenu("Hide Manuever Gui")]

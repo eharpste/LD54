@@ -146,6 +146,8 @@ public class GameManager : MonoBehaviour
         }
 
 		selectedVehicle = hitInfo.collider.gameObject.GetComponent<VehicleBehavior>();
+
+        Events.SelectVehicleEvent();
 	}
 
     public void CreateWarning(Vector3 placement) {
