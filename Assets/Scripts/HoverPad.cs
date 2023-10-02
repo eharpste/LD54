@@ -7,6 +7,15 @@ public class HoverPad : Landing {
     public int landingHeading;
     public int launchHeading;
 
+    private int lastLandingTime = -1;
+    public  int unloadingTime = 1;
+
+    override public bool AvailableToLaunch { 
+        get {
+            return vehicles.Count > 0 && GameManager.Instance.CurrentTime - lastLandingTime > unloadingTime;     
+        } 
+    }
+
     public override void LandVehicle(VehicleBehavior vehicle) {
         vehicles.Add(vehicle);
         vehicle.CurrentCommandList.Clear();
@@ -29,6 +38,7 @@ public class HoverPad : Landing {
         vehicle.transform.position = landingPosition;
         vehicle.transform.rotation = targetRotation;
         Ready = true;
+        lastLandingTime = GameManager.Instance.CurrentTime;
     }
 
 

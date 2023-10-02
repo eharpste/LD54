@@ -67,12 +67,14 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public int boostSpeed = 4;
     public FlightState flightState = FlightState.Flying;
     protected Rigidbody rb;
+    protected Collider col;
 
 
     // Start is called before the first frame update
-    protected void Start() {
+    protected virtual void Start() {
         GameManager.Instance.AddVehicle(this);
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
         Ready = true;
     }
 

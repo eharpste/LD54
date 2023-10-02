@@ -66,7 +66,7 @@ public class GuiManager : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        TimeLabel.text = GameManager.Instance.timeCounter.ToString();
+        TimeLabel.text = GameManager.Instance.CurrentTime.ToString();
 		ScoreLabel.text = GameManager.Instance.score.ToString();
 
 		if (GameManager.Instance.selectedVehicle != null)

@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     List<VehicleBehavior> Vehicles = new List<VehicleBehavior>();
     List<Landing> Landings = new List<Landing>();
+    List<Runway> Runways = new List<Runway>();
+    List<HoverPad> HoverPads = new List<HoverPad>();
+    List<RocketLauncher> RocketLaunchers = new List<RocketLauncher>();
 
     public int score = 0;
 
@@ -20,10 +23,10 @@ public class GameManager : MonoBehaviour
     public GameObject rocketPrefab;
     public GameObject warningSignPrefab;
 
-    private List<GameObject> pendingArrivals = new List<GameObject>();
+    private List<GameObject> warningMarkers = new List<GameObject>();
 
     [Header("Time Settings")]
-    public int timeCounter = 0;
+    public int CurrentTime = 0;
     public float secondsPerStep = 1f;
 
     [Header("Control Settings")]
@@ -65,11 +68,29 @@ public class GameManager : MonoBehaviour
     }
 
     public void AddLanding(Landing landing) {
+
         Landings.Add(landing);
+        if(landing.GetType() == typeof(Runway)) {
+            Runways.Add((Runway)landing);
+        }else if (landing.GetType() == typeof(HoverPad)) {
+            HoverPads.Add((HoverPad)landing);
+        }
+        else if (landing.GetType() == typeof(RocketLauncher)) {
+            RocketLaunchers.Add((RocketLauncher)landing);
+        }
     }
 
     public void RemoveLanding(Landing landing) {
         Landings.Remove(landing);
+        if (landing.GetType() == typeof(Runway)) {
+            Runways.Remove((Runway)landing);
+        }
+        else if (landing.GetType() == typeof(HoverPad)) {
+            HoverPads.Remove((HoverPad)landing);
+        }
+        else if (landing.GetType() == typeof(RocketLauncher)) {
+            RocketLaunchers.Remove((RocketLauncher)landing);
+        }
     }
 
     private void Awake() {
@@ -86,7 +107,7 @@ public class GameManager : MonoBehaviour
                 toRemove.Add(spec);
             }
             if(spec.appearanceTime == 1 && spec.task.taskType == Task.TaskType.Arrival || spec.task.taskType == Task.TaskType.Flyby) {
-                pendingArrivals.Add(Instantiate(warningSignPrefab, spec.entranceLocation, Quaternion.identity));
+                warningMarkers.Add(Instantiate(warningSignPrefab, spec.entranceLocation, Quaternion.identity));
             }
         }
         foreach(TaskSpec spec in toRemove) {
@@ -98,7 +119,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) {
             SimulateStep();
         }
 
@@ -127,36 +148,52 @@ public class GameManager : MonoBehaviour
 		selectedVehicle = hitInfo.collider.gameObject.GetComponent<VehicleBehavior>();
 	}
 
+    public void CreateWarning(Vector3 placement) {
+        warningMarkers.Add(Instantiate(warningSignPrefab, placement, Quaternion.identity));
+    }
+
     public void SimulateStep() {
         foreach(VehicleBehavior vehicleBehavior in Vehicles) {
-            if (!vehicleBehavior.Ready) { return; }
+            if (!vehicleBehavior.Ready) {
+                Debug.LogWarningFormat("{0} is not ready", vehicleBehavior.name);
+                return; 
+            }
         }
         foreach(Landing landing in Landings) {
-            if (!landing.Ready) { return; }
+            if (!landing.Ready) {
+                Debug.LogWarningFormat("{0} is not ready", landing.name);
+                return; 
+            }
         }
 
 
-        timeCounter++;
+        CurrentTime++;
 
 		foreach (VehicleBehavior vehicle in Vehicles) {
             vehicle.SimulateNextCommand(secondsPerStep);
         }
+
+        foreach(Landing landing in Landings) {
+            landing.SimulateStep(secondsPerStep);
+        }
+
+
         List<TaskSpec> toCreate = new List<TaskSpec>();
         List<TaskSpec> toRemove = new List<TaskSpec>();
 
         //whipe the current warning signs
-        foreach(GameObject sign in pendingArrivals) {
+        foreach(GameObject sign in warningMarkers) {
             Destroy(sign);
         }
-        pendingArrivals.Clear();
+        warningMarkers.Clear();
 
         foreach(TaskSpec spec in taskSpecs){ 
-            if(spec.appearanceTime == timeCounter+1) {
+            if(spec.appearanceTime == CurrentTime+1) {
                 if (spec.task.taskType == Task.TaskType.Arrival || spec.task.taskType == Task.TaskType.Flyby) {
-                    pendingArrivals.Add(Instantiate(warningSignPrefab, spec.entranceLocation, Quaternion.identity));
+                    CreateWarning(spec.entranceLocation);
                 }
             }
-            else if(spec.appearanceTime == timeCounter) {               
+            else if(spec.appearanceTime == CurrentTime) {               
                 toRemove.Add(spec);
                 toCreate.Add(spec);
             }
@@ -165,6 +202,29 @@ public class GameManager : MonoBehaviour
             taskSpecs.Remove(spec);
         }
         SpawnTasks(toCreate);
+
+        //check for expired tasks
+
+        //check for automatic tasks
+        List<Task> dispatched = new List<Task>();
+        foreach(Task task in pendingDepartures) {
+            if(task.cargoType == Task.CargoType.Rocket) {
+                foreach(RocketLauncher launcher in RocketLaunchers) {
+                    if(launcher.Ready) {
+                        GameObject newRocket = Instantiate(rocketPrefab, launcher.transform.position + Vector3.down * 100, Quaternion.identity);
+                        CreateWarning(launcher.transform.position + Vector3.up);
+                        VehicleBehavior vehicleBehavior = newRocket.GetComponent<VehicleBehavior>();
+                        launcher.LaunchVehicle(vehicleBehavior);
+                        dispatched.Add(task);
+                        break;
+                    }
+                }
+            }
+        }
+
+        foreach(Task task in dispatched) {
+            pendingDepartures.Remove(task);
+        }
     }
 
     public void SpawnTasks(List<TaskSpec> specs) {

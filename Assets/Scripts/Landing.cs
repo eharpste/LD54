@@ -10,7 +10,11 @@ public abstract class Landing : MonoBehaviour {
         Ready = true;
     }
 
+    public virtual void SimulateStep(float stepTime) { }
+
     public virtual bool Ready { protected set; get; }
+
+    public virtual bool AvailableToLaunch { protected set; get; } = true;
 
     protected List<VehicleBehavior> vehicles = new List<VehicleBehavior>();
 

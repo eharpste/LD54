@@ -19,6 +19,10 @@ public class Runway : Landing
         //animate the vehicle along the taxi points
     }
 
+    public override void SimulateStep(float stepTime) {
+        AvailableToLaunch = true;
+    }
+
 
     IEnumerator TaxiIn(VehicleBehavior vehicle) {
         Ready = false;
@@ -51,6 +55,7 @@ public class Runway : Landing
 
     IEnumerator TaxiOut (VehicleBehavior vehicle) {
         Ready = false;
+        AvailableToLaunch = false;
         float stepStartTime;
         vehicle.transform.position = TaxiPath[0];
         for(int step = 0; step < LaunchPath.Count; step++) {
