@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: cargo-departure-5
+  m_Name: cd2-flower power
   m_EditorClassIdentifier: 
-  taskName: At Least It's Not Pumpkin Spice
-  pilotBlurb: Pumpkins are all the rage in New Seattle right now. If we can just
-    ship some to the city, we'll make the big bucks!
-  value: 900
+  taskName: Flower Power
+  pilotBlurb: They say this is a shipment of singing lilies, but they're more like
+    SCREAMING lilies. Please get them out of here, we can't hear ourselves think!
+  value: 400
   cargoType: 0
   taskType: 1
   responsive: 1
   shipName: 
   fuel: 20
-  destination: 4
+  destination: 1
   penalizeWrongDeparture: 1
-  deadline: 30
+  deadline: 15

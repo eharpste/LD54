@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-departure-3
+  m_Name: fb4-freezeball
   m_EditorClassIdentifier: 
-  taskName: Medical Emergency
-  pilotBlurb: We've got a civilian here who needs to get to Umari City's hospital
-    ASAP for medical treatment. Get her in the air now!
-  value: 500
+  taskName: Freezeball
+  pilotBlurb: I'm brining the San Aragio freezeball team to their next game! I even
+    got Bonolo to sign my trading card of him!
+  value: 50
   cargoType: 1
-  taskType: 1
+  taskType: 2
   responsive: 1
-  shipName: 
-  fuel: 20
-  destination: 1
+  shipName: SL P-56 Sporty
+  fuel: 17
+  destination: 3
   penalizeWrongDeparture: 1
-  deadline: 5
+  deadline: 0

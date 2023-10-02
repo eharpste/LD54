@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: flyby-2
+  m_Name: ca1-clean landing
   m_EditorClassIdentifier: 
-  taskName: Rude!
-  pilotBlurb: What am I carrying? That's classified. Just get me through your airspace
-    and no one needs to know.
-  value: 50
+  taskName: Clean Landing
+  pilotBlurb: Copy that, I've got a load of hygiene equipment ready to land. No,
+    take your time, I just reached the good part of my audiobook.
+  value: 100
   cargoType: 0
   taskType: 0
   responsive: 1
-  shipName: SL C-61 Dark
+  shipName: SL C-11 Squeaky
   fuel: 18
-  destination: 1
-  penalizeWrongDeparture: 1
+  destination: 0
+  penalizeWrongDeparture: 0
   deadline: 0

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-arrival-1
+  m_Name: fb5-delays
   m_EditorClassIdentifier: 
-  taskName: Sleepy Scientists
-  pilotBlurb: I'm bringing in the usual rotation of scientists from the lab out in
-    the Duvant Desert. They're all asleep, so there's no rush to land.
-  value: 200
-  cargoType: 1
+  taskName: Delays
+  pilotBlurb: We got out of our port late due to traffic, I need to cut through your
+    airspace to land on time. Sorry!
+  value: 50
+  cargoType: 0
   taskType: 0
   responsive: 1
-  shipName: SL P-05 Sandy
-  fuel: 16
-  destination: 0
-  penalizeWrongDeparture: 0
+  shipName: SL P-73 Tardy
+  fuel: 18
+  destination: 2
+  penalizeWrongDeparture: 1
   deadline: 0

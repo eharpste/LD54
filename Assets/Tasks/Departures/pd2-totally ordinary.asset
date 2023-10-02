@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: flyby-6
+  m_Name: pd2-totally ordinary
   m_EditorClassIdentifier: 
-  taskName: View of What?
-  pilotBlurb: Yeah, I promised the passengers the best view in the area, and that's
-    you guys! I'll try to stay out of your way.
-  value: 50
-  cargoType: 1
-  taskType: 2
+  taskName: Totally Ordinary
+  pilotBlurb: Time to send out the standard flight to San Aragio. It's just your
+    typical load of tourists, suits, and exhausted parents. Nothing unusual to see
+    here.
+  value: 10
+  cargoType: 0
+  taskType: 0
   responsive: 1
-  shipName: SL P-90 Picturesque
-  fuel: 9
-  destination: 2
+  shipName: 
+  fuel: 20
+  destination: 4
   penalizeWrongDeparture: 1
-  deadline: 0
+  deadline: 25

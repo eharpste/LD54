@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: cargo-departure-4
+  m_Name: pd5-famous flyer
   m_EditorClassIdentifier: 
-  taskName: I Scream, You Scream
-  pilotBlurb: We've got five tons of ice cream to ship that will melt if we don't
-    get it up in the air soon! Please hurry, no one will buy melted ice cream!
-  value: 800
-  cargoType: 0
+  taskName: Famous Flyer
+  pilotBlurb: The incredibly elusive DJ Foxman is here, and he wants a flight to
+    Emanda! Quick, get the living legend a plane!
+  value: 900
+  cargoType: 1
   taskType: 1
   responsive: 1
   shipName: 
   fuel: 20
-  destination: 3
+  destination: 4
   penalizeWrongDeparture: 1
-  deadline: 10
+  deadline: 50

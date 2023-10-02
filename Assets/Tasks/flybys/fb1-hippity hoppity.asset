@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: cargo-arrival-5
+  m_Name: fb1-hippity hoppity
   m_EditorClassIdentifier: 
-  taskName: Were You Raised in a Barn?
-  pilotBlurb: The livestock in my hold are driving me nuts with their smell, please
-    get me landed so I can get some fresh air!
-  value: 10
+  taskName: Hippity Hoppity
+  pilotBlurb: Heads up, I'm carrying a load of live toads and they're frisky, I'll
+    need to cut through your airspace
+  value: 50
   cargoType: 0
-  taskType: 0
+  taskType: 2
   responsive: 1
-  shipName: SL C-23 Moonster
-  fuel: 18
-  destination: 0
-  penalizeWrongDeparture: 0
+  shipName: SL C-03 Frogger
+  fuel: 14
+  destination: 3
+  penalizeWrongDeparture: 1
   deadline: 0

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-departure-4
+  m_Name: pd1-shuffling stewards
   m_EditorClassIdentifier: 
-  taskName: Funny Business
-  pilotBlurb: I've got a tiny car full of clowns here that need to rejoin the rest
-    of their troupe. Too bad their clown car can't fly.
-  value: 700
+  taskName: Shuffling Stewards
+  pilotBlurb: We need to send a few flight attendents over to Reshane Town. Sleepy
+    place, I know, but we can't run tomorrow's flights without them.
+  value: 100
   cargoType: 1
   taskType: 1
   responsive: 1
   shipName: 
   fuel: 20
-  destination: 2
+  destination: 3
   penalizeWrongDeparture: 1
-  deadline: 50
+  deadline: 30

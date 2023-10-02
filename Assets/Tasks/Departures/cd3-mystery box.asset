@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-departure-2
+  m_Name: cd3-mystery box
   m_EditorClassIdentifier: 
-  taskName: Totally Ordinary
-  pilotBlurb: Time to send out the standard flight to San Aragio. It's just your
-    typical load of tourists, suits, and exhausted parents. Nothing unusual to see
-    here.
-  value: 10
+  taskName: Mystery Box
+  pilotBlurb: Galactic Unlimited is contracting us to ship some mysterious boxes
+    again. Why don't they use their own ships? Well, who knows why those guys do
+    anything that they do...
+  value: 600
   cargoType: 0
-  taskType: 0
+  taskType: 1
   responsive: 1
   shipName: 
   fuel: 20
-  destination: 4
+  destination: 1
   penalizeWrongDeparture: 1
   deadline: 25

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: cargo-arrival-2
+  m_Name: pa3-twenty minute flight
   m_EditorClassIdentifier: 
-  taskName: Easy as Apple Pie
-  pilotBlurb: I've got a hold full of fruit and I'm almost out of gas! I need to
-    get to the ground before these apples turn to applesauce!
-  value: 300
-  cargoType: 0
+  taskName: Twenty Minute Flight
+  pilotBlurb: We're coming in from Emanda - yes, the city just an hour away. Yes,
+    people actually pay to fly instead of taking the train. I don't get it either.
+  value: 600
+  cargoType: 1
   taskType: 0
   responsive: 1
-  shipName: SL C-16 Tropica
-  fuel: 5
+  shipName: SL P-45 Hopper
+  fuel: 20
   destination: 0
   penalizeWrongDeparture: 0
   deadline: 0

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-arrival-4
+  m_Name: cd5-pumpkin spice
   m_EditorClassIdentifier: 
-  taskName: Take Our Leave and Go
-  pilotBlurb: The civvies on the plane have all started singing sea shanties together,
-    it's the strangest thing. Please get us landed before I go mad and join them.
-  value: 800
-  cargoType: 1
-  taskType: 0
+  taskName: At Least It's Not Pumpkin Spice
+  pilotBlurb: Pumpkins are all the rage in New Seattle right now. If we can just
+    ship some to the city, we'll make the big bucks!
+  value: 900
+  cargoType: 0
+  taskType: 1
   responsive: 1
-  shipName: SL P-28 Wellerman
-  fuel: 8
-  destination: 0
-  penalizeWrongDeparture: 0
-  deadline: 0
+  shipName: 
+  fuel: 20
+  destination: 4
+  penalizeWrongDeparture: 1
+  deadline: 30

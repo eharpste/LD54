@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-
     public static GameManager Instance { private set; get; }
 
     List<VehicleBehavior> Vehicles = new List<VehicleBehavior>();
@@ -50,9 +49,58 @@ public class GameManager : MonoBehaviour
         [SerializeField]
         public Task task;
         [SerializeField]
+        public bool randomizeEntrance;
+        [SerializeField]
         public Vector3 entranceLocation;
         [SerializeField]
         public int entranceHeading;
+    }
+
+    [ExecuteInEditMode]
+    public void RandomizeTaskLocations() {
+        Transform[] cardinals = new Transform[] {
+            GameObject.Find("Set/Terrain/ground/North").transform,
+            GameObject.Find("Set/Terrain/ground/East").transform,
+            GameObject.Find("Set/Terrain/ground/South").transform,
+            GameObject.Find("Set/Terrain/ground/West").transform
+        };
+
+        int[] headings = new int[] {
+            -90, 180, 90, 0
+        };
+    
+        foreach(TaskSpec spec in taskSpecs) {
+            switch (spec.task.taskType) {
+                case Task.TaskType.Departure:
+                    spec.entranceHeading = 0;
+                    spec.entranceLocation = new Vector3(0, 0, 0);
+                    if (spec.task.cargoType == Task.CargoType.Rocket) {
+                        spec.entranceLocation = new Vector3(-180, -180, -180);
+                    }
+                    break;
+                case Task.TaskType.Arrival:
+                case Task.TaskType.Flyby:
+                    if (spec.randomizeEntrance) {
+                        int randSide = Random.Range(0, 4);
+                        spec.entranceHeading = headings[randSide];
+                        switch (randSide) {
+                            case 0: //North
+                                spec.entranceLocation = new Vector3(9, Random.Range(3,7), Random.Range(1,8));
+                                break;
+                            case 1: // East
+                                spec.entranceLocation = new Vector3(Random.Range(1, 8), Random.Range(3, 7), 9);
+                                break;
+                            case 2: // South
+                                spec.entranceLocation = new Vector3(0, Random.Range(3, 7), Random.Range(1, 8));
+                                break;
+                            case 3: // West
+                                spec.entranceLocation = new Vector3(Random.Range(1, 8), Random.Range(3, 7), 0);
+                                break;
+                        }
+                    }
+                    break;
+            }
+        }
     }
 
 

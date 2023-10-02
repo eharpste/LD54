@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-departure-5
+  m_Name: pd3-medical emergency
   m_EditorClassIdentifier: 
-  taskName: Famous Flyer
-  pilotBlurb: The incredibly elusive DJ Foxman is here, and he wants a flight to
-    Emanda! Quick, get the living legend a plane!
-  value: 900
+  taskName: Medical Emergency
+  pilotBlurb: We've got a civilian here who needs to get to Umari City's hospital
+    ASAP for medical treatment. Get her in the air now!
+  value: 500
   cargoType: 1
   taskType: 1
   responsive: 1
   shipName: 
   fuel: 20
-  destination: 4
+  destination: 1
   penalizeWrongDeparture: 1
-  deadline: 50
+  deadline: 5

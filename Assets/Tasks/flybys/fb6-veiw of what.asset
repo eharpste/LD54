@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: cargo-departure-1
+  m_Name: fb6-veiw of what
   m_EditorClassIdentifier: 
-  taskName: Climate Change
-  pilotBlurb: The next load of snow gear is ready to head out to the coast. Why do
-    they keep ordering snow gear? Who knows...
-  value: 300
-  cargoType: 0
-  taskType: 1
+  taskName: View of What?
+  pilotBlurb: Yeah, I promised the passengers the best view in the area, and that's
+    you guys! I'll try to stay out of your way.
+  value: 50
+  cargoType: 1
+  taskType: 2
   responsive: 1
-  shipName: 
-  fuel: 20
+  shipName: SL P-90 Picturesque
+  fuel: 9
   destination: 2
   penalizeWrongDeparture: 1
-  deadline: 60
+  deadline: 0

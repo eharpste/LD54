@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: passenger-departure-1
+  m_Name: pa2-pain in the brain
   m_EditorClassIdentifier: 
-  taskName: Shuffling Stewards
-  pilotBlurb: We need to send a few flight attendents over to Reshane Town. Sleepy
-    place, I know, but we can't run tomorrow's flights without them.
-  value: 100
+  taskName: Pain in the Brain
+  pilotBlurb: "Pain in the Brain\tUgh, I have a migraine from the baby in back that's
+    been screaming all the way from New Seattle. Nothing special to report otherwise."
+  value: 400
   cargoType: 1
-  taskType: 1
+  taskType: 0
   responsive: 1
-  shipName: 
-  fuel: 20
-  destination: 3
-  penalizeWrongDeparture: 1
-  deadline: 30
+  shipName: SL P-22 Brainiac
+  fuel: 10
+  destination: 0
+  penalizeWrongDeparture: 0
+  deadline: 0

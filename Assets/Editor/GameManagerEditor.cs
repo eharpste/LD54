@@ -14,6 +14,10 @@ public class GameManagerEditor : Editor {
 
 
         EditorGUILayout.BeginVertical();
+        if(GUILayout.Button("Sort Task Specs")) {
+            manager.taskSpecs.Sort((a, b) => a.appearanceTime.CompareTo(b.appearanceTime));
+        }
+
         if (GUILayout.Button("Snap Entrance Locations")) {
             for (int i = 0; i < manager.taskSpecs.Count; i++) {
                 if (manager.taskSpecs[i].task.taskType == Task.TaskType.Departure) {
@@ -25,6 +29,10 @@ public class GameManagerEditor : Editor {
                 vec.z = Mathf.Round(vec.z );
                 manager.taskSpecs[i].entranceLocation = vec;
             }
+        }
+
+        if(GUILayout.Button("Randomize Locations")) {
+            manager.RandomizeTaskLocations();
         }
 
         EditorGUILayout.EndVertical();
@@ -52,4 +60,5 @@ public class GameManagerEditor : Editor {
 
         }
     }
+
 }

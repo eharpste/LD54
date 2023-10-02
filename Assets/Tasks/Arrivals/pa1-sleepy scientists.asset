@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: cargo-departure-3
+  m_Name: pa1-sleepy scientists
   m_EditorClassIdentifier: 
-  taskName: Mystery Box
-  pilotBlurb: Galactic Unlimited is contracting us to ship some mysterious boxes
-    again. Why don't they use their own ships? Well, who knows why those guys do
-    anything that they do...
-  value: 600
-  cargoType: 0
-  taskType: 1
+  taskName: Sleepy Scientists
+  pilotBlurb: I'm bringing in the usual rotation of scientists from the lab out in
+    the Duvant Desert. They're all asleep, so there's no rush to land.
+  value: 200
+  cargoType: 1
+  taskType: 0
   responsive: 1
-  shipName: 
-  fuel: 20
-  destination: 1
-  penalizeWrongDeparture: 1
-  deadline: 25
+  shipName: SL P-05 Sandy
+  fuel: 16
+  destination: 0
+  penalizeWrongDeparture: 0
+  deadline: 0
