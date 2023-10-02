@@ -264,7 +264,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
 
 
     protected virtual void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Edge") && currentTask.destination != Task.Destination.Local) {
+        if(other.gameObject.CompareTag("Edge")) {
             Task.Destination departureDirection = other.gameObject.name switch {
                 "North" => Task.Destination.North,
                 "South" => Task.Destination.South,
@@ -275,6 +275,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
             };
             Depart(departureDirection);
         }
+        
     }
 
     protected abstract IEnumerator SimulateCommandCoroutine(float secondsPerStep, Command command);
