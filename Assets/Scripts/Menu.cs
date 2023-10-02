@@ -53,6 +53,27 @@ public class Menu : MonoBehaviour
 	//	return canvasGroups[0].interactable;
 	//}
 
+
+	public void DisableThis()
+	{
+		CanvasGroup cg = GetComponent<CanvasGroup>();
+		cg.interactable = false;
+		cg.alpha = 0;
+		cg.blocksRaycasts = false;
+	}
+
+	public void EnableThis()
+	{
+		CanvasGroup cg = GetComponent<CanvasGroup>();
+
+		cg.interactable = true;
+		cg.alpha = 1;
+		cg.blocksRaycasts = true;
+	}
+
+
+
+
 	public void Disable(CanvasGroup cg)
 	{
 		cg.interactable = false;

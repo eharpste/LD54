@@ -78,10 +78,12 @@ public class GuiManager : MonoBehaviour
 	private void OnEnable()
 	{
 		Events.SelectVehicle += ShowMovementGui;
+		Events.UpdateVehicle += UpdateCommandList;
 	}
 	private void OnDisable()
 	{
 		Events.SelectVehicle -= ShowMovementGui;
+		Events.UpdateVehicle -= UpdateCommandList;
 	}
 
 
@@ -93,7 +95,7 @@ public class GuiManager : MonoBehaviour
 
 		if (GameManager.Instance.selectedVehicle != null)
 		{
-			InspectorGui.EnableAll();
+			InspectorGui.EnableThis();
 			VehicleName.text = GameManager.Instance.selectedVehicle.currentTask.shipName;
 			InspectorTaskFuel.text = GameManager.Instance.selectedVehicle.currentFuel.ToString();
 			InspectorTaskValue.text = GameManager.Instance.selectedVehicle.currentTask.value.ToString();
@@ -196,14 +198,26 @@ public class GuiManager : MonoBehaviour
 		}
     }
 
+	[ContextMenu("Update Command List")]
 	public void UpdateCommandList() {
 		if(GameManager.Instance.selectedVehicle != null) {
-			for(int i = 0; i < GameManager.Instance.selectedVehicle.CurrentCommandList.Count; i++) {
-				VehicleBehavior.Command command = GameManager.Instance.selectedVehicle.CurrentCommandList[i];
 
-				bool editable = GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Editing || GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Defaulting;
-				commandListElements[i].SetCommand(i, command.ToString(), spriteMap[command], editable);
+			int commandCount = GameManager.Instance.selectedVehicle.CurrentCommandList.Count;
 
+			for (int i = 0; i < commandListElements.Count; i++) {
+
+				if (i>=commandCount)
+				{
+					commandListElements[i].Hide();
+				}
+				else
+				{
+					commandListElements[i].Show();
+					VehicleBehavior.Command command = GameManager.Instance.selectedVehicle.CurrentCommandList[i];
+
+					bool editable = GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Editing || GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Defaulting;
+					commandListElements[i].SetCommand(i, command.ToString(), spriteMap[command], editable);
+				}
 			}
 		}
 	}

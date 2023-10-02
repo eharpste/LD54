@@ -10,7 +10,7 @@ public class ButtonCommand : MonoBehaviour
     public void SendCommandToGuiManager()
     {
         guiManager.SendCommandToSelectedVehicle(command);
-
+        Events.UpdateVehicleEvent();
 	}
     
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class CommandListElement : MonoBehaviour {
     public Image commandImage;
     public Text commandText;
@@ -31,4 +32,21 @@ public class CommandListElement : MonoBehaviour {
         }
     }
 
+    [ContextMenu("Hide")]
+    public void Hide()
+    {
+        CanvasGroup cg = GetComponent<CanvasGroup>();
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
+        cg.alpha = 0;
+    }
+
+	[ContextMenu("Show")]
+	public void Show()
+	{
+		CanvasGroup cg = GetComponent<CanvasGroup>();
+		cg.interactable = true;
+		cg.blocksRaycasts = true;
+		cg.alpha = 1;
+	}
 }
