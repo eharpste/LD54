@@ -8,8 +8,6 @@ using static VehicleBehavior;
 [RequireComponent(typeof(BoxCollider), typeof(Rigidbody))]
 public abstract class VehicleBehavior : MonoBehaviour {
 
-    private static int planeNameIndedx = 0;
-
     private static string[] NAMES = new string[] { "Crunchy", "Dollface", "Starsight", "Cuddly", "Zinger", "Ronin", "Groucho", "Starbreeze", "Hiccup", "Trendy", "Falcore", "Paradise",
     "Anthem", "Castle", "Zodiac", "Meagerie", "Gentleman", "Chai", "Mambo", "Melonball"};
 

@@ -82,7 +82,7 @@ public class Task : ScriptableObject {
     [Tooltip("How much is this task worth?")]
     public int value;
 
-    public enum CargoType { Cargo, Passenger, Rocket };
+    public enum CargoType { Cargo, Passenger, Rocket, LargeHauler };
     [Tooltip("What kind of cargo are we carrying? Implicitly, what kind of vehicle is it?")]
     public CargoType cargoType;
 

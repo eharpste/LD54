@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject planePrefab;
     public GameObject hoverLanderPrefab;
     public GameObject rocketPrefab;
+    public GameObject largeHaulerPrefab;
     public GameObject warningSignPrefab;
 
     private List<GameObject> warningMarkers = new List<GameObject>();
@@ -52,8 +53,6 @@ public class GameManager : MonoBehaviour
         public bool randomizeEntrance;
         [SerializeField]
         public Vector3 entranceLocation;
-        [SerializeField]
-        public int entranceHeading;
     }
 
     [ExecuteInEditMode]
@@ -64,15 +63,10 @@ public class GameManager : MonoBehaviour
             GameObject.Find("Set/Terrain/ground/South").transform,
             GameObject.Find("Set/Terrain/ground/West").transform
         };
-
-        int[] headings = new int[] {
-            -90, 180, 90, 0
-        };
     
         foreach(TaskSpec spec in taskSpecs) {
             switch (spec.task.taskType) {
                 case Task.TaskType.Departure:
-                    spec.entranceHeading = 0;
                     spec.entranceLocation = new Vector3(0, 0, 0);
                     if (spec.task.cargoType == Task.CargoType.Rocket) {
                         spec.entranceLocation = new Vector3(-180, -180, -180);
@@ -82,7 +76,6 @@ public class GameManager : MonoBehaviour
                 case Task.TaskType.Flyby:
                     if (spec.randomizeEntrance) {
                         int randSide = Random.Range(0, 4);
-                        spec.entranceHeading = headings[randSide];
                         switch (randSide) {
                             case 0: //North
                                 spec.entranceLocation = new Vector3(9, Random.Range(3,7), Random.Range(1,8));
@@ -282,10 +275,25 @@ public class GameManager : MonoBehaviour
             switch (spec.task.taskType) {
                 case Task.TaskType.Arrival:
                 case Task.TaskType.Flyby:
+                    int heading = 0;
+                    /// <summary>
+                    /// North = Positive Z, heading -90, x=9
+                    /// West = Positive X, heading 0, z=9
+                    /// East = Negative X, heading 180, z=0
+                    /// South = Negative Z, heading 90, x=0
+                    /// </summary>
+                    if (spec.entranceLocation.x == 9) { heading = -90; }
+                    else if(spec.entranceLocation.x == 0) { heading = 90; }
+                    else if(spec.entranceLocation.z == 0) { heading = 180; }
+                    else if(spec.entranceLocation.z == 9) { heading = 0; }
+                    else { Debug.LogWarningFormat("Don't know how to align EntranceLocation {0} setting identity.", spec.entranceLocation); }
+
+
                     GameObject instantiatedPrefab =  spec.task.cargoType switch {
-                        Task.CargoType.Passenger => Instantiate(planePrefab, spec.entranceLocation, Quaternion.Euler(0,spec.entranceHeading,0)),
-                        Task.CargoType.Cargo => Instantiate(hoverLanderPrefab, spec.entranceLocation, Quaternion.Euler(0,spec.entranceHeading,0)),
-                        Task.CargoType.Rocket => Instantiate(rocketPrefab, spec.entranceLocation, Quaternion.Euler(0, spec.entranceHeading, 0)),
+                        Task.CargoType.Passenger => Instantiate(planePrefab, spec.entranceLocation, Quaternion.Euler(0, heading, 0)),
+                        Task.CargoType.Cargo => Instantiate(hoverLanderPrefab, spec.entranceLocation, Quaternion.Euler(0,heading,0)),
+                        Task.CargoType.Rocket => Instantiate(rocketPrefab, spec.entranceLocation, Quaternion.Euler(0, heading, 0)),
+                        Task.CargoType.LargeHauler => Instantiate(largeHaulerPrefab, spec.entranceLocation, Quaternion.Euler(0, heading, 0)),
                         _ => null,
                     };
                     if (instantiatedPrefab != null) {

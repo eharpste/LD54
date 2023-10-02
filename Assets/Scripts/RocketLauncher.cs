@@ -18,7 +18,7 @@ public class RocketLauncher : Landing  {
 
     public override void SimulateStep(float stepTime) {
         if (!AvailableToLaunch) {
-            Debug.LogFormat("{0} is going to stage {1}", gameObject.name, GameManager.Instance.CurrentTime - startLaunchtime);
+            //Debug.LogFormat("{0} is going to stage {1}", gameObject.name, GameManager.Instance.CurrentTime - startLaunchtime);
             switch (GameManager.Instance.CurrentTime - startLaunchtime) {
                 case 1:                    
                     StartCoroutine(Stage1(stepTime));
@@ -58,7 +58,7 @@ public class RocketLauncher : Landing  {
         Vector3 rocketStart = transform.position - Vector3.up * 2;
         currentRocket.transform.position = rocketStart;
         Vector3 rocketTarget = transform.position - Vector3.up * 1.6f;
-        Debug.LogFormat("moving rocket from {0} to {1}", rocketStart, rocketTarget);
+        //Debug.LogFormat("moving rocket from {0} to {1}", rocketStart, rocketTarget);
         
         while(Time.time - startTime < stepTime) {
             float t = (Time.time - startTime) / stepTime;
@@ -96,7 +96,7 @@ public class RocketLauncher : Landing  {
         }
         currentRocket.transform.position = rocketTarget;
         scaffolding.localPosition = scaffoldingTarget;
-        Debug.LogFormat("{0} Reached end of stage 2", gameObject.name);
+        //Debug.LogFormat("{0} Reached end of stage 2", gameObject.name);
         Ready = true;
         yield break;
     }
