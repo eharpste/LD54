@@ -190,7 +190,9 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void SetCommands(List<Command> commands) {
         CurrentCommandList = commands;
         commandExecutionState = CommandExecutionState.Executing;
-    }
+        currentCommand = -1;
+
+	}
 
     private void OnCollisionEnter(Collision collision) {
         switch(collision.gameObject.tag) {

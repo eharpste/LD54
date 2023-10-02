@@ -28,19 +28,26 @@ public class HoverPad : Landing {
         Vector3 initialPosition = vehicle.transform.position;
         Quaternion initialRotation = vehicle.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0, landingHeading, 0);
-        float startTime = Time.time;
+        Vector3 globalLandingPosition = this.transform.TransformPoint(landingPosition);
+
+		float startTime = Time.time;
         float duration = 1f;
         while(Time.time - startTime < duration) {
-            vehicle.transform.transform.position = Vector3.Lerp(initialPosition, landingPosition, Time.time-startTime / duration);
+            vehicle.transform.transform.position = Vector3.Lerp(initialPosition, globalLandingPosition, Time.time-startTime / duration);
             vehicle.transform.rotation = Quaternion.Lerp(initialRotation, targetRotation, Time.time - startTime / duration);
             yield return null;
         }
-        vehicle.transform.position = landingPosition;
+        vehicle.transform.position = globalLandingPosition;
         vehicle.transform.rotation = targetRotation;
         Ready = true;
         lastLandingTime = GameManager.Instance.CurrentTime;
     }
 
+    [ContextMenu("LaunchVehicle")]
+    public void LaunchDockedVehicle()
+    {
+        LaunchVehicle(vehicles[0]);
+	}
 
     public override void LaunchVehicle(VehicleBehavior vehicle) {
         vehicles.Remove(vehicle);
