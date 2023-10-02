@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
+  m_Name: flyby-6
+  m_EditorClassIdentifier: 
+  taskName: View of What?
+  pilotBlurb: Yeah, I promised the passengers the best view in the area, and that's
+    you guys! I'll try to stay out of your way.
+  value: 50
+  cargoType: 1
+  taskType: 2
+  responsive: 1
+  shipName: SL P-90 Picturesque
+  fuel: 9
+  destination: 2
+  penalizeWrongDeparture: 1
+  deadline: 0

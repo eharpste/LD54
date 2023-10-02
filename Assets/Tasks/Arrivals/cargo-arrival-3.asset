@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
+  m_Name: cargo-arrival-3
+  m_EditorClassIdentifier: 
+  taskName: Postal Service
+  pilotBlurb: Coming in with the daily mail. ... yes, physical mail. Amazing that
+    people still use it, huh?
+  value: 500
+  cargoType: 0
+  taskType: 0
+  responsive: 1
+  shipName: SL C-41 Postal
+  fuel: 15
+  destination: 0
+  penalizeWrongDeparture: 0
+  deadline: 15

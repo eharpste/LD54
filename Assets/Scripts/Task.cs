@@ -4,16 +4,15 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Task", menuName = "ScriptableObjects/Task", order = 1)]
 public class Task : ScriptableObject {
-    [Tooltip("A narrative name for the ship / type of ship.")]
-    public string shipName;
+
+    [Tooltip("The Display name of the task.")]
+    public string taskName;
+
+
 
     [Tooltip("A short narrative message about the task framed as a message from the pilot.")]
     [TextArea(3,8)]
     public string pilotBlurb;
-
-
-    [Tooltip("How many timesteps the player has to start the task before it dissapears")]
-    public int deadline;
 
     [Tooltip("How much is this task worth?")]
     public int value;
@@ -25,7 +24,7 @@ public class Task : ScriptableObject {
     public enum TaskType { Arrival, Departure, Flyby };
     public TaskType taskType;
 
-    [Tooltip("If False, the ship will not allow commands.")]
+    [Tooltip("If False, the ship will not allow commands. Used for Galatic Unlimited ships.")]
     public bool responsive = true;
 
     /// <summary>
@@ -45,11 +44,19 @@ public class Task : ScriptableObject {
 
 
     [Header("Used by Arrival and Flyby Tasks")]
+    [Tooltip("A narrative name for the ship / type of ship. *Ignored by Departures*")]
+    public string shipName;
+    [Tooltip("How much fuel does the ship arrive with? *Ignored by Departures*")]
     public int fuel;
 
     [Header("Used by Departure Tasks")]
+    [Tooltip("Where is the ship going? *Ignored by Arrivals*")]
     public Destination destination;
+    [Tooltip("Should the player be penalized for departing in the wrong direction? *Ignored by Arrivals*")]
     public bool penalizeWrongDeparture = true;
+    [Tooltip("How many timesteps the player has to start the task before it dissapears. *Ignored by Arrivals*")]
+    public int deadline;
+
 
     public Task() {
         deadline = 0;
