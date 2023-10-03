@@ -1955,6 +1955,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8649840704507084853, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6046154948723213840}
+    - target: {fileID: 8649840704507084853, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendResetCommandToGameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649840704507084853, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GuiManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8876388392908285407, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
