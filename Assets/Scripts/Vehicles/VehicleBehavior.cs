@@ -30,18 +30,6 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Unload
     }
 
-    //public enum CommandLoopStyle {
-    //    LoopWholeList,
-    //    LoopLast,
-    //    Default
-    //}
-
-    //public enum CommandEditMode {
-    //    NotEditable,
-    //    EditOnLoop,
-    //    EditPassedList
-    //}
-
     public enum FlightState {
         Grounded,
         Flying,
@@ -60,10 +48,21 @@ public abstract class VehicleBehavior : MonoBehaviour {
     
     public List<Command> PrevCommandList = new List<Command>();
     [Tooltip("Note that you're usually not supposed to have access to all of these commands in all contexts.")]
-    public Command CurrentCommand;
+    public Command CurrentCommand {
+        get {
+            if(CommandQueue.Count > 0) {
+                return CommandQueue[0];
+            }
+            else {
+                return defaultCommand;
+            }
+        }
+    }
     public List<Command> CommandQueue = new List<Command>();
-    public int currentCommandIndex { get; protected set; } = -1;
+
     public CommandExecutionState commandExecutionState = CommandExecutionState.Defaulting;
+
+    public bool LoopCommandList = false;
 
     //public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
     public Command defaultCommand = Command.Idle;
@@ -86,20 +85,21 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Ready = true;
     }
 
-    public void AdvanceCommand()
-    {
-		if (CommandQueue.Count > 0)
-        {
-			CurrentCommand = CommandQueue[0];
+    public void AdvanceCommand() {
+		if (CommandQueue.Count > 0) {
 			CommandQueue.RemoveAt(0);
 		}
-        else
-        {
-            CurrentCommand = defaultCommand;
-
-		}
-		
-
+        else {
+            if (LoopCommandList && PrevCommandList.Count > 0) {
+                CommandQueue.AddRange(PrevCommandList);
+            }
+            else {
+                commandExecutionState = CommandExecutionState.Defaulting;
+            }
+            if (flightState == FlightState.Launching) {
+                flightState = FlightState.Flying;
+            }
+        }
 	}
 
     public void RemoveCommand(int index) {
@@ -118,7 +118,8 @@ public abstract class VehicleBehavior : MonoBehaviour {
         switch (commandExecutionState) {
             case CommandExecutionState.Defaulting:
             case CommandExecutionState.Editing:
-                CommandQueue = PrevCommandList;
+                CommandQueue.Clear();
+                CommandQueue.AddRange(PrevCommandList);
                 commandExecutionState = CommandExecutionState.Editing;
                 break;   
         }
@@ -156,37 +157,45 @@ public abstract class VehicleBehavior : MonoBehaviour {
 
     public void SimulateNextCommand(float stepTime) {
         Command command = defaultCommand;
-        switch (commandExecutionState) {
-            case CommandExecutionState.Defaulting:
-                command = defaultCommand;
-                break;
-            case CommandExecutionState.Unavailable:
-                currentCommandIndex++;
-                if(CommandQueue.Count == 0) {
-                    goto case CommandExecutionState.Defaulting;
-                }
-                command = CommandQueue[currentCommandIndex % CommandQueue.Count];
-                break;
-            case CommandExecutionState.Editing:
-                PrevCommandList.Clear();
-                PrevCommandList.AddRange(CommandQueue);
-                currentCommandIndex = -1;
-                commandExecutionState = CommandExecutionState.Executing;
-                goto case CommandExecutionState.Executing;
-            case CommandExecutionState.Executing:
-                currentCommandIndex++;
-                if (currentCommandIndex < CommandQueue.Count) {
-                    command = CommandQueue[currentCommandIndex];
-                }
-                else {
-                    commandExecutionState = CommandExecutionState.Defaulting;
-                    if(flightState == FlightState.Launching) {
-                        flightState = FlightState.Flying;
-                    }
-                }
-                break;
+        if(commandExecutionState == CommandExecutionState.Editing) {
+            PrevCommandList.Clear();
+            PrevCommandList.AddRange(CommandQueue);
+            commandExecutionState = CommandExecutionState.Executing;
         }
-        StartCoroutine(SimulateCommandCoroutine(stepTime, command));
+
+
+        //switch (commandExecutionState) {
+        //    case CommandExecutionState.Defaulting:
+        //        command = defaultCommand;
+        //        break;
+        //    case CommandExecutionState.Unavailable:
+        //        if(CommandQueue.Count == 0) {
+        //            goto case CommandExecutionState.Defaulting;
+        //        }
+        //        command = CommandQueue[currentCommandIndex % CommandQueue.Count];
+        //        break;
+        //    case CommandExecutionState.Editing:
+        //        PrevCommandList.Clear();
+        //        PrevCommandList.AddRange(CommandQueue);
+        //        currentCommandIndex = -1;
+        //        commandExecutionState = CommandExecutionState.Executing;
+        //        goto case CommandExecutionState.Executing;
+        //    case CommandExecutionState.Executing:
+        //        currentCommandIndex++;
+        //        if (currentCommandIndex < CommandQueue.Count) {
+        //            command = CommandQueue[currentCommandIndex];
+        //        }
+        //        else {
+        //            commandExecutionState = CommandExecutionState.Defaulting;
+        //            if(flightState == FlightState.Launching) {
+        //                flightState = FlightState.Flying;
+        //            }
+        //        }
+        //        break;
+        //}
+
+
+        StartCoroutine(SimulateCommandCoroutine(stepTime, CurrentCommand));
 
         AdvanceCommand();
 
@@ -202,11 +211,14 @@ public abstract class VehicleBehavior : MonoBehaviour {
 		//}
 	}
 
+    /// <summary>
+    /// Sets the entire command queue and forces the vehicle into executing mode. Also clears the previous command list.
+    /// </summary>
+    /// <param name="commands"></param>
     public void SetCommands(List<Command> commands) {
+        PrevCommandList.Clear();
         CommandQueue = commands;
         commandExecutionState = CommandExecutionState.Executing;
-        currentCommandIndex = -1;
-
 	}
 
     private void OnCollisionEnter(Collision collision) {
