@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
   m_Name: RocketLaunch
   m_EditorClassIdentifier: 
-  shipName: GU X-04 Skypiercer
+  taskName: Clear The Way
   pilotBlurb: ~*# < CONNECTION REFUSED > &!~
-  deadline: 0
   value: 10
   cargoType: 2
   taskType: 1
   responsive: 0
+  shipName: GU X-04 Skypiercer
   fuel: 20
   destination: 5
   penalizeWrongDeparture: 0
+  deadline: 0

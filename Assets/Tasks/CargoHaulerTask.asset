@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaacc071ed16c56429199e4c7f2425a3, type: 3}
-  m_Name: CargoDelivery
+  m_Name: CargoHaulerTask
   m_EditorClassIdentifier: 
-  taskName: 
-  pilotBlurb: Tower we got a load of unobtanium ore bound for port.
+  taskName: Clear The Way
+  pilotBlurb: ~*# < CONNECTION REFUSED > &!~
   value: 10
-  cargoType: 3
-  taskType: 2
-  responsive: 0
-  shipName: GU X-02 Trundler
-  fuel: 100
-  destination: 1
+  cargoType: 0
+  taskType: 0
+  responsive: 1
+  shipName: 
+  fuel: 20
+  destination: 0
   penalizeWrongDeparture: 0
   deadline: 0

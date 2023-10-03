@@ -154,4 +154,20 @@ public class Task : ScriptableObject {
                 return 0.0f;
         }
     }
+
+    public Task Copy() {
+        Task task = ScriptableObject.CreateInstance<Task>();
+        task.taskName = taskName;
+        task.pilotBlurb = pilotBlurb;
+        task.value = value;
+        task.cargoType = cargoType;
+        task.taskType = taskType;
+        task.responsive = responsive;
+        task.shipName = shipName;
+        task.fuel = fuel;
+        task.destination = destination;
+        task.penalizeWrongDeparture = penalizeWrongDeparture;
+        task.deadline = deadline;
+        return task;
+    }
 }
