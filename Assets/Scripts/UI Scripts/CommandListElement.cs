@@ -11,14 +11,18 @@ public class CommandListElement : MonoBehaviour {
     public Button swapUp;
     public Button swapDown;
 
+    public int command_id;
+
     public void SetCommand(int idx, string commandName, Sprite commandSprite, bool editable) {
         commandImage.sprite = commandSprite;
         commandText.text = commandName;
         removeButton.interactable = editable;
-        swapUp. interactable = editable;
+        swapUp.interactable = editable;
         swapDown.interactable = editable;
+        command_id = idx;
 
-        if (idx == 0) {
+
+		if (idx == 0) {
             swapUp.gameObject.SetActive(false);
         }
         else {
@@ -32,7 +36,27 @@ public class CommandListElement : MonoBehaviour {
         }
     }
 
-    [ContextMenu("Hide")]
+    public void RemoveCommand()
+    {
+        GameManager.Instance.selectedVehicle.RemoveCommand(command_id);
+        Events.UpdateVehicleEvent();
+	}
+
+    public void Raise()
+    {
+        GameManager.Instance.selectedVehicle.SwapCommands(command_id, command_id - 1);
+        Events.UpdateVehicleEvent();
+	}
+
+	public void Lower()
+	{
+        if (GameManager.Instance.selectedVehicle.CommandQueue.Count < 4) return;
+
+		GameManager.Instance.selectedVehicle.SwapCommands(command_id, command_id + 1);
+		Events.UpdateVehicleEvent();
+	}
+
+	[ContextMenu("Hide")]
     public void Hide()
     {
         CanvasGroup cg = GetComponent<CanvasGroup>();

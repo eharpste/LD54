@@ -123,13 +123,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 6942946937177844880}
+        m_TargetAssemblyTypeName: CommandListElement, Assembly-CSharp
+        m_MethodName: RemoveCommand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -357,8 +357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 18.160004, y: -20}
-  m_SizeDelta: {x: 36.320007, y: 0}
+  m_AnchoredPosition: {x: 96, y: -270}
+  m_SizeDelta: {x: 192, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3979137889313554464
 CanvasRenderer:
@@ -442,13 +442,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 6942946937177844880}
+        m_TargetAssemblyTypeName: CommandListElement, Assembly-CSharp
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -610,8 +610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 18.160004, y: -60}
-  m_SizeDelta: {x: 36.320007, y: 0}
+  m_AnchoredPosition: {x: 96, y: -810}
+  m_SizeDelta: {x: 192, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &908750201781679334
 CanvasRenderer:
@@ -695,13 +695,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 6942946937177844880}
+        m_TargetAssemblyTypeName: CommandListElement, Assembly-CSharp
+        m_MethodName: Lower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -820,6 +820,7 @@ MonoBehaviour:
   removeButton: {fileID: 4053517631923729427}
   swapUp: {fileID: 6442216228369356680}
   swapDown: {fileID: 4113837868506033853}
+  command_id: 0
 --- !u!225 &3346851800710468502
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -945,7 +946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2, y: 1}
-  m_AnchoredPosition: {x: 3.9999099, y: 0}
+  m_AnchoredPosition: {x: 3.999939, y: 0}
   m_SizeDelta: {x: -8.000179, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3475743971688263918
