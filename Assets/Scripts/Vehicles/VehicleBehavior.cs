@@ -36,11 +36,10 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Launching
     }
 
-    public enum CommandExecutionState {
+    public enum CommandEditingState {
         Unavailable,
-        Defaulting,
+        Editable,
         Executing,
-        Editing
     }
 
     public Task currentTask;
@@ -60,7 +59,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
     }
     public List<Command> CommandQueue = new List<Command>();
 
-    public CommandExecutionState commandExecutionState = CommandExecutionState.Defaulting;
+    public CommandEditingState commandEdditingState = CommandEditingState.Editable;
 
     public bool LoopCommandList = false;
 
@@ -93,8 +92,8 @@ public abstract class VehicleBehavior : MonoBehaviour {
             if (LoopCommandList && PrevCommandList.Count > 0) {
                 CommandQueue.AddRange(PrevCommandList);
             }
-            else {
-                commandExecutionState = CommandExecutionState.Defaulting;
+            if (commandEdditingState != CommandEditingState.Executing) {
+                commandEdditingState = CommandEditingState.Editable;
             }
             if (flightState == FlightState.Launching) {
                 flightState = FlightState.Flying;
@@ -103,64 +102,64 @@ public abstract class VehicleBehavior : MonoBehaviour {
 	}
 
     public void RemoveCommand(int index) {
-        switch(commandExecutionState) {
-            case CommandExecutionState.Editing:
+        switch(commandEdditingState) {
+            case CommandEditingState.Editable:
                 CommandQueue.RemoveAt(index);
                 break;
-            case CommandExecutionState.Defaulting:
-                RepeatLastCommands();
-                commandExecutionState = CommandExecutionState.Editing;
-                goto case CommandExecutionState.Editing;
+            //case CommandExecutionState.Defaulting:
+            //    RepeatLastCommands();
+            //    commandExecutionState = CommandExecutionState.Editing;
+            //    goto case CommandExecutionState.Editing;
         }
     }
 
     public void RepeatLastCommands() {
-        switch (commandExecutionState) {
-            case CommandExecutionState.Defaulting:
-            case CommandExecutionState.Editing:
+        switch (commandEdditingState) {
+            //case CommandExecutionState.Defaulting:
+            case CommandEditingState.Editable:
                 CommandQueue.Clear();
                 CommandQueue.AddRange(PrevCommandList);
-                commandExecutionState = CommandExecutionState.Editing;
+                //commandExecutionState = CommandExecutionState.Editing;
                 break;   
         }
     }
 
     public void SwapCommands(int index1, int index2) {
-        switch (commandExecutionState) {
-            case CommandExecutionState.Editing:
+        switch (commandEdditingState) {
+            case CommandEditingState.Editable:
                 Command swap = CommandQueue[index1];
                 CommandQueue[index1] = CommandQueue[index2];
                 CommandQueue[index2] = swap;
                 break;
-            case CommandExecutionState.Defaulting:
-                RepeatLastCommands();
-                commandExecutionState = CommandExecutionState.Editing;
-                goto case CommandExecutionState.Editing;
+            //case CommandExecutionState.Defaulting:
+            //    RepeatLastCommands();
+            //    commandExecutionState = CommandExecutionState.Editing;
+            //    goto case CommandExecutionState.Editing;
         }
 
     }
 
     public void AddCommand(Command command) {
-        switch (commandExecutionState) {
-            case CommandExecutionState.Editing:
+        switch (commandEdditingState) {
+            case CommandEditingState.Editable:
                 if (CommandQueue.Count < commandLimit) {
                     CommandQueue.Add(command);
                 }
                 break;
-            case CommandExecutionState.Defaulting:
-                CommandQueue.Clear();
-                CommandQueue.Add(command);
-                commandExecutionState = CommandExecutionState.Editing;
-                break;
+            //case CommandExecutionState.Defaulting:
+            //    CommandQueue.Clear();
+            //    CommandQueue.Add(command);
+            //    commandExecutionState = CommandExecutionState.Editing;
+            //    break;
         }
     }
 
     public void SimulateNextCommand(float stepTime) {
         Command command = defaultCommand;
-        if(commandExecutionState == CommandExecutionState.Editing) {
+        if(commandEdditingState == CommandEditingState.Editable) {
             PrevCommandList.Clear();
             PrevCommandList.AddRange(CommandQueue);
-            commandExecutionState = CommandExecutionState.Executing;
+            commandEdditingState = CommandEditingState.Executing;
         }
 
 
@@ -218,7 +217,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void SetCommands(List<Command> commands) {
         PrevCommandList.Clear();
         CommandQueue = commands;
-        commandExecutionState = CommandExecutionState.Executing;
+        commandEdditingState = CommandEditingState.Executing;
 	}
 
     private void OnCollisionEnter(Collision collision) {

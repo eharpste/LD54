@@ -105,7 +105,7 @@ public class RocketLauncher : Landing  {
     IEnumerator Stage3(float stepTime) {
         Ready = false;
         currentRocket.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Raise, VehicleBehavior.Command.Raise, VehicleBehavior.Command.Raise, VehicleBehavior.Command.Raise });
-        currentRocket.commandExecutionState = VehicleBehavior.CommandExecutionState.Unavailable;
+        currentRocket.commandEdditingState = VehicleBehavior.CommandEditingState.Unavailable;
         currentRocket.flightState = VehicleBehavior.FlightState.Launching;
         Ready = true;
         //Activate the particle system

@@ -221,7 +221,7 @@ public class GuiManager : MonoBehaviour
 					commandListElements[i].Show();
 					VehicleBehavior.Command command = GameManager.Instance.selectedVehicle.CommandQueue[i];
 
-					bool editable = GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Editing || GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Defaulting;
+					bool editable = GameManager.Instance.selectedVehicle.commandEdditingState == VehicleBehavior.CommandEditingState.Editable;
 					commandListElements[i].SetCommand(i, command.ToString(), spriteMap[command], editable);
 				}
 			}
