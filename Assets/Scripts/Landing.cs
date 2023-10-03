@@ -20,7 +20,7 @@ public abstract class Landing : MonoBehaviour {
 
     public abstract void LandVehicle(VehicleBehavior vehicle);
 
-    public abstract void LaunchVehicle(VehicleBehavior vehicle);
+    public abstract void LaunchVehicle(VehicleBehavior vehicle, Task task=null);
 
 	public void LaunchFirstVehicle()
 	{

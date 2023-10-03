@@ -42,12 +42,13 @@ public class Runway : Landing
 		vehicles.Add(vehicle);
 	}
 
-    public override void LaunchVehicle(VehicleBehavior vehicle) {
+    public override void LaunchVehicle(VehicleBehavior vehicle, Task task=null) {
         if(!vehicles.Contains(vehicle)) {
             Debug.LogError("Vehicle not on runway, cannot launch");
             return;
         }
         //TODO animate the vehicle along the launch points
+        vehicle.currentTask = task;
         vehicle.transform.position = LaunchPath[0];
         vehicles.Remove(vehicle);
         StartCoroutine(TaxiOut(vehicle));

@@ -49,8 +49,9 @@ public class HoverPad : Landing {
         LaunchVehicle(vehicles[0]);
 	}
 
-    public override void LaunchVehicle(VehicleBehavior vehicle) {
+    public override void LaunchVehicle(VehicleBehavior vehicle, Task task = null) {
         vehicles.Remove(vehicle);
+        vehicle.currentTask = task;
         vehicle.currentFuel = vehicle.maxFuel;
         StartCoroutine(LiftOffLander(vehicle));
     }
@@ -63,10 +64,10 @@ public class HoverPad : Landing {
             vehicle.transform.rotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(0, launchHeading, 0), (Time.time - startTime) / 1);
             yield return null;
         }
-        vehicle.transform.rotation = Quaternion.identity;
+        vehicle.transform.rotation = Quaternion.Euler(0, launchHeading, 0);
         vehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Raise, VehicleBehavior.Command.Forward });
         vehicle.flightState = VehicleBehavior.FlightState.Launching;
-        vehicle.SimulateNextCommand(GameManager.Instance.secondsPerStep);
+        //vehicle.SimulateNextCommand(GameManager.Instance.secondsPerStep);
 
         Ready = true;
     }

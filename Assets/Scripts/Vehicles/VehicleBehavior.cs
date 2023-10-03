@@ -268,7 +268,10 @@ public abstract class VehicleBehavior : MonoBehaviour {
         rb.isKinematic = true;
         flightState = FlightState.Grounded;
         CommandQueue.Clear();
-        GameManager.Instance.ScoreTask(currentTask);
+        if (currentTask.taskType == Task.TaskType.Arrival) {
+            GameManager.Instance.ScoreTask(currentTask);
+            currentTask = null;
+        }
         if (landing != null) {
             landing.LandVehicle(this);
         }
