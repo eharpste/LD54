@@ -527,7 +527,7 @@ public class GameManager : MonoBehaviour
             }
             //create a random rocket task
             foreach (RocketLauncher launcher in RocketLaunchers) {
-                if (launcher.Ready) {
+                if (launcher.AvailableToLaunch) {
                     GameObject newRocket = Instantiate(rocketPrefab, launcher.transform.position + Vector3.down * 100, Quaternion.identity);
                     CreateWarning(launcher.transform.position + Vector3.up);
                     VehicleBehavior vehicleBehavior = newRocket.GetComponent<VehicleBehavior>();
