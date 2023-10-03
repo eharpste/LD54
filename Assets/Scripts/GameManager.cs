@@ -268,6 +268,8 @@ public class GameManager : MonoBehaviour
         foreach(Task task in dispatched) {
             pendingDepartures.Remove(task);
         }
+
+        Events.UpdateVehicleEvent();
     }
 
     public void SpawnTasks(List<TaskSpec> specs) {

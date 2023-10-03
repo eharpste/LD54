@@ -89,16 +89,22 @@ public abstract class VehicleBehavior : MonoBehaviour {
 			CommandQueue.RemoveAt(0);
 		}
         else {
-            if (LoopCommandList && PrevCommandList.Count > 0) {
-                CommandQueue.AddRange(PrevCommandList);
-            }
-            if (commandEdditingState != CommandEditingState.Executing) {
-                commandEdditingState = CommandEditingState.Editable;
-            }
-            if (flightState == FlightState.Launching) {
-                flightState = FlightState.Flying;
-            }
-        }
+			if (LoopCommandList && PrevCommandList.Count > 0)
+			{
+				CommandQueue.AddRange(PrevCommandList);
+			}
+
+			if (flightState == FlightState.Launching)
+			{
+				flightState = FlightState.Flying;
+			}
+		}
+
+		if ((commandEdditingState == CommandEditingState.Executing) && (CommandQueue.Count == 0))
+		{
+			commandEdditingState = CommandEditingState.Editable;
+		}
+
 	}
 
     public void RemoveCommand(int index) {
