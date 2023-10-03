@@ -60,8 +60,9 @@ public abstract class VehicleBehavior : MonoBehaviour {
     
     public List<Command> PrevCommandList = new List<Command>();
     [Tooltip("Note that you're usually not supposed to have access to all of these commands in all contexts.")]
-    public List<Command> CurrentCommandList = new List<Command>();
-    public int currentCommand { get; protected set; } = -1;
+    public Command CurrentCommand;
+    public List<Command> CommandQueue = new List<Command>();
+    public int currentCommandIndex { get; protected set; } = -1;
     public CommandExecutionState commandExecutionState = CommandExecutionState.Defaulting;
 
     //public CommandLoopStyle commandLoopStyle = CommandLoopStyle.Default;
@@ -85,10 +86,26 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Ready = true;
     }
 
+    public void AdvanceCommand()
+    {
+		if (CommandQueue.Count > 0)
+        {
+			CurrentCommand = CommandQueue[0];
+			CommandQueue.RemoveAt(0);
+		}
+        else
+        {
+            CurrentCommand = defaultCommand;
+
+		}
+		
+
+	}
+
     public void RemoveCommand(int index) {
         switch(commandExecutionState) {
             case CommandExecutionState.Editing:
-                CurrentCommandList.RemoveAt(index);
+                CommandQueue.RemoveAt(index);
                 break;
             case CommandExecutionState.Defaulting:
                 RepeatLastCommands();
@@ -101,7 +118,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
         switch (commandExecutionState) {
             case CommandExecutionState.Defaulting:
             case CommandExecutionState.Editing:
-                CurrentCommandList = PrevCommandList;
+                CommandQueue = PrevCommandList;
                 commandExecutionState = CommandExecutionState.Editing;
                 break;   
         }
@@ -110,9 +127,9 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void SwapCommands(int index1, int index2) {
         switch (commandExecutionState) {
             case CommandExecutionState.Editing:
-                Command swap = CurrentCommandList[index1];
-                CurrentCommandList[index1] = CurrentCommandList[index2];
-                CurrentCommandList[index2] = swap;
+                Command swap = CommandQueue[index1];
+                CommandQueue[index1] = CommandQueue[index2];
+                CommandQueue[index2] = swap;
                 break;
             case CommandExecutionState.Defaulting:
                 RepeatLastCommands();
@@ -125,13 +142,13 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void AddCommand(Command command) {
         switch (commandExecutionState) {
             case CommandExecutionState.Editing:
-                if (CurrentCommandList.Count < commandLimit) {
-                    CurrentCommandList.Add(command);
+                if (CommandQueue.Count < commandLimit) {
+                    CommandQueue.Add(command);
                 }
                 break;
             case CommandExecutionState.Defaulting:
-                CurrentCommandList.Clear();
-                CurrentCommandList.Add(command);
+                CommandQueue.Clear();
+                CommandQueue.Add(command);
                 commandExecutionState = CommandExecutionState.Editing;
                 break;
         }
@@ -144,22 +161,22 @@ public abstract class VehicleBehavior : MonoBehaviour {
                 command = defaultCommand;
                 break;
             case CommandExecutionState.Unavailable:
-                currentCommand++;
-                if(CurrentCommandList.Count == 0) {
+                currentCommandIndex++;
+                if(CommandQueue.Count == 0) {
                     goto case CommandExecutionState.Defaulting;
                 }
-                command = CurrentCommandList[currentCommand % CurrentCommandList.Count];
+                command = CommandQueue[currentCommandIndex % CommandQueue.Count];
                 break;
             case CommandExecutionState.Editing:
                 PrevCommandList.Clear();
-                PrevCommandList.AddRange(CurrentCommandList);
-                currentCommand = -1;
+                PrevCommandList.AddRange(CommandQueue);
+                currentCommandIndex = -1;
                 commandExecutionState = CommandExecutionState.Executing;
                 goto case CommandExecutionState.Executing;
             case CommandExecutionState.Executing:
-                currentCommand++;
-                if (currentCommand < CurrentCommandList.Count) {
-                    command = CurrentCommandList[currentCommand];
+                currentCommandIndex++;
+                if (currentCommandIndex < CommandQueue.Count) {
+                    command = CommandQueue[currentCommandIndex];
                 }
                 else {
                     commandExecutionState = CommandExecutionState.Defaulting;
@@ -171,24 +188,24 @@ public abstract class VehicleBehavior : MonoBehaviour {
         }
         StartCoroutine(SimulateCommandCoroutine(stepTime, command));
 
+        AdvanceCommand();
 
-
-        //if (CurrentCommandList.Count > 0 || commandLoopStyle == CommandLoopStyle.Default) {
-        //    currentCommand++;
-        //    Command command = commandLoopStyle switch {
-        //        CommandLoopStyle.LoopWholeList => CurrentCommandList[currentCommand % CurrentCommandList.Count],
-        //        CommandLoopStyle.LoopLast => currentCommand >= CurrentCommandList.Count ? CurrentCommandList[CurrentCommandList.Count - 1] : CurrentCommandList[currentCommand],
-        //        CommandLoopStyle.Default => currentCommand >= CurrentCommandList.Count ? defaultCommand : CurrentCommandList[currentCommand],
-        //        _ => CurrentCommandList[currentCommand]
-        //    };
-        //    StartCoroutine(SimulateCommandCoroutine(stepTime, command));
-        //}
-    }
+		//if (CurrentCommandList.Count > 0 || commandLoopStyle == CommandLoopStyle.Default) {
+		//    currentCommand++;
+		//    Command command = commandLoopStyle switch {
+		//        CommandLoopStyle.LoopWholeList => CurrentCommandList[currentCommand % CurrentCommandList.Count],
+		//        CommandLoopStyle.LoopLast => currentCommand >= CurrentCommandList.Count ? CurrentCommandList[CurrentCommandList.Count - 1] : CurrentCommandList[currentCommand],
+		//        CommandLoopStyle.Default => currentCommand >= CurrentCommandList.Count ? defaultCommand : CurrentCommandList[currentCommand],
+		//        _ => CurrentCommandList[currentCommand]
+		//    };
+		//    StartCoroutine(SimulateCommandCoroutine(stepTime, command));
+		//}
+	}
 
     public void SetCommands(List<Command> commands) {
-        CurrentCommandList = commands;
+        CommandQueue = commands;
         commandExecutionState = CommandExecutionState.Executing;
-        currentCommand = -1;
+        currentCommandIndex = -1;
 
 	}
 
@@ -233,7 +250,7 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Debug.LogFormat("Landed {0}", this.gameObject.name);
         rb.isKinematic = true;
         flightState = FlightState.Grounded;
-        CurrentCommandList.Clear();
+        CommandQueue.Clear();
         GameManager.Instance.ScoreTask(currentTask);
         if (landing != null) {
             landing.LandVehicle(this);

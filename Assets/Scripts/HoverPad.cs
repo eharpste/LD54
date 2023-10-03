@@ -18,8 +18,8 @@ public class HoverPad : Landing {
 
     public override void LandVehicle(VehicleBehavior vehicle) {
         vehicles.Add(vehicle);
-        vehicle.CurrentCommandList.Clear();
-        vehicle.CurrentCommandList.Add(VehicleBehavior.Command.Unload);
+        vehicle.CommandQueue.Clear();
+        vehicle.CommandQueue.Add(VehicleBehavior.Command.Unload);
         StartCoroutine(SettleLander(vehicle));
     }
 

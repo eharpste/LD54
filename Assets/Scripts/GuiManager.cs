@@ -202,7 +202,7 @@ public class GuiManager : MonoBehaviour
 	public void UpdateCommandList() {
 		if(GameManager.Instance.selectedVehicle != null) {
 
-			int commandCount = GameManager.Instance.selectedVehicle.CurrentCommandList.Count;
+			int commandCount = GameManager.Instance.selectedVehicle.CommandQueue.Count;
 
 			for (int i = 0; i < commandListElements.Count; i++) {
 
@@ -213,7 +213,7 @@ public class GuiManager : MonoBehaviour
 				else
 				{
 					commandListElements[i].Show();
-					VehicleBehavior.Command command = GameManager.Instance.selectedVehicle.CurrentCommandList[i];
+					VehicleBehavior.Command command = GameManager.Instance.selectedVehicle.CommandQueue[i];
 
 					bool editable = GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Editing || GameManager.Instance.selectedVehicle.commandExecutionState == VehicleBehavior.CommandExecutionState.Defaulting;
 					commandListElements[i].SetCommand(i, command.ToString(), spriteMap[command], editable);
