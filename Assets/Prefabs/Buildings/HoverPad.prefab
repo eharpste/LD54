@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3106321859578755498}
   - component: {fileID: 1059486421845085677}
   - component: {fileID: 1684838728736581473}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HoverPad
   m_TagString: LandingPad
   m_Icon: {fileID: 0}

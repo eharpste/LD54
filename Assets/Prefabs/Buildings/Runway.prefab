@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944522610858638087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Runway
   m_TagString: Runway
   m_Icon: {fileID: 0}
@@ -96,12 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a4f11fcabe784daf7f4b9027c6125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TaxiPoints:
-  - {x: 7, y: 0.5, z: 5}
-  - {x: 7, y: 0.15, z: 6}
-  - {x: 7, y: 0.15, z: 8}
-  - {x: 9, y: 0.15, z: 8}
-  launchPoint: {x: 7, y: 0.15, z: 8}
+  TaxiPath: []
+  LaunchPath: []
   launchHeading: 0
   heading: 0
 --- !u!1 &7258210180410434625
@@ -166,12 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a4f11fcabe784daf7f4b9027c6125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TaxiPoints:
-  - {x: 0, y: 0.5, z: 5}
-  - {x: 7, y: 0.15, z: 6}
-  - {x: 7, y: 0.15, z: 8}
-  - {x: 9, y: 0.15, z: 8}
-  launchPoint: {x: 7, y: 0.15, z: 8}
+  TaxiPath: []
+  LaunchPath: []
   launchHeading: 0
   heading: 0
 --- !u!1001 &1083900097903564969

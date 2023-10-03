@@ -75,12 +75,13 @@ public class GameManager : MonoBehaviour
     public bool isShipSelected = false;
     public VehicleBehavior selectedVehicle;
     public LayerMask vehicleMask;
+	public LayerMask LandingLocationMask;
 
-    //public List<Task> currentTasks = new List<Task>();
-    //These are any arrivals that will be appearing in the next time step
-    //public List<TaskSpec> pendingArrivals = new List<TaskSpec>();
-    //These are the departurs that haven't been handed to a vehicle yet.
-    public List<Task> pendingDepartures = new List<Task>();
+	//public List<Task> currentTasks = new List<Task>();
+	//These are any arrivals that will be appearing in the next time step
+	//public List<TaskSpec> pendingArrivals = new List<TaskSpec>();
+	//These are the departurs that haven't been handed to a vehicle yet.
+	public List<Task> pendingDepartures = new List<Task>();
 
     [HideInInspector]
     public ChallengeListSetting challengeListSetting = ChallengeListSetting.Loop;
