@@ -66,6 +66,7 @@ public class HoverPad : Landing {
         vehicle.transform.rotation = Quaternion.identity;
         vehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Raise, VehicleBehavior.Command.Forward });
         vehicle.flightState = VehicleBehavior.FlightState.Launching;
+        vehicle.SimulateNextCommand(GameManager.Instance.secondsPerStep);
 
         Ready = true;
     }

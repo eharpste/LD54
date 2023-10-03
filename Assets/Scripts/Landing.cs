@@ -21,4 +21,9 @@ public abstract class Landing : MonoBehaviour {
     public abstract void LandVehicle(VehicleBehavior vehicle);
 
     public abstract void LaunchVehicle(VehicleBehavior vehicle);
+
+	public void LaunchFirstVehicle()
+	{
+		LaunchVehicle(vehicles[0]);
+	}
 }

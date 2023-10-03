@@ -14,7 +14,6 @@ public class Runway : Landing
     public int heading;
 
     public override void LandVehicle(VehicleBehavior vehicle) {
-        vehicles.Add(vehicle);
         StartCoroutine(TaxiIn(vehicle));
         //animate the vehicle along the taxi points
     }
@@ -40,7 +39,8 @@ public class Runway : Landing
             vehicle.transform.position = TaxiPath[step];
         }
         Ready = true;
-    }
+		vehicles.Add(vehicle);
+	}
 
     public override void LaunchVehicle(VehicleBehavior vehicle) {
         if(!vehicles.Contains(vehicle)) {
@@ -57,7 +57,7 @@ public class Runway : Landing
         Ready = false;
         AvailableToLaunch = false;
         float stepStartTime;
-        vehicle.transform.position = TaxiPath[0];
+        vehicle.transform.position = LaunchPath[0];
         for(int step = 0; step < LaunchPath.Count; step++) {
             Vector3 initialPos = vehicle.transform.position;
             stepStartTime= Time.time;
@@ -72,9 +72,9 @@ public class Runway : Landing
         }
         stepStartTime = Time.time;
         Quaternion initialRot = vehicle.transform.rotation;
-        while(Time.time - stepStartTime < .75f) {
-            vehicle.transform.rotation = Quaternion.Lerp(initialRot, Quaternion.Euler(0, launchHeading, 0), (Time.time - stepStartTime) / .75f);
-        }
+        //while(Time.time - stepStartTime < .75f) {
+        //    vehicle.transform.rotation = Quaternion.Lerp(initialRot, Quaternion.Euler(0, launchHeading, 0), (Time.time - stepStartTime) / .75f);
+        //}
         vehicle.transform.rotation = Quaternion.Euler(0, launchHeading, 0);
         vehicle.currentFuel = vehicle.maxFuel;
         vehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Boost, VehicleBehavior.Command.Climb, VehicleBehavior.Command.Climb });

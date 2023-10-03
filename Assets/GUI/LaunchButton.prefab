@@ -123,9 +123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9019886880510012645}
-        m_TargetAssemblyTypeName: CommandListElement, Assembly-CSharp
-        m_MethodName: RemoveCommand
+      - m_Target: {fileID: 7983275469602561370}
+        m_TargetAssemblyTypeName: LaunchElement, Assembly-CSharp
+        m_MethodName: LaunchShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5085739578016008692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 96, y: -270}
-  m_SizeDelta: {x: 192, y: 0}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3048905009732993109
 CanvasRenderer:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9019886880510012645}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CommandListElement, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1
@@ -600,7 +600,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 96, y: -810}
-  m_SizeDelta: {x: 192, y: 0}
+  m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1291364717148550291
 CanvasRenderer:
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9019886880510012645}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CommandListElement, Assembly-CSharp
         m_MethodName: Lower
         m_Mode: 1
@@ -721,8 +721,8 @@ GameObject:
   - component: {fileID: 1119657319544551433}
   - component: {fileID: 6112041229904385862}
   - component: {fileID: 8533146444433410794}
-  - component: {fileID: 9019886880510012645}
   - component: {fileID: 3676408282888999907}
+  - component: {fileID: 7983275469602561370}
   m_Layer: 0
   m_Name: LaunchButton
   m_TagString: Untagged
@@ -791,24 +791,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9019886880510012645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9181905706976256365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4403741cc49a48c4281380b970d303df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  commandImage: {fileID: 0}
-  commandText: {fileID: 4034897735781297705}
-  removeButton: {fileID: 2681791252152120422}
-  swapUp: {fileID: 4904428408817588221}
-  swapDown: {fileID: 2621120954260287176}
-  command_id: 0
 --- !u!225 &3676408282888999907
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -821,3 +803,16 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7983275469602561370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181905706976256365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2357fb0c7317d7544914ac5064cc361f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipName: {fileID: 4034897735781297705}

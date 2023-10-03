@@ -22,33 +22,25 @@ public class GuiManager : MonoBehaviour
 
     public Text TimeLabel;
 	public Text ScoreLabel;
-	public Text VehicleName;
 	public RectTransform lineLocator;
 
+	[Header("Vehicles")]
+	public Text VehicleName;
     public Menu ManeuverGui;
-
 	public Menu InspectorGui;
 	public Text InspectorTaskFuel;
 	public Text InspectorTaskValue;
 	public Text InspectorTaskDescription;
 
+	[Header("Locations")]
+	public Menu LocationGui;
+	public Text LocationName;
+
 	public LineRenderer lineRenderer;
 
 	List<ButtonCommand>	commandButtons = new List<ButtonCommand>();
-
 	List<CommandListElement> commandListElements = new List<CommandListElement>();
 
-	public delegate void SelectVehicle();
-	public static event SelectVehicle OnSelectVehicle = delegate { };
-
-	public static void OnSelectVehicleEvent()
-	{
-		if (OnSelectVehicle != null)
-		{
-			Debug.Log("starting dialogue delegate");
-			OnSelectVehicle();
-		}
-	}
 
 	// Start is called before the first frame update
 	void Start()
@@ -79,18 +71,20 @@ public class GuiManager : MonoBehaviour
 	{
 		Events.SelectVehicle += ShowMovementGui;
 		Events.UpdateVehicle += UpdateCommandList;
+		Events.SelectLocation += ShowLocationGui;
 	}
 	private void OnDisable()
 	{
 		Events.SelectVehicle -= ShowMovementGui;
 		Events.UpdateVehicle -= UpdateCommandList;
+		Events.SelectLocation -= ShowLocationGui;
 	}
 
 
 	// Update is called once per frame
 	void Update()
-    {
-        TimeLabel.text = GameManager.Instance.CurrentTime.ToString();
+	{
+		TimeLabel.text = GameManager.Instance.CurrentTime.ToString();
 		ScoreLabel.text = GameManager.Instance.score.ToString();
 
 		if (GameManager.Instance.selectedVehicle != null)
@@ -101,31 +95,35 @@ public class GuiManager : MonoBehaviour
 			InspectorTaskValue.text = GameManager.Instance.selectedVehicle.currentTask.value.ToString();
 			InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.currentTask.pilotBlurb;
 			lineRenderer.enabled = true;
-			updateSelectionLine();
+			updateSelectionLine(GameManager.Instance.selectedVehicle.gameObject);
 
 		}
 		else
 		{
-			lineRenderer.enabled = false;
 			InspectorGui.DisableAll();
 			HideMovementGui();
 		}
 
-		//if (gameManager.isShipSelected && !ManeuverGui.is_Enabled())
-		//      {
-		//          ManeuverGui.EnableAll();
-		//      }
+		if (GameManager.Instance.selectedLocation != null)
+		{
+			LocationName.text = GameManager.Instance.selectedLocation.name.ToString();
+			lineRenderer.enabled = true;
+			updateSelectionLine(GameManager.Instance.selectedLocation.gameObject);
+		}
+		else
+		{
+			LocationGui.DisableThis();
+		}
 
-		//if (!gameManager.isShipSelected && ManeuverGui.is_Enabled())
-		//{
-		//	ManeuverGui.DisableAll();
-		//}
+		if ((GameManager.Instance.selectedVehicle == null) && (GameManager.Instance.selectedLocation == null)) {
+			lineRenderer.enabled = false;
+		}
 	}
 
-	void updateSelectionLine()
+	void updateSelectionLine(GameObject target)
 	{
 		RectTransform guiElement = lineLocator;
-		Transform targetTransform = GameManager.Instance.selectedVehicle.gameObject.transform;
+		Transform targetTransform = target.transform;
 		Vector3[] corners = new Vector3[4];
 		guiElement.GetWorldCorners(corners);
 		Vector3 frontPos = new Vector3(guiElement.position.x, guiElement.position.y, Camera.main.nearClipPlane);
@@ -159,7 +157,19 @@ public class GuiManager : MonoBehaviour
 		}
 	}
 
-    [ContextMenu("Hide Manuever Gui")]
+	[ContextMenu("Show Location Gui")]
+	void ShowLocationGui()
+	{
+		LocationGui.EnableThis();
+	}
+
+	[ContextMenu("Hide Location Gui")]
+	void HideLocationGui()
+	{
+		LocationGui.DisableThis();
+	}
+
+	[ContextMenu("Hide Manuever Gui")]
 	void HideMovementGui()
 	{
 		ManeuverGui.DisableAll();

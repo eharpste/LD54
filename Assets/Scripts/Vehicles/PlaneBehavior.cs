@@ -66,6 +66,9 @@ public class PlaneBehavior : VehicleBehavior {
 
     protected override void OnTriggerEnter(Collider other) {
         base.OnTriggerEnter(other);
+
+        if (flightState == FlightState.Grounded) return; //leave here, or we'll crash on takeoff
+
         if (other.gameObject.CompareTag("Runway") && currentTask.destination == Task.Destination.Local) {
             Runway runway = other.gameObject.GetComponent<Runway>();
             if (runway.heading == (int)transform.rotation.eulerAngles.y) {

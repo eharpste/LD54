@@ -12,11 +12,13 @@ public static class Events
 	public delegate void UpdateVehicleDelegate();
 	public static event UpdateVehicleDelegate UpdateVehicle = delegate { };
 
+	public delegate void SelectLocationDelegate();
+	public static event SelectLocationDelegate SelectLocation = delegate { };
+
 	public static void SelectVehicleEvent()
 	{
 		if (SelectVehicle != null)
 		{
-			Debug.Log("starting select event");
 			SelectVehicle();
 		}
 	}
@@ -24,9 +26,15 @@ public static class Events
 	{
 		if (UpdateVehicle != null)
 		{
-			Debug.Log("starting update event");
 			UpdateVehicle();
 		}
 	}
 
+	public static void SelectLocationEvent()
+	{
+		if (SelectLocation != null)
+		{
+			SelectLocation();
+		}
+	}
 }

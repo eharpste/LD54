@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
     [Header("Control Settings")]
     public bool isShipSelected = false;
     public VehicleBehavior selectedVehicle;
-    public LayerMask vehicleMask;
+	public Landing selectedLocation;
+	public LayerMask vehicleMask;
 	public LayerMask LandingLocationMask;
 
 	//public List<Task> currentTasks = new List<Task>();
@@ -245,29 +246,56 @@ public class GameManager : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			if (!EventSystem.current.IsPointerOverGameObject()) {
-				SelectVehicle();
+				SelectOnScreen();
 			}
 			
 		}
 	}
 
-    private void SelectVehicle()
+    private void SelectOnScreen()
     {
-		Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-		Debug.DrawRay(camRay.origin, camRay.direction * 1000, Color.white, 2f);
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Debug.DrawRay(camRay.origin, camRay.direction * 1000, Color.white, 2f);
 
-		RaycastHit hitInfo;
-		bool hit = Physics.Raycast(camRay, out hitInfo, 9999f, vehicleMask);
-        if (hit == false)
+		RaycastForVehicles(camRay);
+		RaycastforLocations(camRay);
+
+	}
+
+    private bool RaycastforLocations(Ray camRay)
+    {
+        RaycastHit hitLocInfo;
+        bool hitLocation = Physics.Raycast(camRay, out hitLocInfo, 9999f, LandingLocationMask);
+        if (hitLocation == true)
+        {
+			selectedVehicle = null;
+			selectedLocation = hitLocInfo.collider.gameObject.GetComponent<Landing>();
+            Events.SelectLocationEvent();
+            return true;
+        }
+        else
+        {
+            selectedLocation = null;
+            return false;
+        }
+    }
+
+    private bool RaycastForVehicles(Ray camRay)
+    {
+        RaycastHit hitInfo;
+        bool hitVehicle = Physics.Raycast(camRay, out hitInfo, 9999f, vehicleMask);
+        if (hitVehicle == true)
+        {
+			selectedVehicle = hitInfo.collider.gameObject.GetComponent<VehicleBehavior>();
+            Events.SelectVehicleEvent();
+            return true;
+        }
+        else
         {
             selectedVehicle = null;
-			return;
+            return false;
         }
-
-		selectedVehicle = hitInfo.collider.gameObject.GetComponent<VehicleBehavior>();
-
-        Events.SelectVehicleEvent();
-	}
+    }
 
     public void CreateWarning(Vector3 placement) {
         warningMarkers.Add(Instantiate(warningSignPrefab, placement, Quaternion.identity));
