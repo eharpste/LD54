@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class Landing : MonoBehaviour {
 
-    protected void Start() {
+    protected virtual void Start() {
         GameManager.Instance.AddLanding(this);
         Ready = true;
     }
@@ -22,8 +22,8 @@ public abstract class Landing : MonoBehaviour {
 
     public abstract void LaunchVehicle(VehicleBehavior vehicle, Task task=null);
 
-	public void LaunchFirstVehicle()
+	public virtual void LaunchNextAvailableVehicle(Task task = null)
 	{
-		LaunchVehicle(vehicles[0]);
+		LaunchVehicle(vehicles[0], task);
 	}
 }

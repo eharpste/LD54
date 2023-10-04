@@ -2,22 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HangarBehaivor : MonoBehaviour
-{
+public class HangarBehaivor : Landing {
 
-    List<VehicleBehavior> vehicles = new List<VehicleBehavior>();
+    public List<Runway> Runways = new List<Runway>();
+
+    public override bool AvailableToLaunch { 
+        get {
+            foreach(Runway runway in Runways) {
+                if (runway.AvailableToLaunch) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 
     public void AddVehicle(VehicleBehavior vehicle) {
-        vehicles.Add(vehicle);
+        this.vehicles.Add(vehicle);
     }
 
-    public void RemoveVehicle(VehicleBehavior vehicle) {
-        vehicles.Remove(vehicle);
+    public override void LandVehicle(VehicleBehavior vehicle) {
+        return;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void LaunchVehicle(VehicleBehavior vehicle, Task task = null) {
+        throw new System.NotImplementedException();
+    }
+
+    public override void LaunchNextAvailableVehicle(Task task = null) {
+        foreach(Runway runway in Runways) {
+            if (runway.AvailableToLaunch) {
+                runway.LaunchNextAvailableVehicle(task);
+                return;
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ public class LaunchElement : MonoBehaviour
 
 	public void LaunchShip()
 	{
-		GameManager.Instance.selectedLocation.LaunchFirstVehicle();
+		GameManager.Instance.selectedLocation.LaunchNextAvailableVehicle();
 	}
 
 }

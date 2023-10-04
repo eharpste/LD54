@@ -30,6 +30,13 @@ public class RunwayEditor : Editor
                 vec.z = Mathf.Round(vec.z * snapRes) / snapRes;
                 runway.TaxiPath[i] = vec;
             }
+            for (int i = 0; i < runway.LaunchPath.Count; i++) {
+                Vector3 vec = runway.LaunchPath[i];
+                vec.x = Mathf.Round(vec.x * snapRes) / snapRes;
+                vec.y = Mathf.Round(vec.y * snapRes) / snapRes;
+                vec.z = Mathf.Round(vec.z * snapRes) / snapRes;
+                runway.LaunchPath[i] = vec;
+            }
         }
 
         EditorGUILayout.EndVertical();

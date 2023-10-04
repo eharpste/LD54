@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class Runway : Landing
 {
-
+    [Tooltip("The hangarReference this runway is attached to.")]
+    public GameObject hangarReference;
+    private HangarBehaivor hangar;
     public List<Vector3> TaxiPath = new List<Vector3>();
     public List<Vector3> LaunchPath = new List<Vector3>();
     public int launchHeading;
 
     [Tooltip("What angle should a plane be facing to land here? In terms of rotation around y.")]
     public int heading;
+
+    override protected void Start() {
+        hangar = hangarReference.GetComponent<HangarBehaivor>();
+        hangar.Runways.Add(this);
+    }
 
     public override void LandVehicle(VehicleBehavior vehicle) {
         StartCoroutine(TaxiIn(vehicle));
@@ -39,18 +46,23 @@ public class Runway : Landing
             vehicle.transform.position = TaxiPath[step];
         }
         Ready = true;
-		vehicles.Add(vehicle);
+		//vehicles.Add(vehicle);
+        hangar.AddVehicle(vehicle);
 	}
 
+    public override void LaunchNextAvailableVehicle(Task task = null) {
+        throw new System.NotImplementedException();
+    }
+
     public override void LaunchVehicle(VehicleBehavior vehicle, Task task=null) {
-        if(!vehicles.Contains(vehicle)) {
-            Debug.LogError("Vehicle not on runway, cannot launch");
-            return;
-        }
+        //if(vehicles.Contains(vehicle)) {
+        //    Debug.LogError("Vehicle not on runway, cannot launch");
+        //    return;
+        //}
         //TODO animate the vehicle along the launch points
         vehicle.currentTask = task;
         vehicle.transform.position = LaunchPath[0];
-        vehicles.Remove(vehicle);
+        //vehsicles.Remove(vehicle);
         StartCoroutine(TaxiOut(vehicle));
     }
 
