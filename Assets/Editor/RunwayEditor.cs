@@ -11,11 +11,13 @@ public class RunwayEditor : Editor
     private bool showLaunchPath = true;
 
     private float snapResolution = 0.5f;
+    private float rollingHeight = 0.15f;
 
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
         Runway runway = (Runway)target;
 
+        rollingHeight = EditorGUILayout.FloatField("Rolling Height", rollingHeight);
         snapResolution = EditorGUILayout.FloatField("Snap Resolution", snapResolution);
         showTaxiPath = EditorGUILayout.Toggle("Show Taxi Path", showTaxiPath);
         showLaunchPath = EditorGUILayout.Toggle("Show Launch Path", showLaunchPath);
@@ -26,14 +28,14 @@ public class RunwayEditor : Editor
             for (int i = 0; i < runway.TaxiPath.Count; i++) {
                 Vector3 vec = runway.TaxiPath[i];
                 vec.x = Mathf.Round(vec.x * snapRes) / snapRes;
-                vec.y = Mathf.Round(vec.y * snapRes) / snapRes;
+                vec.y = Mathf.Clamp(Mathf.Round(vec.y * snapRes) / snapRes, rollingHeight, float.MaxValue);
                 vec.z = Mathf.Round(vec.z * snapRes) / snapRes;
                 runway.TaxiPath[i] = vec;
             }
             for (int i = 0; i < runway.LaunchPath.Count; i++) {
                 Vector3 vec = runway.LaunchPath[i];
                 vec.x = Mathf.Round(vec.x * snapRes) / snapRes;
-                vec.y = Mathf.Round(vec.y * snapRes) / snapRes;
+                vec.y = Mathf.Clamp(Mathf.Round(vec.y * snapRes) / snapRes, rollingHeight, float.MaxValue);
                 vec.z = Mathf.Round(vec.z * snapRes) / snapRes;
                 runway.LaunchPath[i] = vec;
             }
