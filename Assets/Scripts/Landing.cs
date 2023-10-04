@@ -22,6 +22,8 @@ public abstract class Landing : MonoBehaviour {
 
     public abstract void LaunchVehicle(VehicleBehavior vehicle, Task task=null);
 
+    public abstract List<Task> GetTaskList();
+
 	public virtual void LaunchNextAvailableVehicle(Task task = null)
 	{
 		LaunchVehicle(vehicles[0], task);

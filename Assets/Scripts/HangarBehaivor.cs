@@ -31,7 +31,10 @@ public class HangarBehaivor : Landing {
         throw new System.NotImplementedException();
     }
 
-    public override void LaunchNextAvailableVehicle(Task task = null) {
+	public override List<Task> GetTaskList()
+	{ return null; }
+
+	public override void LaunchNextAvailableVehicle(Task task = null) {
         foreach(Runway runway in Runways) {
             if (runway.AvailableToLaunch) {
                 runway.LaunchNextAvailableVehicle(task);

@@ -38,8 +38,20 @@ public class Runway : Landing
         AvailableToLaunch = true;
     }
 
+	public override List<Task> GetTaskList()
+	{
+		List<Task> outboundTasks = new List<Task>();
+		foreach (Task task in GameManager.Instance.outboundPassengerTasks)
+		{
+			if (GameManager.Instance.pendingDepartures.Contains(task))
+			{
+				outboundTasks.Add(task);
+			}
+		}
+		return outboundTasks;
+	}
 
-    IEnumerator TaxiIn(VehicleBehavior vehicle) {
+	IEnumerator TaxiIn(VehicleBehavior vehicle) {
         Ready = false;
         for (int step = 0; step < TaxiPath.Count; step++) {
             Vector3 initialPos = vehicle.transform.position;

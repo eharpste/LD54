@@ -35,6 +35,7 @@ public static class Events
 		if (SelectLocation != null)
 		{
 			SelectLocation();
+			Debug.Log("location");
 		}
 	}
 }

@@ -137,7 +137,11 @@ public class RocketLauncher : Landing  {
         Ready = true;
     }
 
-    public override void LaunchVehicle(VehicleBehavior vehicle, Task task = null) {
+    public override List<Task> GetTaskList()
+    { return null; }
+
+
+	public override void LaunchVehicle(VehicleBehavior vehicle, Task task = null) {
         if(!vehicle.GetType().Equals(typeof(RocketBehavior))) {
             Debug.LogErrorFormat("Trying to launch something that isn't a rocket from a rocket launcher");
         }

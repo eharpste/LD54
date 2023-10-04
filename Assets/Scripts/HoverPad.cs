@@ -70,6 +70,18 @@ public class HoverPad : Landing {
         StartCoroutine(LiftOffLander(vehicle));
     }
 
+    public override List<Task> GetTaskList()
+    {
+        List<Task> outboundTasks = new List<Task>();
+		foreach (Task task in GameManager.Instance.outboundCargoTasks)
+		{
+			if (GameManager.Instance.pendingDepartures.Contains(task)) {
+                outboundTasks.Add(task);
+			}
+		}
+        return outboundTasks;
+	}
+
     IEnumerator LiftOffLander(VehicleBehavior vehicle) {
         Ready = false;
         Quaternion initialRotation = vehicle.transform.rotation;

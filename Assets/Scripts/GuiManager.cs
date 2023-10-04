@@ -35,6 +35,8 @@ public class GuiManager : MonoBehaviour
 	[Header("Locations")]
 	public Menu LocationGui;
 	public Text LocationName;
+	public RectTransform taskRect;
+	public GameObject TaskButton;
 
 	public LineRenderer lineRenderer;
 
@@ -72,12 +74,14 @@ public class GuiManager : MonoBehaviour
 		Events.SelectVehicle += ShowMovementGui;
 		Events.UpdateVehicle += UpdateCommandList;
 		Events.SelectLocation += ShowLocationGui;
+		Events.SelectLocation += updateListOfDepartures;
 	}
 	private void OnDisable()
 	{
 		Events.SelectVehicle -= ShowMovementGui;
 		Events.UpdateVehicle -= UpdateCommandList;
 		Events.SelectLocation -= ShowLocationGui;
+		Events.SelectLocation -= updateListOfDepartures;
 	}
 
 
@@ -90,10 +94,13 @@ public class GuiManager : MonoBehaviour
 		if (GameManager.Instance.selectedVehicle != null)
 		{
 			InspectorGui.EnableThis();
-			VehicleName.text = GameManager.Instance.selectedVehicle.currentTask.shipName;
-			InspectorTaskFuel.text = GameManager.Instance.selectedVehicle.currentFuel.ToString();
-			InspectorTaskValue.text = GameManager.Instance.selectedVehicle.currentTask.value.ToString();
-			InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.currentTask.pilotBlurb;
+			if (GameManager.Instance.selectedVehicle.currentTask!=null)
+			{
+				VehicleName.text = GameManager.Instance.selectedVehicle.currentTask.shipName;
+				InspectorTaskFuel.text = GameManager.Instance.selectedVehicle.currentFuel.ToString();
+				InspectorTaskValue.text = GameManager.Instance.selectedVehicle.currentTask.value.ToString();
+				InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.currentTask.pilotBlurb;
+			}
 			lineRenderer.enabled = true;
 			updateSelectionLine(GameManager.Instance.selectedVehicle.gameObject);
 
@@ -117,6 +124,19 @@ public class GuiManager : MonoBehaviour
 
 		if ((GameManager.Instance.selectedVehicle == null) && (GameManager.Instance.selectedLocation == null)) {
 			lineRenderer.enabled = false;
+		}
+	}
+
+	public void updateListOfDepartures()
+	{
+		for (int i=0; i<taskRect.childCount; i++)
+		{
+			GameObject.Destroy(taskRect.GetChild(i).gameObject);
+		}
+		foreach (Task task in GameManager.Instance.selectedLocation.GetTaskList()) {
+			GameObject go = GameObject.Instantiate(TaskButton, taskRect);
+			Text text = go.GetComponentInChildren<Text>();
+			text.text = task.name;
 		}
 	}
 
@@ -236,6 +256,13 @@ public class GuiManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+
+
+	public void LaunchNextAvailableVehicle()
+	{
+		GameManager.Instance.selectedLocation.LaunchNextAvailableVehicle();
 	}
 
 }

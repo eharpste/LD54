@@ -83,6 +83,8 @@ MonoBehaviour:
   InspectorTaskDescription: {fileID: 4374031045713801642}
   LocationGui: {fileID: 8684385201039553614}
   LocationName: {fileID: 8684385201559204241}
+  taskRect: {fileID: 2964492015851818309}
+  TaskButton: {fileID: 7813904632715963528, guid: 0fbb4d656d99a44489880e0e39fe9544, type: 3}
   lineRenderer: {fileID: 725955269}
 --- !u!120 &725955269
 LineRenderer:
@@ -2780,6 +2782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 087d25532de4aed42b0bd94535317c34, type: 3}
+--- !u!224 &2964492015851818309 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6086977214715561503, guid: 087d25532de4aed42b0bd94535317c34, type: 3}
+  m_PrefabInstance: {fileID: 9032730253626231642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8684385200986088157 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 423221932473690503, guid: 087d25532de4aed42b0bd94535317c34, type: 3}
