@@ -38,17 +38,17 @@ public class Runway : Landing
         AvailableToLaunch = true;
     }
 
-	public override List<Task> GetTaskList()
-	{
-		List<Task> outboundTasks = new List<Task>();
-		foreach (Task task in GameManager.Instance.outboundPassengerTasks)
-		{
-			if (GameManager.Instance.pendingDepartures.Contains(task))
-			{
-				outboundTasks.Add(task);
-			}
-		}
-		return outboundTasks;
+	public override List<Task> GetTaskList() {
+        return null;
+		//List<Task> outboundTasks = new List<Task>();
+		//foreach (Task task in GameManager.Instance.outboundPassengerTasks)
+		//{
+		//	if (GameManager.Instance.pendingDepartures.Contains(task))
+		//	{
+		//		outboundTasks.Add(task);
+		//	}
+		//}
+		//return outboundTasks;
 	}
 
 	IEnumerator TaxiIn(VehicleBehavior vehicle) {

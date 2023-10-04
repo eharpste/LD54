@@ -31,8 +31,9 @@ public class HangarBehaivor : Landing {
         throw new System.NotImplementedException();
     }
 
-	public override List<Task> GetTaskList()
-	{ return null; }
+    public override List<Task> GetTaskList() {
+       return GameManager.Instance.GetPendingDepatures(Task.CargoType.Passenger);
+    }
 
 	public override void LaunchNextAvailableVehicle(Task task = null) {
         foreach(Runway runway in Runways) {

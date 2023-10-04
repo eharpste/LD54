@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2558291228323041554}
   - component: {fileID: 1061570410603277868}
   - component: {fileID: 989281666663768397}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Runway1
   m_TagString: Runway
   m_Icon: {fileID: 0}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a4f11fcabe784daf7f4b9027c6125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicles: []
   hangarReference: {fileID: 3815899002181128128}
   TaxiPath:
   - {x: 7, y: 0.5, z: 4.5}
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84967777119461f439433f8308af7bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicles: []
   Runways: []
 --- !u!1 &7258210180410434625
 GameObject:
@@ -179,7 +181,7 @@ GameObject:
   - component: {fileID: 2258244415525808343}
   - component: {fileID: 4798768934527237778}
   - component: {fileID: 5698792143641311551}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Runway2
   m_TagString: Runway
   m_Icon: {fileID: 0}
@@ -230,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99a4f11fcabe784daf7f4b9027c6125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicles: []
   hangarReference: {fileID: 3815899002181128128}
   TaxiPath:
   - {x: 3, y: 0.5, z: 8}

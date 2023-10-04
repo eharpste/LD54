@@ -60,12 +60,18 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> warningMarkers = new List<GameObject>();
 
-    public List<Task> inboundPassengerTasks = new List<Task>();
-    public List<Task> inboundCargoTasks = new List<Task>();
-    public List<Task> outboundPassengerTasks = new List<Task>();
-    public List<Task> outboundCargoTasks = new List<Task>();
-    public List<Task> flybyTasks = new List<Task>();
-    public Task largeHaulerTask;
+    [SerializeField]
+    private List<Task> inboundPassengerTasks = new List<Task>();
+    [SerializeField]
+    private List<Task> inboundCargoTasks = new List<Task>();
+    [SerializeField]
+    private List<Task> outboundPassengerTasks = new List<Task>();
+    [SerializeField]
+    private List<Task> outboundCargoTasks = new List<Task>();
+    [SerializeField]
+    private List<Task> flybyTasks = new List<Task>();
+    [SerializeField]
+    private Task largeHaulerTask;
 
     [Header("Time Settings")]
     public int CurrentTime = 0;
@@ -417,6 +423,16 @@ public class GameManager : MonoBehaviour
         //foreach (Task task in dispatched) {
         //    pendingDepartures.Remove(task);
         //}
+    }
+
+    public List<Task> GetPendingDepatures(Task.CargoType cargoType) {
+        List<Task> result = new List<Task>();
+        foreach (Task task in pendingDepartures) {
+            if (task.cargoType == cargoType) {
+                result.Add(task);
+            }
+        }
+        return result;
     }
 
 
