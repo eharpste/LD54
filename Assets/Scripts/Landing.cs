@@ -16,7 +16,7 @@ public abstract class Landing : MonoBehaviour {
 
     public virtual bool AvailableToLaunch { protected set; get; } = true;
 
-    protected List<VehicleBehavior> vehicles = new List<VehicleBehavior>();
+    public List<VehicleBehavior> vehicles = new List<VehicleBehavior>();
 
     public abstract void LandVehicle(VehicleBehavior vehicle);
 

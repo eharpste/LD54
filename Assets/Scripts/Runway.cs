@@ -16,8 +16,17 @@ public class Runway : Landing
     public int heading;
 
     override protected void Start() {
+        base.Start();
+        
+
         hangar = hangarReference.GetComponent<HangarBehaivor>();
         hangar.Runways.Add(this);
+        if (vehicles.Count > 0) {
+            foreach(VehicleBehavior vehicle in vehicles) {
+                hangar.AddVehicle(vehicle);
+            }
+            vehicles.Clear();
+        }
     }
 
     public override void LandVehicle(VehicleBehavior vehicle) {
@@ -71,7 +80,7 @@ public class Runway : Landing
         AvailableToLaunch = false;
         float stepStartTime;
         vehicle.transform.position = LaunchPath[0];
-        for(int step = 0; step < LaunchPath.Count; step++) {
+        for(int step = 1; step < LaunchPath.Count; step++) {
             Vector3 initialPos = vehicle.transform.position;
             stepStartTime= Time.time;
             while (Time.time - stepStartTime < 1) {

@@ -6271,15 +6271,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417432272562090899, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.124958925
+      value: 0.12495893
       objectReference: {fileID: 0}
     - target: {fileID: 1417432272562090899, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000014784366
+      value: -8.742552e-16
       objectReference: {fileID: 0}
     - target: {fileID: 1417432272562090899, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000018620332
+      value: -7.296031e-20
       objectReference: {fileID: 0}
     - target: {fileID: 2422631966385006541, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6287,11 +6287,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422631966385006541, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000034061024
+      value: -0.000000034061024
       objectReference: {fileID: 0}
     - target: {fileID: 2422631966385006541, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000004907653
+      value: 0.000000004907653
       objectReference: {fileID: 0}
     - target: {fileID: 2604486442972513221, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_FollowOffset.y
@@ -6359,11 +6359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788541276308752935, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001703051
+      value: -0.00000001703051
       objectReference: {fileID: 0}
     - target: {fileID: 4788541276308752935, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000024538258
+      value: 0.0000000024538258
       objectReference: {fileID: 0}
     - target: {fileID: 5130024411093092104, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_FollowOffset.y
@@ -6599,6 +6599,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runway
       objectReference: {fileID: 0}
+    - target: {fileID: 2828337632584406101, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341674993432638848, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5698792143641311551, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
       propertyPath: LaunchPath.Array.size
       value: 2
@@ -6675,7 +6683,9 @@ PrefabInstance:
       propertyPath: LaunchPath.Array.data[1].z
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7413253086051835355, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+    - {fileID: 4511812705772911977, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
 --- !u!4 &3134839346068135331 stripped
 Transform:
