@@ -10,10 +10,12 @@ public class Runway : Landing
     private HangarBehaivor hangar;
     public List<Vector3> TaxiPath = new List<Vector3>();
     public List<Vector3> LaunchPath = new List<Vector3>();
+
+    [Tooltip("What angle should the plane be placed to launch. In terms of rotation around y.")]
     public int launchHeading;
 
     [Tooltip("What angle should a plane be facing to land here? In terms of rotation around y.")]
-    public int heading;
+    public int landingHeading;
 
     override protected void Start() {
         base.Start();

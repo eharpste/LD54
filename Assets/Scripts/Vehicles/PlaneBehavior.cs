@@ -72,13 +72,13 @@ public class PlaneBehavior : VehicleBehavior {
 
         if (other.gameObject.CompareTag("Runway") && currentTask.destination == Task.Destination.Local) {
             Runway runway = other.gameObject.GetComponent<Runway>();
-            if (runway.heading == (int)transform.rotation.eulerAngles.y) {
+            if (runway.landingHeading == (int)transform.rotation.eulerAngles.y) {
                 Debug.Log("Landed on Runway");
                 //TODO this might be agressive if the colliders hit before the plane is actually on the ground
                 Land(runway);
             }
             else {
-                Debug.LogFormat("{0} hit Runway at {1} but expected {2}", gameObject.name, transform.rotation.eulerAngles.y, runway.heading);
+                Debug.LogFormat("{0} hit Runway at {1} but expected {2}", gameObject.name, transform.rotation.eulerAngles.y, runway.landingHeading);
                 Crash();
             }
         }

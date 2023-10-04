@@ -294,6 +294,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   verboseDebug: 1
+  CurrentTime: 0
+  secondsPerStep: 1
+  isShipSelected: 0
+  selectedVehicle: {fileID: 0}
+  selectedLocation: {fileID: 0}
+  vehicleMask:
+    serializedVersion: 2
+    m_Bits: 8
+  LandingLocationMask:
+    serializedVersion: 2
+    m_Bits: 128
+  ceiling: 6
+  floor: 3
   northX: 9
   southX: 0
   eastZ: 0
@@ -339,32 +352,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 923d073a3e5e4b647ac0ca461ad44fa5, type: 2}
   - {fileID: 11400000, guid: 9c8875110ed39924da0fbaf374ffe332, type: 2}
   largeHaulerTask: {fileID: 11400000, guid: 240280701db9e874b8a59c5d52a70810, type: 2}
-  CurrentTime: 0
-  secondsPerStep: 1
-  isShipSelected: 0
-  selectedVehicle: {fileID: 0}
-  selectedLocation: {fileID: 0}
-  vehicleMask:
-    serializedVersion: 2
-    m_Bits: 8
-  LandingLocationMask:
-    serializedVersion: 2
-    m_Bits: 128
-  pendingDepartures:
-  - {fileID: 11400000, guid: 02f05f7898349da4a847da57444a5e56, type: 2}
-  - {fileID: 11400000, guid: a969e3f5312e487428271fb060c748e6, type: 2}
   challengeListSetting: 2
   Challenges:
   - inboundCargo: 1
     inboundPassenger: 1
-    outboundCargo: 0
-    outboundPassenger: 0
+    outboundCargo: 1
+    outboundPassenger: 1
     flybys: 0
     rockets: 1
     haulers: 0
   - inboundCargo: 0
     inboundPassenger: 0
-    outboundCargo: 0
+    outboundCargo: 1
     outboundPassenger: 1
     flybys: 1
     rockets: 0
@@ -1886,7 +1885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6784110442444390838, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 36.320007
       objectReference: {fileID: 0}
     - target: {fileID: 6784110442444390838, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2034,7 +2033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260144651528418235, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 36.320007
       objectReference: {fileID: 0}
     - target: {fileID: 7260144651528418235, guid: 6e50801f3d55c544486abf1f7d190b2e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5761,11 +5760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422631966385006541, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003406243
+      value: 0.000000034061024
       objectReference: {fileID: 0}
     - target: {fileID: 2422631966385006541, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000004907855
+      value: -0.000000004907653
       objectReference: {fileID: 0}
     - target: {fileID: 2604486442972513221, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_FollowOffset.y
@@ -5793,11 +5792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3337284733173004369, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -3.4609648e-15
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 3337284733173004369, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 6.9407404e-16
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4336449952720877261, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_Follow
@@ -5833,11 +5832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788541276308752935, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017033331
+      value: 0.00000001703051
       objectReference: {fileID: 0}
     - target: {fileID: 4788541276308752935, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000024542322
+      value: -0.0000000024538258
       objectReference: {fileID: 0}
     - target: {fileID: 5130024411093092104, guid: c80207b3074e9d44b915765ba7273797, type: 3}
       propertyPath: m_FollowOffset.y
@@ -6008,6 +6007,18 @@ PrefabInstance:
     - target: {fileID: 2139780130038135894, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
       propertyPath: m_Name
       value: Runway
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698792143641311551, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: heading
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698792143641311551, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: launchHeading
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698792143641311551, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}
+      propertyPath: landingHeading
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336e69bc232902e4188363d4b55cc0d4, type: 3}

@@ -26,13 +26,27 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public bool verboseDebug = false;
 
+    [Header("Time Settings")]
+    public int CurrentTime = 0;
+    public float secondsPerStep = 1f;
+
+    [Header("Control Settings")]
+    public bool isShipSelected = false;
+    public VehicleBehavior selectedVehicle;
+    public Landing selectedLocation;
+    public LayerMask vehicleMask;
+    public LayerMask LandingLocationMask;
+
     /// <summary>
     /// North = Positive Z, heading -90, x=9
     /// West = Positive X, heading 0, z=9
     /// East = Negative X, heading 180, z=0
     /// South = Negative Z, heading 90, x=0
     /// </summary>
-    [Header("SceneSettings")]
+    [Header("Randomizer Settings")]
+    public int ceiling = 6;
+    public int floor = 3;
+
     [Tooltip("What is the x coordinate of the north edge.")]
     public int northX = 9;
     [Tooltip("What is the x coordinate of the south edge.")]
@@ -60,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> warningMarkers = new List<GameObject>();
 
+    [Header("Task Collections")]
     [SerializeField]
     private List<Task> inboundPassengerTasks = new List<Task>();
     [SerializeField]
@@ -73,22 +88,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Task largeHaulerTask;
 
-    [Header("Time Settings")]
-    public int CurrentTime = 0;
-    public float secondsPerStep = 1f;
 
-    [Header("Control Settings")]
-    public bool isShipSelected = false;
-    public VehicleBehavior selectedVehicle;
-	public Landing selectedLocation;
-	public LayerMask vehicleMask;
-	public LayerMask LandingLocationMask;
 
 	//public List<Task> currentTasks = new List<Task>();
 	//These are any arrivals that will be appearing in the next time step
 	//public List<TaskSpec> pendingArrivals = new List<TaskSpec>();
 	//These are the departurs that haven't been handed to a vehicle yet.
-	public List<Task> pendingDepartures = new List<Task>();
+	private List<Task> pendingDepartures = new List<Task>();
 
     [HideInInspector]
     public ChallengeListSetting challengeListSetting = ChallengeListSetting.Loop;
@@ -354,7 +360,7 @@ public class GameManager : MonoBehaviour
                 newVehicle.currentFuel = placement.task.fuel;
                 newVehicle.currentTask = placement.task;
                 newVehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Forward });
-                VerboseDebug("Launching {0} at {1} with heading {2}", newVehicle.name, newVehicle.transform.position, newVehicle.transform.eulerAngles.y);
+                VerboseDebug("Launching {0} at {1} with landingHeading {2}", newVehicle.name, newVehicle.transform.position, newVehicle.transform.eulerAngles.y);
             }
         }
 
@@ -456,30 +462,30 @@ public class GameManager : MonoBehaviour
             switch (edge) {
                 //North
                 case 0:
-                    spawnPosition = new Vector3(northX, Random.Range(3,8), Random.Range(Mathf.Min(westZ,eastZ) + 1, Mathf.Max(westZ,eastZ)));
+                    spawnPosition = new Vector3(northX, Random.Range(floor,ceiling), Random.Range(Mathf.Min(westZ,eastZ) + 1, Mathf.Max(westZ,eastZ)));
                     heading = northHeading;
                     break;
                 //South
                 case 1:
-                    spawnPosition = new Vector3(southX, Random.Range(3, 8), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
+                    spawnPosition = new Vector3(southX, Random.Range(floor, ceiling), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
                     heading = southHeading;
                     break;
                 //East
                 case 2:
-                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(3, 8), eastZ);
+                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(floor, ceiling), eastZ);
                     CreateWarning(spawnPosition);
                     heading = eastHeading;
                     break;
                 //West
                 case 3:
-                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(3, 8), westZ);
+                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(floor, ceiling), westZ);
                     CreateWarning(spawnPosition);
                     heading = westHeading;
                     break;
             }
             CreateWarning(spawnPosition);
             VehiclesToSpawn.Add(new PositionedTask(task, spawnPosition, heading));
-            VerboseDebug("Spawning {0} at {1} with heading {2}", task.cargoType, spawnPosition, heading);
+            VerboseDebug("Spawning {0} at {1} with landingHeading {2}", task.cargoType, spawnPosition, heading);
         }
         for (int i = 0; i < tasks.inboundCargo; i++) {
             if (inboundCargoTasks.Count == 0) break;
@@ -490,28 +496,28 @@ public class GameManager : MonoBehaviour
             switch (edge) {
                 //North
                 case 0:
-                    spawnPosition = new Vector3(northX, Random.Range(3, 8), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
+                    spawnPosition = new Vector3(northX, Random.Range(floor, ceiling), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
                     heading = northHeading;
                     break;
                 //South
                 case 1:
-                    spawnPosition = new Vector3(southX, Random.Range(3, 8), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
+                    spawnPosition = new Vector3(southX, Random.Range(floor, ceiling), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
                     heading = southHeading;
                     break;
                 //East
                 case 2:
-                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(3, 8), eastZ);
+                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(floor, ceiling), eastZ);
                     heading = eastHeading;
                     break;
                 //West
                 case 3:
-                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(3, 8), westZ);
+                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(floor, ceiling), westZ);
                     heading = westHeading;
                     break;
             }
             CreateWarning(spawnPosition);
             VehiclesToSpawn.Add(new PositionedTask(task, spawnPosition, heading));
-            VerboseDebug("Spawning {0} at {1} with heading {2}", task.cargoType, spawnPosition, heading);
+            VerboseDebug("Spawning {0} at {1} with landingHeading {2}", task.cargoType, spawnPosition, heading);
         }
         for (int i = 0; i < tasks.outboundPassenger; i++) {
             //create a random departure passenger task
@@ -541,29 +547,29 @@ public class GameManager : MonoBehaviour
             switch (edge) {
                 //North
                 case 0:
-                    spawnPosition = new Vector3(northX, Random.Range(3, 8), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
+                    spawnPosition = new Vector3(northX, Random.Range(floor, ceiling), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
                     heading = northHeading;
                     break;
                 //South
                 case 1:
-                    spawnPosition = new Vector3(southX, Random.Range(3, 8), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
+                    spawnPosition = new Vector3(southX, Random.Range(floor, ceiling), Random.Range(Mathf.Min(westZ, eastZ) + 1, Mathf.Max(westZ, eastZ)));
                     heading = southHeading;
                     break;
                 //East
                 case 2:
-                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(3, 8), eastZ);
+                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(floor, ceiling), eastZ);
                     heading = eastHeading;
                     break;
                 //West
                 case 3:
-                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(3, 8), westZ);
+                    spawnPosition = new Vector3(Random.Range(Mathf.Min(northX, southX) + 1, Mathf.Max(northX, southX)), Random.Range(floor, ceiling), westZ);
                     heading = westHeading;
                     break;
             }
             //create a random flyby task
             CreateWarning(spawnPosition);
             VehiclesToSpawn.Add(new PositionedTask(task, spawnPosition, heading));
-            VerboseDebug("Spawning {0} at {1} with heading {2}", task.cargoType, spawnPosition, heading);
+            VerboseDebug("Spawning {0} at {1} with landingHeading {2}", task.cargoType, spawnPosition, heading);
         }
         for (int i = 0; i < tasks.rockets; i++) {
             if (rocketPrefab == null) {
@@ -594,20 +600,20 @@ public class GameManager : MonoBehaviour
             int heading = 0;
             switch (edge) {
                 case 0:
-                    spawnPosition1 = new Vector3(northX, Random.Range(3, 5), Random.Range(Mathf.Min(westZ, eastZ) + 3, Mathf.Max(westZ, eastZ)-2));
+                    spawnPosition1 = new Vector3(northX, Random.Range(floor+1, Mathf.Max(floor+1, ceiling-1)), Random.Range(Mathf.Min(westZ, eastZ) + 3, Mathf.Max(westZ, eastZ)-2));
                     spawnPosition2 = spawnPosition1 + new Vector3(0, 0, 1);
                     offset = new Vector3(-.5f, 0, 0);
                     heading = northHeading;
                     break;
                 case 1:
-                    spawnPosition1 = new Vector3(southX, Random.Range(3, 5), Random.Range(Mathf.Min(westZ, eastZ) + 3, Mathf.Max(westZ, eastZ) - 2));
+                    spawnPosition1 = new Vector3(southX, Random.Range(floor + 1, Mathf.Max(floor + 1, ceiling - 1)), Random.Range(Mathf.Min(westZ, eastZ) + 3, Mathf.Max(westZ, eastZ) - 2));
                     spawnPosition2 = spawnPosition1 + new Vector3(0, 0, 1);
                     offset = new Vector3(.5f, 0, 0);
                     heading = southHeading;
                     break;
                 case 2:
                     spawnPosition1 = new Vector3(Random.Range(Mathf.Min(northX, southX) + 3, Mathf.Max(northX, southX) - 2), 
-                                                 Random.Range(3, 5), 
+                                                 Random.Range(floor + 1, Mathf.Max(floor + 1, ceiling - 1)), 
                                                  eastZ);
                     spawnPosition2 = spawnPosition1 + new Vector3(1, 0, 0);
                     offset = new Vector3(0, 0, .5f);
@@ -615,7 +621,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case 3:
                     spawnPosition1 = new Vector3(Random.Range(Mathf.Min(northX, southX) + 3, Mathf.Max(northX, southX) - 2),
-                                                 Random.Range(3, 5),
+                                                 Random.Range(floor + 1, Mathf.Max(floor + 1, ceiling - 1)),
                                                  westZ);
                     spawnPosition2 = spawnPosition1 + new Vector3(1, 0, 0);
                     offset = new Vector3(0, 0, -.5f);
@@ -626,7 +632,7 @@ public class GameManager : MonoBehaviour
             CreateWarning(spawnPosition1);
             CreateWarning(spawnPosition2);
             VehiclesToSpawn.Add(new PositionedTask(largeHaulerTask, (spawnPosition1 + spawnPosition2) / 2 + offset, heading));
-            VerboseDebug("Spawning {0} at {1} with heading {2}", largeHaulerTask.cargoType, (spawnPosition1 + spawnPosition2) / 2 + offset, heading);
+            VerboseDebug("Spawning {0} at {1} with landingHeading {2}", largeHaulerTask.cargoType, (spawnPosition1 + spawnPosition2) / 2 + offset, heading);
         }
 
 
@@ -683,6 +689,10 @@ public class GameManager : MonoBehaviour
 
 
     public void ScoreTask(Task task, float modifier=1.0f) {
+        if (task == null) {
+            Debug.LogWarning("Trying to score a null task.");
+            return;
+        }
         score += (int)(task.value * modifier);
         //currentTasks.Remove(task);
     }

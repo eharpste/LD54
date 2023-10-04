@@ -28,7 +28,13 @@ public class HangarBehaivor : Landing {
     }
 
     public override void LaunchVehicle(VehicleBehavior vehicle, Task task = null) {
-        throw new System.NotImplementedException();
+        Debug.Log("Launch Vehicle in Hanager");
+        foreach (Runway runway in Runways) {
+            if (runway.AvailableToLaunch) {
+                runway.LaunchVehicle(vehicle, task);
+                return;
+            }
+        }
     }
 
     public override List<Task> GetTaskList() {
@@ -36,9 +42,14 @@ public class HangarBehaivor : Landing {
     }
 
 	public override void LaunchNextAvailableVehicle(Task task = null) {
+        if(vehicles.Count == 0) {
+            return;
+        }
         foreach(Runway runway in Runways) {
             if (runway.AvailableToLaunch) {
-                runway.LaunchNextAvailableVehicle(task);
+                VehicleBehavior vehicle = vehicles[0];
+                vehicles.RemoveAt(0);
+                runway.LaunchVehicle(vehicle, task);
                 return;
             }
         }
