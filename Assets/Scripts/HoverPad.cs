@@ -18,14 +18,15 @@ public class HoverPad : Landing {
 
     protected override void Start() {
         base.Start();
-        vehicles.Capacity = 1;
-        vehicles.TrimExcess();
 
-        if (vehicles[0] != null) {
-            vehicles[0].transform.position = this.transform.TransformPoint(landingPosition);
-            vehicles[0].transform.rotation = Quaternion.Euler(0, landingHeading, 0);
-            vehicles[0].flightState = VehicleBehavior.FlightState.Grounded;
-            lastLandingTime = -unloadingTime;
+        if(vehicles.Count > 0) {
+            vehicles = new List<VehicleBehavior>() { vehicles[0] };
+            if (vehicles[0] != null) {
+                vehicles[0].transform.position = this.transform.TransformPoint(landingPosition);
+                vehicles[0].transform.rotation = Quaternion.Euler(0, landingHeading, 0);
+                vehicles[0].flightState = VehicleBehavior.FlightState.Grounded;
+                lastLandingTime = -unloadingTime;
+            }
         }
     }
 

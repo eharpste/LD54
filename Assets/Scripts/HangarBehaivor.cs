@@ -20,7 +20,7 @@ public class HangarBehaivor : Landing {
     public void AddVehicle(VehicleBehavior vehicle) {
         this.vehicles.Add(vehicle);
         vehicle.flightState = VehicleBehavior.FlightState.Grounded;
-        vehicle.transform.position = transform.position;
+        vehicle.transform.position = Runways[0].LaunchPath[0];
     }
 
     public override void LandVehicle(VehicleBehavior vehicle) {

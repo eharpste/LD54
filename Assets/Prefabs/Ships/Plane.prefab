@@ -4868,7 +4868,7 @@ GameObject:
   - component: {fileID: 7234377069194771076}
   m_Layer: 3
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4904,8 +4904,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: ea590db1cf5521a4eb55e4ae3f260dc4, type: 2}
   PrevCommandList: 
-  CurrentCommandList: 
-  commandExecutionState: 3
+  CommandQueue: 
+  commandEdditingState: 1
+  LoopCommandList: 0
   defaultCommand: 1
   commandLimit: 4
   currentFuel: 20
@@ -4924,8 +4925,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.15, z: 1}
-  m_Center: {x: 0, y: 0.06, z: 0}
+  m_Size: {x: 0.76, y: 0.15, z: 0.67}
+  m_Center: {x: 0, y: 0.06, z: 0.09}
 --- !u!54 &7234377069194771076
 Rigidbody:
   m_ObjectHideFlags: 0

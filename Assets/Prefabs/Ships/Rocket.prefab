@@ -9913,7 +9913,7 @@ GameObject:
   - component: {fileID: 3839491431715421328}
   m_Layer: 3
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9949,8 +9949,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: 1eac87e1cf60f174491ca71851c075de, type: 2}
   PrevCommandList: 
-  CurrentCommandList: 
-  commandExecutionState: 0
+  CommandQueue: 
+  commandEdditingState: 1
+  LoopCommandList: 0
   defaultCommand: 0
   commandLimit: 1
   currentFuel: 20

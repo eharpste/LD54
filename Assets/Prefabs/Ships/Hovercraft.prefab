@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3650059069491354283}
   m_Layer: 3
   m_Name: Hovercraft
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,8 +90,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTask: {fileID: 11400000, guid: fe521c1440d748e4d97df7535a992366, type: 2}
   PrevCommandList: 
-  CurrentCommandList: 
-  commandExecutionState: 3
+  CommandQueue: 
+  commandEdditingState: 1
+  LoopCommandList: 0
   defaultCommand: 0
   commandLimit: 4
   currentFuel: 20

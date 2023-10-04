@@ -233,12 +233,13 @@ public abstract class VehicleBehavior : MonoBehaviour {
                     Crash();
                 }
                 break;
-            case "Vehicles":
+            case "Vehicle":
                 Crash();
                 collision.gameObject.GetComponent<VehicleBehavior>().Crash();
                 break;
             default:
-                Debug.LogWarningFormat("Hit something with Tag {0}", collision.gameObject.tag);
+                Debug.LogWarningFormat("Hit something with Tag {0}, we should probalby crash?", collision.gameObject.tag);
+                Crash();
                 break;
         }
     }
@@ -287,14 +288,19 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void Depart(Task.Destination departureDirection) {
         //TODO probably play some kind of sound or something
         Debug.LogFormat("Departed {0}, in {1}", this.gameObject.name, departureDirection.ToString());
-        switch (currentTask.taskType) {
-            case Task.TaskType.Departure:
-            case Task.TaskType.Flyby:
-                GameManager.Instance.ScoreTask(currentTask, currentTask.departureModifier(departureDirection));
-                break;
-            default:
-                GameManager.Instance.ScoreTask(currentTask, 0);
-                break;
+        if (currentTask != null) {
+            switch (currentTask.taskType) {
+                case Task.TaskType.Departure:
+                case Task.TaskType.Flyby:
+                    GameManager.Instance.ScoreTask(currentTask, currentTask.departureModifier(departureDirection));
+                    break;
+                default:
+                    GameManager.Instance.ScoreTask(currentTask, 0);
+                    break;
+            }
+        }
+        else {
+            GameManager.Instance.ScoreTask(currentTask, 0);
         }
         Destroy(this.gameObject);
     }

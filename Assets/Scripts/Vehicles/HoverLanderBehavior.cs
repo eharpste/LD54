@@ -58,7 +58,12 @@ public class HoverLanderBehavior : VehicleBehavior {
 
     protected override void OnTriggerEnter(Collider other) {
         base.OnTriggerEnter(other);
-        if(other.gameObject.CompareTag("LandingPad") && currentTask.destination == Task.Destination.Local) {
+        //Debug.LogFormat("HoverLander OnTriggerEnter: other={0} otherGameObject={1} currentTask={2}", other, other.gameObject, currentTask);
+        if (flightState != FlightState.Flying) {
+            return;
+        }
+
+        if (other.gameObject.CompareTag("LandingPad") && currentTask.destination == Task.Destination.Local) {
             //TODO eventually we'll want to do something with the pad itself
             HoverPad pad = other.gameObject.GetComponent<HoverPad>();
             Land(pad);

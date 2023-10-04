@@ -6,6 +6,7 @@ using static VehicleBehavior;
 public class PlaneBehavior : VehicleBehavior {
 
     override protected IEnumerator SimulateCommandCoroutine(float stepTime, Command command) {
+        if (flightState == FlightState.Grounded) yield break;
         Ready = false;
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
@@ -67,7 +68,7 @@ public class PlaneBehavior : VehicleBehavior {
     protected override void OnTriggerEnter(Collider other) {
         base.OnTriggerEnter(other);
 
-        if (flightState == FlightState.Grounded) return; //leave here, or we'll crash on takeoff
+        if (flightState != FlightState.Flying) return; //leave here, or we'll crash on takeoff
 
         if (other.gameObject.CompareTag("Runway") && currentTask.destination == Task.Destination.Local) {
             Runway runway = other.gameObject.GetComponent<Runway>();
