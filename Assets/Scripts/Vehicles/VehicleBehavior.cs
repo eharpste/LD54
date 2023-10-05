@@ -42,7 +42,18 @@ public abstract class VehicleBehavior : MonoBehaviour {
         Executing,
     }
 
-    public Task currentTask;
+    public string ShipName = string.Empty;
+    
+    [SerializeField]
+    private Task currentTask;
+    public Task CurrentTask {
+        get {
+            return currentTask;
+        }
+        set {
+            currentTask = value;
+        }
+    }
     //TODO we don't actually want this to be a queue, we want it to be a list that we can loop through
     
     public List<Command> PrevCommandList = new List<Command>();
@@ -269,9 +280,9 @@ public abstract class VehicleBehavior : MonoBehaviour {
         rb.isKinematic = true;
         flightState = FlightState.Grounded;
         CommandQueue.Clear();
-        if (currentTask.taskType == Task.TaskType.Arrival) {
-            GameManager.Instance.ScoreTask(currentTask);
-            currentTask = null;
+        if (CurrentTask.taskType == Task.TaskType.Arrival) {
+            GameManager.Instance.ScoreTask(CurrentTask);
+            CurrentTask = null;
         }
         if (landing != null) {
             landing.LandVehicle(this);
@@ -288,19 +299,19 @@ public abstract class VehicleBehavior : MonoBehaviour {
     public void Depart(Task.Destination departureDirection) {
         //TODO probably play some kind of sound or something
         Debug.LogFormat("Departed {0}, in {1}", this.gameObject.name, departureDirection.ToString());
-        if (currentTask != null) {
-            switch (currentTask.taskType) {
+        if (CurrentTask != null) {
+            switch (CurrentTask.taskType) {
                 case Task.TaskType.Departure:
                 case Task.TaskType.Flyby:
-                    GameManager.Instance.ScoreTask(currentTask, currentTask.departureModifier(departureDirection));
+                    GameManager.Instance.ScoreTask(CurrentTask, CurrentTask.departureModifier(departureDirection));
                     break;
                 default:
-                    GameManager.Instance.ScoreTask(currentTask, 0);
+                    GameManager.Instance.ScoreTask(CurrentTask, 0);
                     break;
             }
         }
         else {
-            GameManager.Instance.ScoreTask(currentTask, 0);
+            GameManager.Instance.ScoreTask(CurrentTask, 0);
         }
         Destroy(this.gameObject);
     }

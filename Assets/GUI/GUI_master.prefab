@@ -210,6 +210,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6046154948723213840}
     - target: {fileID: 511539049, guid: 45d5eedf502d18f4fbdf6ddd79faca6f, type: 3}
+      propertyPath: command
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 511539049, guid: 45d5eedf502d18f4fbdf6ddd79faca6f, type: 3}
       propertyPath: guiManager
       value: 
       objectReference: {fileID: 6046154948723213840}
@@ -1396,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6627493915725576472, guid: 3a3568e883f87884da9468d33ce1279d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 36.320007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6627493915725576472, guid: 3a3568e883f87884da9468d33ce1279d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1492,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6998207904822430485, guid: 3a3568e883f87884da9468d33ce1279d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 36.320007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6998207904822430485, guid: 3a3568e883f87884da9468d33ce1279d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2140,14 +2144,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6046154948723213840}
-    - target: {fileID: 8649840704507084853, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SendResetCommandToGameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649840704507084853, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GuiManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 8876388392908285407, guid: 24a24904e4f51634cab66fa881305f69, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

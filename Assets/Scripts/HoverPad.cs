@@ -65,7 +65,7 @@ public class HoverPad : Landing {
 
     public override void LaunchVehicle(VehicleBehavior vehicle, Task task = null) {
         vehicles.Remove(vehicle);
-        vehicle.currentTask = task;
+        vehicle.CurrentTask = task;
         vehicle.currentFuel = vehicle.maxFuel;
         StartCoroutine(LiftOffLander(vehicle));
     }

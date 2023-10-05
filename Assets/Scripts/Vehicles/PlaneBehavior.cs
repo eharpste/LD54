@@ -70,7 +70,7 @@ public class PlaneBehavior : VehicleBehavior {
 
         if (flightState != FlightState.Flying) return; //leave here, or we'll crash on takeoff
 
-        if (other.gameObject.CompareTag("Runway") && currentTask.destination == Task.Destination.Local) {
+        if (other.gameObject.CompareTag("Runway") && CurrentTask.destination == Task.Destination.Local) {
             Runway runway = other.gameObject.GetComponent<Runway>();
             if (runway.landingHeading == (int)transform.rotation.eulerAngles.y) {
                 Debug.Log("Landed on Runway");

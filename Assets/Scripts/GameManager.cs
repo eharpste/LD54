@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
@@ -202,7 +203,7 @@ public class GameManager : MonoBehaviour
 
     public void AddVehicle(VehicleBehavior vehicle) {
         Vehicles.Add(vehicle);
-        if(vehicle.currentTask != null) {
+        if(vehicle.CurrentTask != null) {
             //currentTasks.Add(vehicle.currentTask);
         }
     }
@@ -327,6 +328,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        StartCoroutine(SimulateStepCoroutine());
+    }
+
+    public IEnumerator SimulateStepCoroutine() {
         //Advance time
         CurrentTime++;
 
@@ -339,6 +344,26 @@ public class GameManager : MonoBehaviour
         foreach (Landing landing in Landings) {
             landing.SimulateStep(secondsPerStep);
         }
+
+
+        bool ready = false;
+        while (!ready) {
+            ready = true;
+            foreach (VehicleBehavior vehicle in Vehicles) {
+                if (!vehicle.Ready) {
+                    ready = false;
+                }
+            }
+            foreach (Landing landing in Landings) {
+                if (!landing.Ready) {
+                    ready = false;
+                }
+            }
+            yield return null;
+        }
+
+        Events.UpdateVehicleEvent();
+
 
         //Clear the Warning Signs
         foreach (GameObject sign in warningMarkers) {
@@ -358,8 +383,10 @@ public class GameManager : MonoBehaviour
                 VehicleBehavior newVehicle;
                 newVehicle = instantiatedPrefab.GetComponent<VehicleBehavior>();
                 newVehicle.currentFuel = placement.task.fuel;
-                newVehicle.currentTask = placement.task;
+                newVehicle.CurrentTask = placement.task;
+                newVehicle.ShipName = placement.task.shipName;
                 newVehicle.SetCommands(new List<VehicleBehavior.Command>() { VehicleBehavior.Command.Forward });
+                Events.UpdateVehicleEvent();
                 VerboseDebug("Launching {0} at {1} with landingHeading {2}", newVehicle.name, newVehicle.transform.position, newVehicle.transform.eulerAngles.y);
             }
         }
@@ -380,55 +407,6 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-
-
-
-
-
-        //List<TaskSpec> toCreate = new List<TaskSpec>();
-        //List<TaskSpec> toRemove = new List<TaskSpec>();
-
-        ////whipe the current warning signs
-
-
-        //foreach (TaskSpec spec in taskSpecs) {
-        //    if (spec.appearanceTime == CurrentTime + 1) {
-        //        if (spec.task.taskType == Task.TaskType.Arrival || spec.task.taskType == Task.TaskType.Flyby) {
-        //            CreateWarning(spec.entranceLocation);
-        //        }
-        //    }
-        //    else if (spec.appearanceTime == CurrentTime) {
-        //        toRemove.Add(spec);
-        //        toCreate.Add(spec);
-        //    }
-        //}
-        //foreach (TaskSpec spec in toRemove) {
-        //    taskSpecs.Remove(spec);
-        //}
-        //SpawnTasks(toCreate);
-
-        ////check for expired tasks
-
-        ////check for automatic tasks
-        //List<Task> dispatched = new List<Task>();
-        //foreach (Task task in pendingDepartures) {
-        //    if (task.cargoType == Task.CargoType.Rocket) {
-        //        foreach (RocketLauncher launcher in RocketLaunchers) {
-        //            if (launcher.Ready) {
-        //                GameObject newRocket = Instantiate(rocketPrefab, launcher.transform.position + Vector3.down * 100, Quaternion.identity);
-        //                CreateWarning(launcher.transform.position + Vector3.up);
-        //                VehicleBehavior vehicleBehavior = newRocket.GetComponent<VehicleBehavior>();
-        //                launcher.LaunchVehicle(vehicleBehavior);
-        //                dispatched.Add(task);
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //foreach (Task task in dispatched) {
-        //    pendingDepartures.Remove(task);
-        //}
     }
 
     public List<Task> GetPendingDepatures(Task.CargoType cargoType) {
@@ -447,7 +425,7 @@ public class GameManager : MonoBehaviour
             Debug.LogFormat(template, args);
         }
 
-        Events.UpdateVehicleEvent();
+        //Events.UpdateVehicleEvent();
     }
 
     public void SpawnTasks(TaskFrame tasks) { 

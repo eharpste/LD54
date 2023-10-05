@@ -24,8 +24,13 @@ public abstract class Landing : MonoBehaviour {
 
     public abstract List<Task> GetTaskList();
 
-	public virtual void LaunchNextAvailableVehicle(Task task = null)
-	{
+	public virtual void LaunchNextAvailableVehicle(Task task = null) {
+        if(vehicles.Count == 0) {
+            Debug.LogWarningFormat("{0} trying to launch with no vehicles", gameObject.name);
+            return;
+        }
+
+
 		LaunchVehicle(vehicles[0], task);
 	}
 }

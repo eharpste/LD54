@@ -63,7 +63,7 @@ public class HoverLanderBehavior : VehicleBehavior {
             return;
         }
 
-        if (other.gameObject.CompareTag("LandingPad") && currentTask.destination == Task.Destination.Local) {
+        if (other.gameObject.CompareTag("LandingPad") && CurrentTask.destination == Task.Destination.Local) {
             //TODO eventually we'll want to do something with the pad itself
             HoverPad pad = other.gameObject.GetComponent<HoverPad>();
             Land(pad);

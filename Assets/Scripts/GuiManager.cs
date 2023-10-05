@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,7 @@ public class GuiManager : MonoBehaviour
 	public Menu InspectorGui;
 	public Text InspectorTaskFuel;
 	public Text InspectorTaskValue;
+	public Text InspectorTaskDirection;
 	public Text InspectorTaskDescription;
 
 	[Header("Locations")]
@@ -85,6 +87,18 @@ public class GuiManager : MonoBehaviour
 	}
 
 
+	private string DirectionFromDestination(Task.Destination destination) {
+		return destination switch {
+			Task.Destination.North => "NR",
+			Task.Destination.South => "ST",
+			Task.Destination.East => "ET",
+			Task.Destination.West => "WT",
+			Task.Destination.Local => "LC",
+			Task.Destination.Up => "UP"
+		};
+	}
+
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -94,12 +108,13 @@ public class GuiManager : MonoBehaviour
 		if (GameManager.Instance.selectedVehicle != null)
 		{
 			InspectorGui.EnableThis();
-			if (GameManager.Instance.selectedVehicle.currentTask!=null)
+            VehicleName.text = GameManager.Instance.selectedVehicle.ShipName;
+            InspectorTaskFuel.text = GameManager.Instance.selectedVehicle.currentFuel.ToString();
+            if (GameManager.Instance.selectedVehicle.CurrentTask!=null)
 			{
-				VehicleName.text = GameManager.Instance.selectedVehicle.currentTask.shipName;
-				InspectorTaskFuel.text = GameManager.Instance.selectedVehicle.currentFuel.ToString();
-				InspectorTaskValue.text = GameManager.Instance.selectedVehicle.currentTask.value.ToString();
-				InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.currentTask.pilotBlurb;
+				InspectorTaskValue.text = GameManager.Instance.selectedVehicle.CurrentTask.value.ToString();
+				InspectorTaskDirection.text = GameManager.Instance.selectedVehicle.CurrentTask.destination.ToString();
+				InspectorTaskDescription.text = GameManager.Instance.selectedVehicle.CurrentTask.pilotBlurb;
 			}
 			lineRenderer.enabled = true;
 			updateSelectionLine(GameManager.Instance.selectedVehicle.gameObject);
@@ -237,6 +252,18 @@ public class GuiManager : MonoBehaviour
 	[ContextMenu("Update Command List")]
 	public void UpdateCommandList() {
 		if(GameManager.Instance.selectedVehicle != null) {
+
+			VehicleBehavior vehicle = GameManager.Instance.selectedVehicle;
+
+			switch (vehicle.commandEdditingState) {
+				case VehicleBehavior.CommandEditingState.Editable:
+					break;
+				case VehicleBehavior.CommandEditingState.Executing:
+					break;
+				case VehicleBehavior.CommandEditingState.Unavailable:
+					break;
+			}
+
 
 			int commandCount = GameManager.Instance.selectedVehicle.CommandQueue.Count;
 

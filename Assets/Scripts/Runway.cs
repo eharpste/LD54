@@ -83,7 +83,7 @@ public class Runway : Landing
         //    return;
         //}
         //TODO animate the vehicle along the launch points
-        vehicle.currentTask = task;
+        vehicle.CurrentTask = task;
         vehicle.transform.position = LaunchPath[0];
         //vehsicles.Remove(vehicle);
         StartCoroutine(TaxiOut(vehicle));
